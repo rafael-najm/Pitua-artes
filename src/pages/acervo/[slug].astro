@@ -425,6 +425,10 @@ const largura = (f: ImageMetadata) => (f.width > f.height * 1.15 ? 'wide' : 'tal
     .crumbs {
       padding-block: 1rem;
     }
+    .crumbs [aria-current],
+    .crumbs span:nth-last-child(2) {
+      display: none;
+    }
     .pdp {
       grid-template-columns: 1fr;
       gap: 2rem;
