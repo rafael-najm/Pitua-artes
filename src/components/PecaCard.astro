@@ -1,0 +1,118 @@
+---
+import { Image } from 'astro:assets';
+import type { Peca } from '../data/pecas';
+import { categorias } from '../data/pecas';
+import { fotosDa } from '../lib/fotos';
+import { u } from '../lib/url';
+
+interface Props {
+  peca: Peca;
+  sizes?: string;
+  eager?: boolean;
+}
+const { peca, sizes = '(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 25vw', eager = false } = Astro.props;
+const fotos = fotosDa(peca.slug);
+const [capa, segunda] = fotos;
+const widths = [360, 480, 720, 960];
+---
+
+<a class="card" href={u(`/acervo/${peca.slug}/`)} data-categoria={peca.categoria}>
+  <div class="card-media frame">
+    <Image
+      src={capa}
+      alt={peca.nome}
+      widths={widths}
+      sizes={sizes}
+      loading={eager ? 'eager' : 'lazy'}
+      class="card-img"
+    />
+    {
+      segunda && (
+        <Image src={segunda} alt="" widths={widths} sizes={sizes} loading="lazy" class="card-img card-img--alt" />
+      )
+    }
+    {peca.encomenda && <span class="card-flag">Sob encomenda</span>}
+  </div>
+  <div class="card-meta">
+    <p class="card-cat">{categorias[peca.categoria]}</p>
+    <h3 class="card-name">{peca.nome}</h3>
+    <p class="card-sum">{peca.resumo}</p>
+  </div>
+</a>
+
+<style>
+  .card {
+    display: grid;
+    gap: 1.1rem;
+    align-content: start;
+  }
+  .card-media {
+    aspect-ratio: 4 / 5;
+  }
+  .card-media :global(.card-img) {
+    position: absolute;
+    inset: 0;
+    transition:
+      opacity 0.8s var(--ease),
+      transform 1.4s var(--ease);
+  }
+  .card-media :global(.card-img--alt) {
+    opacity: 0;
+  }
+  @media (hover: hover) {
+    .card:hover :global(.card-img) {
+      transform: scale(1.03);
+    }
+    .card:hover :global(.card-img--alt) {
+      opacity: 1;
+    }
+  }
+  .card-flag {
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+    background: var(--porcelain);
+    padding: 0.35rem 0.6rem;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .card-meta {
+    display: grid;
+    gap: 0.3rem;
+  }
+  .card-cat {
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .card-name {
+    font-size: 1.3rem;
+    font-weight: 350;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .card-sum {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  @media (max-width: 700px) {
+    .card {
+      gap: 0.8rem;
+    }
+    .card-name {
+      font-size: 1.1rem;
+    }
+    .card-sum {
+      display: none;
+    }
+  }
+</style>

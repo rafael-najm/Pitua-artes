@@ -1,0 +1,462 @@
+@import '@fontsource-variable/newsreader/opsz.css';
+@import '@fontsource-variable/newsreader/opsz-italic.css';
+@import '@fontsource-variable/jost/wght.css';
+
+/* ————————————————————————————————————————————————
+   Tokens
+   ———————————————————————————————————————————————— */
+:root {
+  --paper: #f7f5f1;
+  --paper-2: #efebe4;
+  --porcelain: #fcfbf9;
+  --ink: #1b1916;
+  --ink-2: #3a3631;
+  --muted: #736c62;
+  --line: rgb(27 25 22 / 0.12);
+  --line-strong: rgb(27 25 22 / 0.28);
+  --night: #171513;
+  --night-2: #24211d;
+  --on-night: #f2eee7;
+  --on-night-muted: #a9a196;
+  --gold: #a8854a;
+  --open: #4f8a5b;
+
+  --serif: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
+  --sans: 'Jost Variable', 'Jost', 'Helvetica Neue', Arial, sans-serif;
+
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  --max: 1440px;
+  --header-h: 72px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius-pebble: 58% 42% 47% 53% / 46% 54% 46% 54%;
+  --radius-pebble-2: 44% 56% 61% 39% / 55% 41% 59% 45%;
+  --radius-pebble-3: 63% 37% 41% 59% / 38% 58% 42% 62%;
+}
+
+/* ————————————————————————————————————————————————
+   Base
+   ———————————————————————————————————————————————— */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 350;
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--serif);
+  font-weight: 350;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+}
+.skip:focus {
+  top: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ————————————————————————————————————————————————
+   Layout helpers
+   ———————————————————————————————————————————————— */
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: clamp(5rem, 11vw, 10rem);
+}
+
+/* ————————————————————————————————————————————————
+   Typography
+   ———————————————————————————————————————————————— */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.display {
+  font-size: clamp(2.75rem, 6.2vw, 6.25rem);
+  font-weight: 280;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.h2 {
+  font-size: clamp(2.2rem, 4.2vw, 4rem);
+  font-weight: 300;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+
+.h3 {
+  font-size: clamp(1.6rem, 2.4vw, 2.25rem);
+  font-weight: 330;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  font-weight: 330;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+.body-lg {
+  font-size: 1.075rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+em,
+.it {
+  font-style: italic;
+}
+
+.serif {
+  font-family: var(--serif);
+}
+
+/* ————————————————————————————————————————————————
+   Buttons & links
+   ———————————————————————————————————————————————— */
+.btn {
+  --btn-bg: var(--ink);
+  --btn-fg: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 52px;
+  padding: 0.9rem 1.9rem;
+  border: 1px solid var(--btn-bg);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.35s var(--ease),
+    color 0.35s var(--ease),
+    border-color 0.35s var(--ease);
+}
+.btn:hover {
+  background: transparent;
+  color: var(--btn-bg);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--btn-bg);
+}
+.btn--ghost:hover {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+.btn--light {
+  --btn-bg: var(--on-night);
+  --btn-fg: var(--night);
+}
+.btn--block {
+  width: 100%;
+}
+.btn svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-bottom: 0.35rem;
+  background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
+  transition: background-size 0.5s var(--ease);
+}
+.link:hover {
+  background-size: 35% 1px;
+}
+.link .arrow {
+  transition: transform 0.5s var(--ease);
+}
+.link:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Status "encomendas abertas" */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.status::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--open);
+  box-shadow: 0 0 0 0 rgb(79 138 91 / 0.5);
+  animation: pulse 2.6s infinite;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(79 138 91 / 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgb(79 138 91 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(79 138 91 / 0);
+  }
+}
+
+/* ————————————————————————————————————————————————
+   Media
+   ———————————————————————————————————————————————— */
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-2);
+}
+.frame img,
+.frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pebble {
+  border-radius: var(--radius-pebble);
+}
+.pebble-2 {
+  border-radius: var(--radius-pebble-2);
+}
+.pebble-3 {
+  border-radius: var(--radius-pebble-3);
+}
+
+/* ————————————————————————————————————————————————
+   Reveal on scroll
+   ———————————————————————————————————————————————— */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 1.1s var(--ease),
+    transform 1.1s var(--ease);
+  transition-delay: var(--delay, 0s);
+}
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ————————————————————————————————————————————————
+   Forms
+   ———————————————————————————————————————————————— */
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+.field label,
+.field .label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  background: transparent;
+  padding: 0.7rem 0;
+  font-size: 1.05rem;
+  border-radius: 0;
+  transition: border-color 0.3s var(--ease);
+}
+.field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%231b1916' stroke-width='1.2'%3E%3Cpath d='M1 1.5 6 6.5l5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.25rem center;
+  padding-right: 1.75rem;
+}
+.field textarea {
+  resize: vertical;
+  min-height: 7.5rem;
+  line-height: 1.55;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--ink);
+}
+
+/* ————————————————————————————————————————————————
+   Accordion (details/summary)
+   ———————————————————————————————————————————————— */
+.acc {
+  border-top: 1px solid var(--line);
+}
+.acc:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.acc summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.acc summary::-webkit-details-marker {
+  display: none;
+}
+.acc summary::after {
+  content: '';
+  width: 11px;
+  height: 11px;
+  flex: none;
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat;
+  transition: transform 0.4s var(--ease);
+}
+.acc[open] summary::after {
+  transform: rotate(45deg);
+}
+.acc .acc-body {
+  padding-bottom: 1.5rem;
+  color: var(--ink-2);
+}
+.acc .acc-body p + p {
+  margin-top: 0.75rem;
+}

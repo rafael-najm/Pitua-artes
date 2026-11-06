@@ -1,0 +1,187 @@
+---
+import Base from '../../layouts/Base.astro';
+import PecaCard from '../../components/PecaCard.astro';
+import { pecas, categorias, type Categoria } from '../../data/pecas';
+import { u } from '../../lib/url';
+
+const contagem = Object.fromEntries(
+  (Object.keys(categorias) as Categoria[]).map((c) => [c, pecas.filter((p) => p.categoria === c).length]),
+) as Record<Categoria, number>;
+const filtros = (Object.keys(categorias) as Categoria[]).filter((c) => contagem[c] > 0);
+---
+
+<Base titulo="Acervo" descricao="Peças únicas em porcelana pintada à mão: mesa posta, decoração, Judaica, telas e projetos sob medida.">
+  <section class="acv-head wrap">
+    <p class="eyebrow" data-reveal>Acervo · {pecas.length} peças</p>
+    <h1 class="display" data-reveal style="--delay:.06s">Acervo</h1>
+    <p class="lede" data-reveal style="--delay:.12s">
+      Peças únicas, pintadas à mão. Cada uma pode inspirar uma encomenda feita só para você.
+    </p>
+  </section>
+
+  <div class="filtros-bar">
+    <div class="wrap">
+      <div class="filtros" role="group" aria-label="Filtrar por categoria" data-filtros>
+        <button type="button" aria-pressed="true" data-f="todas">Todas <span>{pecas.length}</span></button>
+        {
+          filtros.map((c) => (
+            <button type="button" aria-pressed="false" data-f={c}>
+              {categorias[c]} <span>{contagem[c]}</span>
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <section class="wrap acv-grid-wrap">
+    <h2 class="sr-only" data-titulo-filtro>Todas as peças</h2>
+    <div class="acv-grid" data-grid>
+      {pecas.map((p, i) => <PecaCard peca={p} eager={i < 4} />)}
+    </div>
+
+    <aside class="acv-cta">
+      <p class="eyebrow status">Encomendas abertas</p>
+      <p class="acv-cta-txt">Não encontrou exatamente o que imaginava?</p>
+      <a class="btn" href={u('/encomendas/')}>Encomendar uma peça</a>
+    </aside>
+  </section>
+</Base>
+
+<style>
+  .acv-head {
+    display: grid;
+    gap: 1.25rem;
+    padding-top: clamp(3.5rem, 8vw, 7rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .acv-head .lede {
+    max-width: 28em;
+  }
+  .filtros-bar {
+    position: sticky;
+    top: var(--header-h);
+    z-index: 20;
+    background: color-mix(in srgb, var(--paper) 94%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-block: 1px solid var(--line);
+  }
+  .filtros {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-block: 0.9rem;
+    scrollbar-width: none;
+  }
+  .filtros::-webkit-scrollbar {
+    display: none;
+  }
+  .filtros button {
+    flex: none;
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    border-radius: 999px;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      background 0.3s var(--ease),
+      color 0.3s var(--ease),
+      border-color 0.3s var(--ease);
+  }
+  .filtros button span {
+    color: var(--muted);
+    margin-left: 0.3rem;
+    letter-spacing: 0;
+  }
+  .filtros button:hover {
+    border-color: var(--ink);
+  }
+  .filtros button[aria-pressed='true'] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .filtros button[aria-pressed='true'] span {
+    color: color-mix(in srgb, var(--paper) 65%, transparent);
+  }
+  .acv-grid-wrap {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: clamp(5rem, 10vw, 8rem);
+  }
+  .acv-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(3rem, 5vw, 4.5rem) clamp(1rem, 2vw, 1.75rem);
+  }
+  .acv-grid > :global([hidden]) {
+    display: none;
+  }
+  .acv-cta {
+    margin-top: clamp(5rem, 9vw, 8rem);
+    padding-top: clamp(3rem, 6vw, 5rem);
+    border-top: 1px solid var(--line);
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .acv-cta-txt {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 16em;
+  }
+  @media (max-width: 1100px) {
+    .acv-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 700px) {
+    .acv-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2.25rem 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  const box = document.querySelector<HTMLElement>('[data-filtros]');
+  const cards = document.querySelectorAll<HTMLElement>('[data-grid] > [data-categoria]');
+  const titulo = document.querySelector<HTMLElement>('[data-titulo-filtro]');
+
+  function aplicar(f: string, atualizarUrl = true) {
+    if (!box) return;
+    const botoes = box.querySelectorAll<HTMLButtonElement>('button');
+    let valido = false;
+    botoes.forEach((b) => {
+      const on = b.dataset.f === f;
+      if (on) valido = true;
+      b.setAttribute('aria-pressed', String(on));
+    });
+    if (!valido) return aplicar('todas', atualizarUrl);
+    cards.forEach((c) => (c.hidden = f !== 'todas' && c.dataset.categoria !== f));
+    const ativo = box.querySelector<HTMLButtonElement>(`[data-f="${f}"]`);
+    if (titulo && ativo) titulo.textContent = ativo.firstChild?.textContent?.trim() ?? '';
+    if (atualizarUrl) {
+      const url = new URL(location.href);
+      if (f === 'todas') url.searchParams.delete('categoria');
+      else url.searchParams.set('categoria', f);
+      history.replaceState(null, '', url);
+    }
+  }
+
+  box?.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest('button');
+    if (b?.dataset.f) aplicar(b.dataset.f);
+  });
+
+  const inicial = new URL(location.href).searchParams.get('categoria');
+  if (inicial) aplicar(inicial, false);
+</script>

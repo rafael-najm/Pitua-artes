@@ -1,0 +1,432 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { pecas } from '../data/pecas';
+import { site, linkWhatsapp } from '../data/site';
+import { foto } from '../lib/fotos';
+
+const tipos = [
+  {
+    titulo: 'Mesa posta',
+    texto: 'Aparelhos de jantar, travessas, consomês, petisqueiras e manteigueiras — para o dia a dia ou para as datas que pedem mesa especial.',
+    img: foto('consome-tropical', 1),
+    alt: 'Consomê Tropical sobre a mesa',
+  },
+  {
+    titulo: 'Judaica',
+    texto: 'Pratos de Shabat, kos de kidush, castiçais. Com nomes, datas, palavras em hebraico e caligrafias de família.',
+    img: foto('prato-de-shabat', 2),
+    alt: 'Prato de Shabat com o kos de kidush ao lado',
+  },
+  {
+    titulo: 'Decoração',
+    texto: 'Vasos, potiches, cachepôs, banquetas e esculturas pensados para um ambiente específico — e para as cores dele.',
+    img: foto('banquetas-jardim-oriental', 1),
+    alt: 'Par de banquetas de porcelana com florada',
+  },
+  {
+    titulo: 'Projetos especiais',
+    texto: 'Cubas de lavabo, presentes de casamento, lembranças de família. Se é porcelana, dá para conversar.',
+    img: foto('cuba-baloes', 2),
+    alt: 'Cuba de lavabo pintada com balões',
+  },
+];
+
+const passos = [
+  { t: 'Conversa', d: 'Você conta a ideia, a ocasião e o lugar da peça. Fotos, desenhos e referências são bem-vindos.' },
+  { t: 'Desenho', d: 'A artista propõe a composição e as cores. A peça só começa depois que o desenho estiver do seu jeito.' },
+  { t: 'Pintura', d: 'Tudo é pintado à mão, camada por camada, com o tempo que cada detalhe pede.' },
+  { t: 'Entrega', d: 'A peça é embalada com cuidado e entregue no prazo combinado.' },
+];
+
+const faq = [
+  {
+    q: 'Quanto custa uma encomenda?',
+    a: 'Cada peça é única e orçada individualmente, de acordo com o tamanho, a complexidade do desenho e os acabamentos.',
+  },
+  {
+    q: 'Qual é o prazo?',
+    a: 'Depende do projeto e da agenda do ateliê. O prazo é informado junto com o orçamento, antes de qualquer compromisso.',
+  },
+  {
+    q: 'Posso encomendar uma peça igual a uma do acervo?',
+    a: 'Como tudo é pintado à mão, nenhuma peça sai idêntica a outra. Mas qualquer obra do acervo pode inspirar uma nova — com as suas cores, nomes ou detalhes.',
+  },
+  {
+    q: 'Posso mandar uma referência minha?',
+    a: 'Pode e deve. Um desenho de criança, uma carta, a estampa preferida, a cor da parede. O Prato de Shabat Paz · Salam · Shalom nasceu de uma folha escrita à mão.',
+  },
+  {
+    q: 'As peças podem ser usadas no dia a dia?',
+    a: 'Sim — as peças de mesa são feitas para usar. Para preservar a pintura, recomendamos lavar à mão e evitar o micro-ondas em peças com ouro.',
+  },
+];
+
+const opcoesPeca = pecas.map((p) => ({ slug: p.slug, nome: p.nome }));
+---
+
+<Base
+  titulo="Encomendas"
+  descricao="Encomende uma peça de porcelana pintada à mão, criada a partir da sua história: mesa posta, Judaica, decoração e projetos especiais."
+  imagem={foto('cuba-baloes', 1)}
+>
+  <section class="enc-hero">
+    <div class="enc-hero-text">
+      <p class="eyebrow status" data-reveal>Encomendas abertas</p>
+      <h1 class="display" data-reveal style="--delay:.06s">Uma peça <em>só sua.</em></h1>
+      <p class="lede" data-reveal style="--delay:.12s">
+        Peças autorais, criadas a partir da sua história e pintadas à mão, exclusivamente para você.
+      </p>
+      <p class="body-lg muted" data-reveal style="--delay:.18s">
+        Cada encomenda é pintada pela própria artista, uma de cada vez — por isso a agenda é limitada.
+      </p>
+      <div data-reveal style="--delay:.24s">
+        <a class="btn" href="#formulario">Começar minha encomenda</a>
+      </div>
+    </div>
+    <div class="enc-hero-media frame">
+      <Image
+        src={foto('taca-de-kidush', 2)}
+        alt="Vinho sendo servido no Kos de Kidush pintado à mão"
+        widths={[720, 960, 1280, 1600]}
+        sizes="(max-width: 900px) 100vw, 50vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="tipos-titulo">
+    <header class="sec-head" data-reveal>
+      <p class="eyebrow">O que dá para encomendar</p>
+      <h2 id="tipos-titulo" class="h2">Da mesa de jantar ao lavabo.</h2>
+    </header>
+    <div class="tipos">
+      {
+        tipos.map((t, i) => (
+          <article class="tipo" data-reveal style={`--delay:${i * 0.07}s`}>
+            <div class="tipo-media frame">
+              <Image src={t.img} alt={t.alt} widths={[360, 480, 720, 960]} sizes="(max-width: 700px) 90vw, (max-width: 1100px) 45vw, 23vw" />
+            </div>
+            <h3 class="tipo-t">{t.titulo}</h3>
+            <p class="muted">{t.texto}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="processo" aria-labelledby="processo-titulo">
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <p class="eyebrow">Como funciona</p>
+        <h2 id="processo-titulo" class="h2">Quatro passos, nenhuma pressa.</h2>
+      </header>
+      <ol class="passos">
+        {
+          passos.map((p, i) => (
+            <li data-reveal style={`--delay:${i * 0.08}s`}>
+              <span class="passo-n serif">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="passo-t">{p.t}</h3>
+              <p>{p.d}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section wrap form-sec" id="formulario" aria-labelledby="form-titulo">
+    <div class="form-intro" data-reveal>
+      <p class="eyebrow">Sua encomenda</p>
+      <h2 id="form-titulo" class="h2">Conte a sua ideia.</h2>
+      <p class="body-lg">
+        Preencha o que souber — o resto a gente descobre na conversa. Ao enviar, o WhatsApp abre com a sua mensagem pronta.
+      </p>
+      {
+        site.email && (
+          <p class="muted">
+            Prefere e-mail? Escreva para <a class="u" href={`mailto:${site.email}`}>{site.email}</a>.
+          </p>
+        )
+      }
+    </div>
+
+    <form class="form" data-form data-reveal style="--delay:.08s">
+      <div class="field">
+        <label for="f-nome">Seu nome</label>
+        <input id="f-nome" name="nome" autocomplete="name" required />
+      </div>
+      <div class="field">
+        <label for="f-tipo">Tipo de peça</label>
+        <select id="f-tipo" name="tipo">
+          <option value="">Ainda não sei</option>
+          <option>Mesa posta</option>
+          <option>Judaica</option>
+          <option>Decoração</option>
+          <option>Projeto especial</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-peca">Inspirada em alguma peça do acervo?</label>
+        <select id="f-peca" name="peca">
+          <option value="">Nenhuma em especial</option>
+          {opcoesPeca.map((p) => <option value={p.slug}>{p.nome}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-ocasiao">Ocasião <span class="opt">(opcional)</span></label>
+        <input id="f-ocasiao" name="ocasiao" placeholder="Casamento, aniversário, casa nova…" />
+      </div>
+      <div class="field field--full">
+        <label for="f-ideia">Sua ideia</label>
+        <textarea id="f-ideia" name="ideia" rows="5" placeholder="Cores, nomes, datas, referências…" required></textarea>
+      </div>
+      <div class="field">
+        <label for="f-prazo">Para quando? <span class="opt">(opcional)</span></label>
+        <input id="f-prazo" name="prazo" placeholder="Ex.: dezembro" />
+      </div>
+      <div class="form-acoes">
+        <button class="btn" type="submit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+          Enviar pelo WhatsApp
+        </button>
+        <p class="muted small">Sem compromisso. A resposta vem da própria artista.</p>
+      </div>
+    </form>
+  </section>
+
+  <section class="faq-sec wrap" aria-labelledby="faq-titulo">
+    <h2 id="faq-titulo" class="h3" data-reveal>Perguntas frequentes</h2>
+    <div class="faq" data-reveal>
+      {
+        faq.map((f) => (
+          <details class="acc">
+            <summary>{f.q}</summary>
+            <div class="acc-body">
+              <p>{f.a}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<script is:inline define:vars={{ waBase: linkWhatsapp(''), pecas: opcoesPeca }}>
+  window.__pitua = { waBase, pecas };
+</script>
+
+<style>
+  .enc-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100svh - var(--header-h));
+    max-height: 1000px;
+  }
+  .enc-hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 3rem clamp(2rem, 5vw, 5rem) 4rem max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  }
+  .enc-hero-text em {
+    display: block;
+  }
+  .enc-hero-text .lede,
+  .enc-hero-text .body-lg {
+    max-width: 28em;
+  }
+  .enc-hero-media {
+    min-height: 520px;
+  }
+  .enc-hero-media :global(img) {
+    position: absolute;
+    inset: 0;
+    object-position: 50% 30%;
+  }
+
+  .sec-head {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  .tipos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.5rem clamp(1rem, 2vw, 1.75rem);
+  }
+  .tipo {
+    display: grid;
+    gap: 0.9rem;
+    align-content: start;
+  }
+  .tipo-media {
+    aspect-ratio: 4 / 5;
+    margin-bottom: 0.4rem;
+  }
+  .tipo-t {
+    font-size: 1.5rem;
+    font-weight: 350;
+  }
+
+  .processo {
+    background: var(--night);
+    color: var(--on-night);
+    padding-block: clamp(5rem, 10vw, 8.5rem);
+  }
+  .processo .eyebrow {
+    color: var(--on-night-muted);
+  }
+  .passos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.5rem clamp(1.5rem, 3vw, 3rem);
+  }
+  .passos li {
+    display: grid;
+    gap: 0.9rem;
+    align-content: start;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgb(242 238 231 / 0.18);
+  }
+  .passo-n {
+    font-size: 3.2rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .passo-t {
+    font-size: 1.75rem;
+    font-weight: 300;
+  }
+  .passos p {
+    color: var(--on-night-muted);
+  }
+
+  .form-sec {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: start;
+  }
+  .form-intro {
+    display: grid;
+    gap: 1.25rem;
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 2rem;
+  }
+  .field--full,
+  .form-acoes {
+    grid-column: 1 / -1;
+  }
+  .opt {
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 350;
+  }
+  .form-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 0.5rem;
+  }
+  .small {
+    font-size: 0.875rem;
+  }
+  .u {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .faq-sec {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    padding-bottom: clamp(5rem, 10vw, 8rem);
+  }
+  .faq .acc summary {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 350;
+    letter-spacing: -0.01em;
+    text-transform: none;
+  }
+
+  @media (max-width: 1100px) {
+    .tipos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .passos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 900px) {
+    .enc-hero {
+      grid-template-columns: 1fr;
+      min-height: 0;
+      max-height: none;
+    }
+    .enc-hero-media {
+      grid-row: 1;
+      min-height: 0;
+      aspect-ratio: 4 / 4.2;
+    }
+    .enc-hero-text {
+      padding: 2.5rem var(--gutter) 3.5rem;
+    }
+    .form-sec,
+    .faq-sec {
+      grid-template-columns: 1fr;
+    }
+    .form-intro {
+      position: static;
+    }
+  }
+  @media (max-width: 600px) {
+    .tipos,
+    .passos,
+    .form {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  type Dados = { waBase: string; pecas: { slug: string; nome: string }[] };
+  const { waBase, pecas } = (window as unknown as { __pitua: Dados }).__pitua;
+  const form = document.querySelector<HTMLFormElement>('[data-form]');
+  const selPeca = form?.querySelector<HTMLSelectElement>('[name="peca"]');
+
+  const inicial = new URL(location.href).searchParams.get('peca');
+  if (inicial && selPeca && pecas.some((p) => p.slug === inicial)) selPeca.value = inicial;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = new FormData(form);
+    const v = (k: string) => String(d.get(k) ?? '').trim();
+    const peca = pecas.find((p) => p.slug === v('peca'));
+    const linhas = [
+      `Olá! Meu nome é ${v('nome')} e gostaria de fazer uma encomenda.`,
+      v('tipo') && `• Tipo de peça: ${v('tipo')}`,
+      peca && `• Inspirada em: ${peca.nome}`,
+      v('ocasiao') && `• Ocasião: ${v('ocasiao')}`,
+      v('prazo') && `• Para quando: ${v('prazo')}`,
+      v('ideia') && `\n${v('ideia')}`,
+    ].filter(Boolean);
+    const url = waBase.replace(/text=.*$/, 'text=' + encodeURIComponent(linhas.join('\n')));
+    window.open(url, '_blank', 'noopener');
+  });
+</script>

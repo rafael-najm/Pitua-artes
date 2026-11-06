@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { foto } from '../lib/fotos';
+import { u } from '../lib/url';
+---
+
+<Base titulo="Página não encontrada">
+  <section class="nf wrap">
+    <div class="nf-media frame pebble">
+      <Image src={foto('trio-de-corujas', 1)} alt="" widths={[360, 560]} sizes="280px" />
+    </div>
+    <p class="eyebrow">Erro 404</p>
+    <h1 class="h2">Esta página se perdeu no ateliê.</h1>
+    <p class="lede">Mas o acervo continua aqui, inteirinho.</p>
+    <a class="btn" href={u('/acervo/')}>Ver o acervo</a>
+  </section>
+</Base>
+
+<style>
+  .nf {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding-block: clamp(4rem, 10vw, 8rem);
+  }
+  .nf-media {
+    width: 220px;
+    aspect-ratio: 1;
+    margin-bottom: 1rem;
+  }
+</style>

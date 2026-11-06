@@ -1,0 +1,221 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { linkWhatsapp } from '../data/site';
+import { foto } from '../lib/fotos';
+import { u } from '../lib/url';
+
+const formatos = [
+  {
+    id: 'criativas',
+    rotulo: 'Oficinas criativas',
+    titulo: 'Um projeto novo a cada encontro.',
+    texto: [
+      'Encontros em turma para quem quer aprender a pintar — ou simplesmente passar algumas horas com as mãos ocupadas e a cabeça leve.',
+      'A cada oficina, uma peça diferente: do primeiro traço ao acabamento, você leva para casa algo pintado por você.',
+    ],
+    cta: 'Quero saber das próximas turmas',
+    msg: 'Olá! Tenho interesse nas oficinas criativas da Pitua. Quando são as próximas turmas?',
+    img: foto('copos-pintados', 3),
+    alt: 'Copo de vidro com pinceladas abstratas coloridas',
+  },
+  {
+    id: 'especiais',
+    rotulo: 'Oficinas especiais',
+    titulo: 'Temáticas, pensadas por projeto.',
+    texto: [
+      'Oficinas desenhadas sob medida para uma ocasião: datas comemorativas, aniversários, encontros entre amigas, grupos e empresas.',
+      'O tema, a peça e o formato são definidos junto com você.',
+    ],
+    cta: 'Planejar uma oficina especial',
+    msg: 'Olá! Gostaria de planejar uma oficina especial com a Pitua.',
+    img: foto('boleira-confeitaria', 3),
+    alt: 'Boleira pintada com doces de confeitaria',
+  },
+];
+---
+
+<Base
+  titulo="Oficinas"
+  descricao="Oficinas criativas de pintura com a Pitua: um projeto novo a cada encontro, e oficinas especiais temáticas, pensadas por projeto."
+  imagem={foto('copos-pintados', 1)}
+>
+  <section class="of-head wrap">
+    <p class="eyebrow" data-reveal>Oficinas</p>
+    <h1 class="display" data-reveal style="--delay:.06s">Pegue no <em>pincel.</em></h1>
+    <p class="lede" data-reveal style="--delay:.12s">
+      Encontros para descobrir a pintura com calma, cor e boa companhia — em turma ou num formato pensado para a sua ocasião.
+    </p>
+  </section>
+
+  <section class="of-faixa" aria-hidden="true">
+    <div class="of-faixa-in">
+      {
+        ['copos-pintados', 'taca-de-kidush', 'trio-de-corujas', 'jarra-olho-grego', 'manteigueira-borboletas'].map((s, i) => (
+          <div class:list={['of-faixa-item frame', i % 2 ? 'pebble-2' : 'pebble']} data-reveal style={`--delay:${i * 0.06}s`}>
+            <Image src={foto(s, s === 'taca-de-kidush' ? 3 : 1)} alt="" widths={[320, 480, 640]} sizes="(max-width: 700px) 40vw, 18vw" />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  {
+    formatos.map((f, i) => (
+      <section id={f.id} class:list={['formato wrap', { 'formato--rev': i % 2 }]} aria-labelledby={`${f.id}-t`}>
+        <div class="formato-media frame" data-reveal>
+          <Image src={f.img} alt={f.alt} widths={[480, 720, 960, 1280]} sizes="(max-width: 900px) 100vw, 45vw" />
+        </div>
+        <div class="formato-text" data-reveal style="--delay:.1s">
+          <p class="srv-n serif">{String(i + 1).padStart(2, '0')}</p>
+          <p class="eyebrow">{f.rotulo}</p>
+          <h2 id={`${f.id}-t`} class="h2">{f.titulo}</h2>
+          {f.texto.map((t) => <p class="body-lg">{t}</p>)}
+          <a class="btn" href={linkWhatsapp(f.msg)} target="_blank" rel="noopener">
+            {f.cta}
+          </a>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="of-info">
+    <div class="wrap of-info-in">
+      <p class="of-info-txt" data-reveal>
+        Datas, vagas e valores são divulgados a cada nova turma. Chame no WhatsApp para entrar na lista e saber antes de todo mundo.
+      </p>
+      <div class="of-info-acoes" data-reveal style="--delay:.08s">
+        <a class="btn btn--light" href={linkWhatsapp('Olá! Quero entrar na lista das oficinas da Pitua.')} target="_blank" rel="noopener">Entrar na lista</a>
+        <a class="link" href={u('/acervo/')}>Ver as peças do ateliê <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .of-head {
+    display: grid;
+    gap: 1.25rem;
+    padding-top: clamp(3.5rem, 8vw, 7rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+  .of-head em {
+    font-weight: 300;
+  }
+  .of-head .lede {
+    max-width: 30em;
+  }
+
+  .of-faixa {
+    overflow: hidden;
+    padding-bottom: clamp(4rem, 8vw, 7rem);
+  }
+  .of-faixa-in {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(0.75rem, 2vw, 2rem);
+    width: min(100% - 2 * var(--gutter), var(--max) - 2 * var(--gutter));
+    margin-inline: auto;
+    align-items: center;
+  }
+  .of-faixa-item {
+    aspect-ratio: 1;
+  }
+  .of-faixa-item:nth-child(even) {
+    transform: translateY(18%);
+  }
+  .js .of-faixa-item[data-reveal].is-in:nth-child(even) {
+    transform: translateY(18%);
+  }
+
+  .formato {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: center;
+    padding-block: clamp(3rem, 7vw, 6rem);
+    border-top: 1px solid var(--line);
+  }
+  .formato-media {
+    grid-column: 1 / span 5;
+    aspect-ratio: 4 / 5;
+  }
+  .formato-text {
+    grid-column: 7 / span 5;
+    display: grid;
+    gap: 1.25rem;
+    justify-items: start;
+  }
+  .formato--rev .formato-media {
+    grid-column: 8 / span 5;
+    grid-row: 1;
+  }
+  .formato--rev .formato-text {
+    grid-column: 2 / span 5;
+    grid-row: 1;
+  }
+  .formato-text .btn {
+    margin-top: 0.75rem;
+  }
+  .srv-n {
+    font-size: 4.5rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 0.8;
+    color: var(--gold);
+  }
+
+  .of-info {
+    background: var(--night);
+    color: var(--on-night);
+    padding-block: clamp(4.5rem, 9vw, 7.5rem);
+  }
+  .of-info-in {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .of-info-txt {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+    line-height: 1.25;
+    font-weight: 280;
+    letter-spacing: -0.02em;
+  }
+  .of-info-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem 2rem;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 900px) {
+    .formato,
+    .formato--rev {
+      grid-template-columns: 1fr;
+    }
+    .formato-media,
+    .formato-text,
+    .formato--rev .formato-media,
+    .formato--rev .formato-text {
+      grid-column: auto;
+      grid-row: auto;
+    }
+    .of-info-in {
+      grid-template-columns: 1fr;
+    }
+    .of-info-acoes {
+      justify-content: flex-start;
+    }
+  }
+  @media (max-width: 700px) {
+    .of-faixa-in {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .of-faixa-item:nth-child(n + 4) {
+      display: none;
+    }
+  }
+</style>
