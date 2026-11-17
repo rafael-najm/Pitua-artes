@@ -42,7 +42,7 @@ Instagram e e-mail só aparecem quando preenchidos.
 {
   slug: 'vaso-azul',            // igual ao nome da pasta
   nome: 'Vaso Azul',
-  categoria: 'decoracao',       // mesa | decoracao | judaica | telas | sob-medida
+  categoria: 'decoracao',       // mesa | decoracao | judaica | placas | sob-medida
   resumo: 'Uma linha curta que aparece no card.',
   descricao: ['Primeiro parágrafo.', 'Segundo parágrafo (opcional).'],
   destaque: true,               // opcional: aparece na página inicial

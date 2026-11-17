@@ -7,13 +7,13 @@
  * Para adicionar uma peça: crie a pasta com as fotos e acrescente um item nesta lista.
  */
 
-export type Categoria = 'mesa' | 'decoracao' | 'judaica' | 'telas' | 'sob-medida';
+export type Categoria = 'mesa' | 'decoracao' | 'judaica' | 'placas' | 'sob-medida';
 
 export const categorias: Record<Categoria, string> = {
   mesa: 'Mesa posta',
   decoracao: 'Decoração',
   judaica: 'Judaica',
-  telas: 'Telas',
+  placas: 'Placas',
   'sob-medida': 'Sob medida',
 };
 
@@ -348,14 +348,14 @@ export const pecas: Peca[] = [
     video: 'velas-shabat',
   },
 
-  // ——— Telas ———
+  // ——— Placas ———
   {
     slug: 'diptico-tropical',
     nome: 'Díptico Tropical',
-    categoria: 'telas',
+    categoria: 'placas',
     resumo: 'Ave-do-paraíso e helicônia, em par.',
     descricao: [
-      'Duas pinturas emolduradas em madeira: de um lado, a ave-do-paraíso; do outro, a helicônia — flores tropicais em laranja, vermelho e muitos verdes.',
+      'Duas placas de porcelana pintadas à mão e emolduradas em madeira: de um lado, a ave-do-paraíso; do outro, a helicônia — flores tropicais em laranja, vermelho e muitos verdes.',
     ],
   },
 
