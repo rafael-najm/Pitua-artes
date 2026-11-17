@@ -207,8 +207,8 @@ export const pecas: Peca[] = [
     ],
   },
   {
-    slug: 'pratos-massas-horta',
-    nome: 'Pratos para Massas Horta',
+    slug: 'pratos-para-massas',
+    nome: 'Pratos para Massas',
     categoria: 'mesa',
     resumo: 'Tomates, cogumelos e ervas na aba do prato.',
     descricao: [
