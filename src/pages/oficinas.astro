@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import { linkWhatsapp } from '../data/site';
-import { foto } from '../lib/fotos';
+import { foto, editorial } from '../lib/fotos';
 import { u } from '../lib/url';
 import PinceisFundo from '../components/PinceisFundo.astro';
 
@@ -34,8 +34,8 @@ const formatos = [
     detalhes: ['Aulas semanais', '3 horas por aula', 'Porcelana, vidro, decoupage, dobraduras…'],
     cta: 'Quero participar',
     msg: 'Olá! Tenho interesse na oficina criativa da Pituá. Como funcionam as turmas?',
-    img: foto('copos-pintados', 3),
-    alt: 'Copo de vidro com pinceladas abstratas coloridas',
+    img: foto('bomboniere-arlequim', 1),
+    alt: 'Bomboniere de vidro pintada à mão, com tampa amarela, pé listrado e bolinhas',
   },
   {
     id: 'oficina-de-porcelana',
@@ -64,8 +64,8 @@ const formatos = [
     detalhes: ['Sob medida', 'Grupos e eventos'],
     cta: 'Planejar uma oficina temática',
     msg: 'Olá! Gostaria de planejar uma oficina temática com a Pituá.',
-    img: foto('boleira-confeitaria', 3),
-    alt: 'Boleira pintada com doces de confeitaria',
+    img: editorial('oficina-tematica-prato'),
+    alt: 'Prato fundo pintado com tomates e folhas, sobre jogo americano de palha',
   },
 ];
 ---
@@ -107,9 +107,15 @@ const formatos = [
   <section class="of-faixa" aria-hidden="true">
     <div class="of-faixa-in">
       {
-        ['copos-pintados', 'taca-de-kidush', 'trio-de-corujas', 'jarra-olho-grego', 'manteigueira-borboletas'].map((s, i) => (
+        [
+          foto('copos-pintados', 1),
+          editorial('faixa-consome-tropical'),
+          editorial('faixa-cachepo-elefante'),
+          foto('jarra-olho-grego', 1),
+          foto('manteigueira-borboletas', 1),
+        ].map((img, i) => (
           <div class:list={['of-faixa-item frame', i % 2 ? 'pebble-2' : 'pebble']} data-reveal style={`--delay:${i * 0.06}s`}>
-            <Image src={foto(s, s === 'taca-de-kidush' ? 3 : 1)} alt="" widths={[320, 480, 640]} sizes="(max-width: 700px) 40vw, 18vw" />
+            <Image src={img} alt="" widths={[320, 480, 640]} sizes="(max-width: 700px) 40vw, 18vw" />
           </div>
         ))
       }
@@ -161,7 +167,7 @@ const formatos = [
     top: 0;
     right: 0;
     bottom: 0;
-    width: min(56vw, 960px);
+    width: min(46vw, 760px);
     z-index: 0;
     animation: pinceis-in 1.6s var(--ease) both;
   }
