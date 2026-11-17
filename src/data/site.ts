@@ -9,7 +9,7 @@ export const site = {
     'Porcelana pintada à mão. Peças únicas, encomendas personalizadas e oficinas criativas.',
 
   /** Número com DDI e DDD, só dígitos. Ex.: '5521999998888'. Vazio = WhatsApp abre para escolher o contato. */
-  whatsapp: '',
+  whatsapp: '5521968843029', // +55 21 96884-3029
   /** Usuário do Instagram, sem @. Ex.: 'pitua.artes'. Vazio = não aparece. */
   instagram: '',
   /** E-mail de contato. Vazio = não aparece. */
