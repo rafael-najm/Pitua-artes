@@ -118,6 +118,7 @@ export const pecas: Peca[] = [
     descricao: [
       'Flores e ramagens em amarelo, azul e lilás sobre fundo carmim, com o gargalo trabalhado em grafismos e acabamento em ouro.',
     ],
+    destaque: true,
   },
   {
     slug: 'cachepo-provence',
@@ -324,7 +325,6 @@ export const pecas: Peca[] = [
       'Entre os desenhos deixados pelo avô da artista — fluente em árabe, hebraico e português — havia uma folha de papel com três palavras: Paz, Salam e Shalom.',
       'A folha virou este prato de Shabat, desenhado com flores pequeninas, num traço quase minimalista. Desde então, ele está presente em todos os jantares de sexta-feira da família.',
     ],
-    destaque: true,
   },
   {
     slug: 'taca-de-kidush',
