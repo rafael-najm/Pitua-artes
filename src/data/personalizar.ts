@@ -157,8 +157,8 @@ const todas: PecaPersonalizavel[] = [
     alt: 'Chanukiá com oito copinhos de porcelana branca e um copinho mais alto para o shamash, com velas acesas',
   },
   {
-    slug: 'copinhos-shabat',
-    nome: 'Par de Copinhos — Castiçais de Shabat',
+    slug: 'par-de-copinhos',
+    nome: 'Par de Copinhos',
     chamada: 'Delicadeza nos detalhes para criar uma atmosfera especial.',
     resumo: '2 copinhos · 70 ou 90 ml',
     descricao: [
