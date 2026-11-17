@@ -257,7 +257,7 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
     flex-direction: column;
     justify-content: center;
     gap: 1.5rem;
-    padding: 3rem clamp(2rem, 5vw, 5rem) 4rem max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+    padding: 3rem clamp(1.5rem, 3.0vw, 3.0rem) 4rem max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
   }
   .enc-hero-text em {
     display: block;
@@ -278,7 +278,7 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
   .sec-head {
     display: grid;
     gap: 1rem;
-    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+    margin-bottom: clamp(1.75rem, 3.0vw, 2.75rem);
   }
   .sec-head--row {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
@@ -340,7 +340,7 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
   .processo {
     background: var(--night);
     color: var(--on-night);
-    padding-block: clamp(5rem, 10vw, 8.5rem);
+    padding-block: clamp(3.5rem, 6.0vw, 5.0rem);
   }
   .processo .eyebrow {
     color: var(--on-night-muted);
@@ -378,7 +378,7 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
   .form-sec {
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: clamp(2.5rem, 6vw, 6rem);
+    gap: clamp(2.0rem, 4.32vw, 4.25rem);
     align-items: start;
   }
   .form-intro {
@@ -419,8 +419,8 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
   .faq-sec {
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: clamp(2rem, 6vw, 6rem);
-    padding-bottom: clamp(5rem, 10vw, 8rem);
+    gap: clamp(1.5rem, 4.32vw, 4.25rem);
+    padding-bottom: clamp(3.5rem, 6.0vw, 4.75rem);
   }
   .faq .acc summary {
     font-family: var(--serif);
@@ -472,10 +472,30 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
     }
   }
   @media (max-width: 600px) {
-    .tipos,
-    .passos,
     .form {
       grid-template-columns: 1fr;
+    }
+    .tipos,
+    .passos {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem 0.9rem;
+    }
+    .tipo-t {
+      font-size: 1.2rem;
+    }
+    .tipo p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .passo-n {
+      font-size: 2.2rem;
+    }
+    .passo-t {
+      font-size: 1.35rem;
+    }
+    .passos p {
+      font-size: 0.85rem;
+      line-height: 1.5;
     }
   }
 </style>

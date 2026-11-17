@@ -162,7 +162,7 @@ p {
 }
 
 .section {
-  padding-block: clamp(5rem, 11vw, 10rem);
+  padding-block: clamp(3rem, 5.5vw, 5rem);
 }
 
 /* ————————————————————————————————————————————————

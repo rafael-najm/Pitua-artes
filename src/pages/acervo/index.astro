@@ -52,8 +52,8 @@ const filtros = (Object.keys(categorias) as Categoria[]).filter((c) => contagem[
   .acv-head {
     display: grid;
     gap: 1.25rem;
-    padding-top: clamp(3.5rem, 8vw, 7rem);
-    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    padding-top: clamp(2.5rem, 4.8vw, 4.25rem);
+    padding-bottom: clamp(1.75rem, 3.0vw, 2.5rem);
   }
   .acv-head .lede {
     max-width: 28em;
@@ -110,20 +110,20 @@ const filtros = (Object.keys(categorias) as Categoria[]).filter((c) => contagem[
     color: color-mix(in srgb, var(--paper) 65%, transparent);
   }
   .acv-grid-wrap {
-    padding-top: clamp(2.5rem, 5vw, 4rem);
-    padding-bottom: clamp(5rem, 10vw, 8rem);
+    padding-top: clamp(1.75rem, 3.0vw, 2.5rem);
+    padding-bottom: clamp(3.5rem, 6.0vw, 4.75rem);
   }
   .acv-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(3rem, 5vw, 4.5rem) clamp(1rem, 2vw, 1.75rem);
+    gap: clamp(2.5rem, 3.6vw, 3.25rem) clamp(1rem, 2vw, 1.75rem);
   }
   .acv-grid > :global([hidden]) {
     display: none;
   }
   .acv-cta {
-    margin-top: clamp(5rem, 9vw, 8rem);
-    padding-top: clamp(3rem, 6vw, 5rem);
+    margin-top: clamp(3.5rem, 5.4vw, 4.75rem);
+    padding-top: clamp(2.0rem, 3.6vw, 3.0rem);
     border-top: 1px solid var(--line);
     display: grid;
     justify-items: center;
