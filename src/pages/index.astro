@@ -6,57 +6,45 @@ import { pecas } from '../data/pecas';
 import { site, linkWhatsapp } from '../data/site';
 import { foto, editorial } from '../lib/fotos';
 import { u } from '../lib/url';
+import { formatos } from '../data/oficinas';
+import { personalizaveis, formatarPreco } from '../data/personalizar';
 
 const destaques = pecas.filter((p) => p.destaque);
 
-const servicos = [
+const menorPreco = formatarPreco(Math.min(...personalizaveis.map((p) => p.aPartirDe)));
+
+const frentes = [
   {
-    n: '01',
-    rotulo: 'Pinturas em porcelana',
-    titulo: 'Cada peça, única.',
-    texto:
-      'Vasos, aparelhos de jantar, esculturas e peças de Judaica pintados à mão, um a um. Mesmo quando nascem em par, nunca são idênticos.',
-    href: '/acervo/',
-    acao: 'Ver o acervo',
-    img: editorial('hero-tucano'),
-    alt: 'Detalhe da Jardineira Mata Atlântica: tucano pintado à mão num galho, entre folhagens',
-    forma: 'pebble',
-  },
-  {
-    n: '02',
-    rotulo: 'Oficinas criativas',
-    titulo: 'Um projeto novo a cada encontro.',
-    texto:
-      'Aulas semanais com um projeto diferente a cada encontro: pintura em porcelana, vidro, decoupage, dobraduras e muito mais.',
-    href: '/oficinas/#criativa',
+    id: 'oficinas',
+    rotulo: 'Oficinas',
+    titulo: 'Pegue no pincel.',
+    texto: 'Aulas, workshops e encontros criativos com a orientação da artista.',
+    href: '/oficinas/',
     acao: 'Conhecer as oficinas',
     img: foto('copos-pintados', 1),
     alt: 'Copo de vidro pintado à mão com flores em magenta',
-    forma: 'pebble-2',
+    forma: 'pebble',
+    itens: formatos.map((f) => ({ nome: f.rotulo, desc: f.resumo, href: `/oficinas/#${f.id}` })),
   },
   {
-    n: '03',
-    rotulo: 'Oficinas especiais',
-    titulo: 'Temáticas, pensadas por projeto.',
-    texto:
-      'Datas comemorativas, presentes, grupos e eventos: oficinas desenhadas sob medida para cada ocasião.',
-    href: '/oficinas/#tematicas',
-    acao: 'Planejar uma oficina',
-    img: foto('boleira-confeitaria', 2),
-    alt: 'Boleira vista de cima, pintada com cupcakes, pirulitos e sorvetes',
-    forma: 'pebble-3',
-  },
-  {
-    n: '04',
-    rotulo: 'Peças autorais',
-    titulo: 'Encomende a sua, personalizada.',
-    texto:
-      'Nomes, datas, caligrafias de família, as cores da sua casa. Uma peça criada a partir da sua história.',
+    id: 'encomendas',
+    rotulo: 'Encomendas',
+    titulo: 'Uma peça só sua.',
+    texto: 'Peças pintadas à mão a partir da sua ideia, da sua história e das cores da sua casa.',
     href: '/encomendas/',
     acao: 'Fazer uma encomenda',
     img: foto('casticais-shabat-shalom', 1),
     alt: 'Par de castiçais com as palavras Shabat e Shalom pintadas em hebraico',
-    forma: 'pebble',
+    forma: 'pebble-2',
+    itens: [
+      {
+        nome: 'Peças para personalizar',
+        desc: `Escolha a peça; a arte é sua. A partir de ${menorPreco}.`,
+        href: '/encomendas/#personalizar',
+      },
+      { nome: 'Projetos sob medida', desc: 'Da mesa de jantar ao lavabo, criados do zero.', href: '/encomendas/#sob-medida' },
+      { nome: 'Inspiradas no acervo', desc: 'Qualquer peça do acervo pode inspirar uma nova.', href: '/acervo/' },
+    ],
   },
 ];
 
@@ -98,68 +86,6 @@ const artista = site.artista;
     </a>
   </section>
 
-  <!-- MANIFESTO -->
-  <section class="manifesto section">
-    <div class="wrap">
-      <p class="manifesto-txt" data-reveal>
-        Toda peça começa em branco. Depois vêm o desenho, o pincel e as camadas de cor — até a porcelana
-        virar <em>obra</em>.
-      </p>
-      <ul class="pilares" data-reveal style="--delay:.1s">
-        <li><span class="serif it">i.</span> Pintadas à mão, uma a uma</li>
-        <li><span class="serif it">ii.</span> Peças únicas e autorais</li>
-        <li><span class="serif it">iii.</span> Encomendas sob medida</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- O QUE ACONTECE POR AQUI -->
-  <section class="servicos" aria-labelledby="servicos-titulo">
-    <div class="wrap">
-      <header class="sec-head" data-reveal>
-        <p class="eyebrow">O ateliê</p>
-        <h2 id="servicos-titulo" class="h2">O que acontece por aqui</h2>
-      </header>
-
-      <ol class="srv-list">
-        {
-          servicos.map((s, i) => (
-            <li class:list={['srv', { 'srv--rev': i % 2 === 1 }]}>
-              <a class:list={['srv-media frame', s.forma]} href={u(s.href)} tabindex="-1" aria-hidden="true" data-reveal>
-                <Image src={s.img} alt={s.alt} widths={[480, 720, 960, 1280]} sizes="(max-width: 900px) 90vw, 42vw" />
-              </a>
-              <div class="srv-text" data-reveal style="--delay:.1s">
-                <p class="srv-n serif">{s.n}</p>
-                <p class="eyebrow">{s.rotulo}</p>
-                <h3 class="h3">{s.titulo}</h3>
-                <p class="body-lg">{s.texto}</p>
-                <a class="link" href={u(s.href)}>
-                  {s.acao} <span class="arrow">→</span>
-                </a>
-              </div>
-            </li>
-          ))
-        }
-      </ol>
-    </div>
-  </section>
-
-  <!-- DESTAQUES -->
-  <section class="section destaques" aria-labelledby="destaques-titulo">
-    <div class="wrap">
-      <header class="sec-head sec-head--row" data-reveal>
-        <div>
-          <p class="eyebrow">Do acervo</p>
-          <h2 id="destaques-titulo" class="h2">Peças em destaque</h2>
-        </div>
-        <a class="link" href={u('/acervo/')}>Ver as {pecas.length} peças <span class="arrow">→</span></a>
-      </header>
-      <div class="rail" data-reveal>
-        {destaques.map((p) => <PecaCard peca={p} sizes="(max-width: 700px) 72vw, (max-width: 1100px) 33vw, 25vw" />)}
-      </div>
-    </div>
-  </section>
-
   <!-- FEITAS PARA USAR -->
   <section class="usos section" aria-labelledby="usos-titulo">
     <div class="wrap usos-in">
@@ -194,6 +120,60 @@ const artista = site.artista;
             </a>
           ))
         }
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE ACONTECE POR AQUI -->
+  <section class="servicos section" aria-labelledby="servicos-titulo">
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <p class="eyebrow">O ateliê</p>
+        <h2 id="servicos-titulo" class="h2">O que acontece por aqui</h2>
+      </header>
+
+      <div class="frentes">
+        {
+          frentes.map((f, i) => (
+            <article class="frente" id={`frente-${f.id}`} data-reveal style={`--delay:${i * 0.1}s`}>
+              <a class:list={['frente-media frame', f.forma]} href={u(f.href)} tabindex="-1" aria-hidden="true">
+                <Image src={f.img} alt={f.alt} widths={[480, 720, 960]} sizes="(max-width: 900px) 70vw, 30vw" />
+              </a>
+              <p class="eyebrow">{f.rotulo}</p>
+              <h3 class="h2 frente-t">{f.titulo}</h3>
+              <p class="body-lg">{f.texto}</p>
+              <ol class="frente-lista">
+                {f.itens.map((it, j) => (
+                  <li>
+                    <a href={u(it.href)}>
+                      <span class="fl-n serif">{String(j + 1).padStart(2, '0')}</span>
+                      <span class="fl-t">{it.nome}</span>
+                      <span class="fl-d">{it.desc}</span>
+                      <span class="fl-a" aria-hidden="true">→</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+              <a class="btn" href={u(f.href)}>{f.acao}</a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTAQUES -->
+  <section class="section destaques" aria-labelledby="destaques-titulo">
+    <div class="wrap">
+      <header class="sec-head sec-head--row" data-reveal>
+        <div>
+          <p class="eyebrow">Do acervo</p>
+          <h2 id="destaques-titulo" class="h2">Peças em destaque</h2>
+        </div>
+        <a class="link" href={u('/acervo/')}>Ver as {pecas.length} peças <span class="arrow">→</span></a>
+      </header>
+      <div class="rail" data-reveal>
+        {destaques.map((p) => <PecaCard peca={p} sizes="(max-width: 700px) 72vw, (max-width: 1100px) 33vw, 25vw" />)}
       </div>
     </div>
   </section>
@@ -366,42 +346,6 @@ const artista = site.artista;
     text-shadow: 0 1px 12px rgb(0 0 0 / 0.35);
   }
 
-  /* MANIFESTO */
-  .manifesto {
-    text-align: center;
-  }
-  .manifesto-txt {
-    max-width: 21em;
-    margin-inline: auto;
-    font-family: var(--serif);
-    font-size: clamp(1.75rem, 3.3vw, 3.1rem);
-    font-weight: 280;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    text-wrap: balance;
-  }
-  .pilares {
-    list-style: none;
-    margin: clamp(2.5rem, 5vw, 4rem) 0 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem clamp(1.5rem, 4vw, 4rem);
-    font-size: 0.74rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .pilares .serif {
-    font-size: 1.1rem;
-    letter-spacing: 0;
-    text-transform: none;
-    margin-right: 0.35rem;
-    color: var(--ink);
-  }
-
   /* SEÇÕES */
   .sec-head {
     display: grid;
@@ -413,59 +357,94 @@ const artista = site.artista;
     align-items: end;
   }
 
-  /* SERVIÇOS */
+  /* O QUE ACONTECE POR AQUI */
   .servicos {
-    padding-bottom: clamp(3rem, 7vw, 6rem);
     border-top: 1px solid var(--line);
-    padding-top: clamp(5rem, 10vw, 9rem);
   }
-  .srv-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .frentes {
+    --gap: clamp(2rem, 5vw, 5rem);
     display: grid;
-    gap: clamp(4rem, 9vw, 8rem);
+    grid-template-columns: 1fr 1fr;
   }
-  .srv {
+  .frente:first-child {
+    padding-right: var(--gap);
+  }
+  .frente {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    align-items: center;
-    gap: 2rem;
+    align-content: start;
+    justify-items: start;
+    gap: 1.1rem;
   }
-  .srv-media {
-    grid-column: 1 / span 5;
-    aspect-ratio: 1 / 1.08;
-    display: block;
+  .frente + .frente {
+    border-left: 1px solid var(--line);
+    padding-left: var(--gap);
   }
-  .srv-media :global(img) {
+  .frente-media {
+    width: min(64%, 340px);
+    aspect-ratio: 1 / 1.05;
+    margin-bottom: 0.75rem;
+  }
+  .frente-media :global(img) {
     transition: transform 1.6s var(--ease);
   }
-  .srv-media:hover :global(img) {
+  .frente-media:hover :global(img) {
     transform: scale(1.04);
   }
-  .srv-text {
-    grid-column: 7 / span 5;
+  .frente-t {
+    font-size: clamp(2rem, 3.4vw, 3rem);
+  }
+  .frente-lista {
+    list-style: none;
+    margin: 0.75rem 0 1.25rem;
+    padding: 0;
+    width: 100%;
+    border-top: 1px solid var(--line);
+  }
+  .frente-lista li {
+    border-bottom: 1px solid var(--line);
+  }
+  .frente-lista a {
     display: grid;
-    gap: 1.15rem;
-    justify-items: start;
+    grid-template-columns: 2.4rem 1fr auto;
+    column-gap: 0.75rem;
+    align-items: baseline;
+    padding: 1rem 0;
+    transition: background 0.35s var(--ease);
   }
-  .srv--rev .srv-media {
-    grid-column: 8 / span 5;
-    grid-row: 1;
-  }
-  .srv--rev .srv-text {
-    grid-column: 2 / span 5;
-    grid-row: 1;
-  }
-  .srv-n {
-    font-size: 4.5rem;
-    font-weight: 300;
-    line-height: 0.8;
-    color: var(--accent);
+  .fl-n {
+    grid-row: span 2;
+    font-size: 1.3rem;
     font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
   }
-  .srv-text .body-lg {
-    max-width: 30em;
+  .fl-t {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 350;
+    color: var(--brand);
+    line-height: 1.25;
+  }
+  .fl-d {
+    grid-column: 2;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .fl-a {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+    color: var(--accent);
+    transition: transform 0.45s var(--ease);
+  }
+  .frente-lista a:hover .fl-a {
+    transform: translateX(4px);
+  }
+  .frente-lista a:hover .fl-t {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
   }
 
   /* DESTAQUES */
@@ -716,23 +695,17 @@ const artista = site.artista;
       padding: 2.5rem var(--gutter) 3.5rem;
       gap: 1.4rem;
     }
-    .srv,
-    .srv--rev {
+    .frentes {
       grid-template-columns: 1fr;
-      gap: 2rem;
     }
-    .srv-media,
-    .srv--rev .srv-media,
-    .srv-text,
-    .srv--rev .srv-text {
-      grid-column: auto;
-      grid-row: auto;
+    .frente:first-child {
+      padding-right: 0;
     }
-    .srv-media {
-      width: 86%;
-    }
-    .srv--rev .srv-media {
-      justify-self: end;
+    .frente + .frente {
+      border-left: 0;
+      padding-left: 0;
+      border-top: 1px solid var(--line);
+      padding-top: clamp(3rem, 8vw, 4rem);
     }
     .historia-in {
       grid-template-columns: 1fr;
