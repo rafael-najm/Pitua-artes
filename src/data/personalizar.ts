@@ -14,6 +14,11 @@ import vela from '../assets/personalizar/vela-copo-porcelana.webp';
 import chanukia from '../assets/personalizar/chanukia.webp';
 import copinhosShabat from '../assets/personalizar/copinhos-shabat.webp';
 import potesBolinha from '../assets/personalizar/potes-multiuso-bolinha.webp';
+import potesMel from '../assets/personalizar/potes-multiuso-mel.webp';
+import parDeCasticais from '../assets/personalizar/par-de-casticais.webp';
+import pratoOval from '../assets/personalizar/prato-grande-oval.webp';
+import pratoQuadrado from '../assets/personalizar/prato-grande-quadrado.webp';
+import portaJoias from '../assets/personalizar/porta-joias-do-dia.webp';
 
 export interface Medidas {
   /** Ex.: "Moringa", "Copo". Vazio quando há um só bloco. */
@@ -190,8 +195,8 @@ const todas: PecaPersonalizavel[] = [
       },
     ],
     aPartirDe: 398,
-    // foto: falta a foto — a peça aparece no site assim que ela for adicionada.
-    alt: 'Par de castiçais de porcelana branca',
+    foto: parDeCasticais,
+    alt: 'Par de castiçais clássicos de porcelana branca, com base larga e boca levemente aberta',
   },
   {
     slug: 'potes-multiuso-mel',
@@ -214,8 +219,8 @@ const todas: PecaPersonalizavel[] = [
       },
     ],
     aPartirDe: 798,
-    // foto: falta a foto
-    alt: 'Conjunto de três potes multiuso de porcelana branca com tampa, modelo Mel',
+    foto: potesMel,
+    alt: 'Três potes cilíndricos de porcelana branca com tampa, em alturas diferentes',
   },
   {
     slug: 'potes-multiuso-bolinha',
@@ -254,8 +259,8 @@ const todas: PecaPersonalizavel[] = [
     formato: 'Quadrado',
     medidas: [{ itens: [['Tamanho', '26 × 26 cm']] }],
     aPartirDe: 498,
-    // foto: falta a foto
-    alt: 'Prato grande quadrado de porcelana branca',
+    foto: pratoQuadrado,
+    alt: 'Prato grande quadrado de porcelana branca, com borda baixa',
   },
   {
     slug: 'prato-grande-oval',
@@ -270,7 +275,7 @@ const todas: PecaPersonalizavel[] = [
     formato: 'Oval',
     medidas: [{ itens: [['Tamanho', '22 × 17 cm']] }],
     aPartirDe: 498,
-    // foto: falta a foto
+    foto: pratoOval,
     alt: 'Prato grande oval de porcelana branca',
   },
   {
@@ -287,8 +292,8 @@ const todas: PecaPersonalizavel[] = [
     formato: 'Redondo',
     medidas: [{ itens: [['Diâmetro', '10 cm']] }],
     aPartirDe: 168,
-    // foto: falta a foto
-    alt: 'Porta-joias redondo de porcelana branca',
+    foto: portaJoias,
+    alt: 'Porta-joias redondo de porcelana branca com borda ondulada',
   },
 ];
 
