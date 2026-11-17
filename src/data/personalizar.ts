@@ -152,7 +152,7 @@ const todas: PecaPersonalizavel[] = [
         itens: [['Capacidade', 'Copinhos de 70 ml e 90 ml']],
       },
     ],
-    aPartirDe: 699,
+    aPartirDe: 698,
     foto: chanukia,
     alt: 'Chanukiá com oito copinhos de porcelana branca e um copinho mais alto para o shamash, com velas acesas',
   },
