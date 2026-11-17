@@ -1,5 +1,7 @@
 # Publica o site no GitHub Pages a cada push na branch main.
 # Antes do primeiro deploy: Settings → Pages → Source: "GitHub Actions".
+# Só publica a partir da branch padrão do repositório (Settings → Default branch),
+# que é a única que o GitHub Pages aceita.
 name: Deploy
 
 on:
@@ -12,12 +14,9 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
   build:
+    if: github.ref_name == github.event.repository.default_branch
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -41,6 +40,10 @@ jobs:
 
   deploy:
     needs: build
+    # Publicações seguidas entram na fila em vez de cancelar a que está em andamento.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     environment:
       name: github-pages
