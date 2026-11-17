@@ -21,6 +21,7 @@ import pratoQuadrado from '../assets/personalizar/prato-grande-quadrado.webp';
 import portaJoias from '../assets/personalizar/porta-joias-do-dia.webp';
 import canecaAfeto from '../assets/personalizar/caneca-afeto.webp';
 import canecaComTampa from '../assets/personalizar/caneca-com-tampa.webp';
+import copinho from '../assets/personalizar/copinho.webp';
 
 export interface Medidas {
   /** Ex.: "Moringa", "Copo". Vazio quando há um só bloco. */
@@ -172,9 +173,25 @@ const todas: PecaPersonalizavel[] = [
         itens: [['Capacidade', '70 ou 90 ml cada']],
       },
     ],
-    aPartirDe: 299,
+    aPartirDe: 268,
     foto: copinhosShabat,
     alt: 'Par de copinhos de porcelana branca com velas acesas',
+  },
+  {
+    slug: 'copinho',
+    nome: 'Copinho',
+    chamada: 'Uma peça delicada e cheia de possibilidades.',
+    resumo: 'Cálice ou castiçal · 70 ou 90 ml',
+    descricao: [
+      'Com design simples e elegante, este copinho de porcelana pode ser usado como um pequeno cálice para servir vinho ou transformado em um charmoso castiçal para velas.',
+      'Versátil e atemporal, fica lindo na composição da mesa, em ocasiões especiais ou na decoração da casa. Também pode receber pintura artística personalizada, criada especialmente para você.',
+      'Uma peça, diferentes maneiras de usar e um charme especial em cada detalhe.',
+    ],
+    material: 'Porcelana',
+    medidas: [{ itens: [['Capacidade', '70 ou 90 ml']] }],
+    aPartirDe: 138,
+    foto: copinho,
+    alt: 'Copinho de porcelana branca usado como castiçal, com vela acesa',
   },
   {
     slug: 'par-de-casticais',
