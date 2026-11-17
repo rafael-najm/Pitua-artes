@@ -43,7 +43,7 @@ const frentes = [
         href: '/encomendas/#personalizar',
       },
       { nome: 'Projetos sob medida', desc: 'Da mesa de jantar ao lavabo, criados do zero.', href: '/encomendas/#sob-medida' },
-      { nome: 'Inspiradas no acervo', desc: 'Qualquer peça do acervo pode inspirar uma nova.', href: '/acervo/' },
+      { nome: 'Inspire-se no acervo', desc: 'Qualquer peça do acervo pode inspirar uma nova.', href: '/acervo/' },
     ],
   },
 ];
@@ -209,6 +209,56 @@ const artista = site.artista;
     </div>
   </section>
 
+  <!-- ARTISTA -->
+  <section class="artista section" aria-labelledby="artista-titulo">
+    <div class="wrap artista-in">
+      <div class="artista-media frame pebble-2" data-reveal>
+        <Image
+          src={editorial('artista-retrato')}
+          alt={artista ? `${artista}, artista da Pituá, segurando uma de suas peças` : 'A artista da Pituá segurando uma de suas peças'}
+          widths={[480, 720, 960, 1280]}
+          sizes="(max-width: 900px) 90vw, 40vw"
+        />
+      </div>
+      <div class="artista-text" data-reveal style="--delay:.1s">
+        <p class="eyebrow">A artista</p>
+        <h2 id="artista-titulo" class="h2">Por trás de cada peça, as mesmas mãos.</h2>
+        <p class="body-lg">
+          {artista} é apaixonada por pintura em porcelana desde os 11 anos — e, de lá pra cá, nunca mais parou. Na Pituá,
+          cada peça passa pelas mãos dela, do primeiro desenho à última pincelada: um trabalho paciente e detalhista, que
+          mistura as cores do Brasil, padrões do mundo inteiro e muitas histórias de família.
+        </p>
+        <blockquote class="artista-frase">
+          <p>
+            Toda peça começa em branco. Depois vêm o desenho, o pincel e as camadas de cor — até a porcelana
+            virar <em>obra</em>.
+          </p>
+        </blockquote>
+        <button class="video-card" type="button" data-abre-video="apresentacao">
+          <span class="vc-thumb frame">
+            <img src={u('/video/apresentacao-nathaly.jpg')} alt="" width="72" height="128" loading="lazy" />
+            <span class="vc-play" aria-hidden="true"
+              ><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"></path></svg></span
+            >
+          </span>
+          <span class="vc-txt">
+            <span class="eyebrow">Vídeo · 1 min</span>
+            <span class="vc-t">Prazer, eu sou a {artista}.</span>
+          </span>
+        </button>
+        <a class="link" href={linkWhatsapp('Olá! Vim pelo site da Pituá e queria conversar sobre uma peça.')} target="_blank" rel="noopener">
+          Conversar com a {artista} <span class="arrow">→</span>
+        </a>
+        <dialog class="video-dialog" data-video="apresentacao" aria-label={`Vídeo: ${artista} se apresenta`}>
+          <video controls playsinline preload="none" poster={u('/video/apresentacao-nathaly.jpg')}>
+            <source src={u('/video/apresentacao-nathaly.mp4')} type="video/mp4" />
+          </video>
+          <button class="vd-close" type="button" data-fecha-video aria-label="Fechar vídeo">×</button>
+        </dialog>
+      </div>
+    </div>
+  </section>
+
   <!-- HISTÓRIA -->
   <section class="historia on-dark" aria-labelledby="historia-titulo">
     <div class="wrap historia-in">
@@ -218,14 +268,14 @@ const artista = site.artista;
             controls
             playsinline
             preload="none"
-            poster={u('/video/historia-prato-shabat.jpg')}
-            aria-label="Vídeo: a artista conta a história do Prato de Shabat"
+            poster={u('/video/historia-prato-shabat-avo.jpg')}
+            aria-label="Vídeo: a história do Prato de Shabat inspirado no desenho do avô da Nathaly"
           >
-            <source src={u('/video/historia-prato-shabat.mp4')} type="video/mp4" />
+            <source src={u('/video/historia-prato-shabat-avo.mp4')} type="video/mp4" />
           </video>
           <button class="player-btn" type="button" data-play>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"></path></svg>
-            <span>Assistir · 50s</span>
+            <span>Assistir · 44s</span>
           </button>
         </div>
       </div>
@@ -233,15 +283,15 @@ const artista = site.artista;
         <p class="eyebrow">A história por trás da peça</p>
         <h2 id="historia-titulo" class="h2">Paz, Salam, Shalom.</h2>
         <p class="body-lg">
-          O avô da artista era fluente em árabe, hebraico e português. Entre os desenhos que deixou, havia uma folha de
+          O avô da {artista} era fluente em árabe, hebraico e português. Entre os desenhos que deixou, havia uma folha de
           papel com três palavras — <em>Paz</em>, <em>Salam</em> e <em>Shalom</em>.
         </p>
         <p class="body-lg">
-          A folha virou um prato de Shabat, com flores pequeninas, e ganhou a companhia de um kos para o kidush das
-          sextas-feiras.
+          A folha virou um prato de Shabat, que recebe as chalot toda sexta-feira e em todas as festas da família — e
+          ganhou a companhia de um kos para o kidush.
         </p>
         <blockquote class="quote">
-          <p>“Assim, o meu avô ficou eternizado em todos os jantares religiosos da família.”</p>
+          <p>“Uma memória que ganhou forma, virou porcelana e deixa meu avô ainda mais eterno em nossa família.”</p>
         </blockquote>
         <div class="historia-pecas">
           <a class="mini" href={u('/acervo/prato-de-shabat/')}>
@@ -260,39 +310,6 @@ const artista = site.artista;
       </div>
     </div>
   </section>
-
-  <!-- ARTISTA -->
-  <section class="artista section" aria-labelledby="artista-titulo">
-    <div class="wrap artista-in">
-      <div class="artista-media frame pebble-2" data-reveal>
-        <Image
-          src={editorial('0Q2A5604')}
-          alt={artista ? `${artista}, artista da Pituá, segurando uma de suas peças` : 'A artista da Pituá segurando uma de suas peças'}
-          widths={[480, 720, 960, 1280]}
-          sizes="(max-width: 900px) 90vw, 40vw"
-        />
-      </div>
-      <div class="artista-text" data-reveal style="--delay:.1s">
-        <p class="eyebrow">A artista</p>
-        <h2 id="artista-titulo" class="h2">Por trás de cada peça, as mesmas mãos.</h2>
-        <p class="body-lg">
-          {artista ? `Na Pituá, ${artista} conduz cada peça` : 'Na Pituá, cada peça passa pelas mesmas mãos'} — do primeiro
-          desenho à última pincelada. Um trabalho paciente e detalhista, que mistura as cores do Brasil, padrões do mundo
-          inteiro e muitas histórias de família.
-        </p>
-        <blockquote class="artista-frase">
-          <p>
-            Toda peça começa em branco. Depois vêm o desenho, o pincel e as camadas de cor — até a porcelana
-            virar <em>obra</em>.
-          </p>
-        </blockquote>
-        <a class="link" href={linkWhatsapp('Olá! Vim pelo site da Pituá e queria conversar sobre uma peça.')} target="_blank" rel="noopener">
-          Conversar com a artista <span class="arrow">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
 </Base>
 
 <style>
@@ -634,6 +651,92 @@ const artista = site.artista;
     color: var(--brand);
   }
 
+  .video-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 1.25rem 0.6rem 0.6rem;
+    border: 1px solid var(--line);
+    border-radius: 999px 18px 18px 999px;
+    background: var(--porcelain);
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  }
+  .video-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 6px 24px rgb(38 55 70 / 0.08);
+  }
+  .vc-thumb {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    flex: none;
+  }
+  .vc-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .vc-play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgb(23 21 19 / 0.25);
+    color: #fff;
+  }
+  .vc-play svg {
+    width: 20px;
+    height: 20px;
+  }
+  .vc-txt {
+    display: grid;
+    gap: 0.15rem;
+  }
+  .vc-txt .eyebrow {
+    font-size: 0.62rem;
+  }
+  .vc-t {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 350;
+    color: var(--brand);
+  }
+  .video-dialog {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    width: min(92vw, calc(88dvh * 9 / 16));
+    max-height: 92dvh;
+    overflow: visible;
+  }
+  .video-dialog::backdrop {
+    background: rgb(23 21 19 / 0.82);
+  }
+  .video-dialog video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #000;
+    border-radius: 10px;
+  }
+  .vd-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
   /* ENCOMENDA */
   .encomenda {
     display: grid;
@@ -808,5 +911,19 @@ const artista = site.artista;
       video.play();
     });
     video.addEventListener('play', () => p.classList.add('is-playing'));
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('[data-abre-video]').forEach((btn) => {
+    const dlg = document.querySelector<HTMLDialogElement>(`dialog[data-video="${btn.dataset.abreVideo}"]`);
+    const video = dlg?.querySelector('video');
+    btn.addEventListener('click', () => {
+      dlg?.showModal();
+      video?.play().catch(() => {});
+    });
+    dlg?.addEventListener('close', () => video?.pause());
+    dlg?.addEventListener('click', (e) => {
+      if (e.target === dlg) dlg.close();
+    });
+    dlg?.querySelector('[data-fecha-video]')?.addEventListener('click', () => dlg.close());
   });
 </script>

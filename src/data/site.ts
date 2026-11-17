@@ -11,11 +11,11 @@ export const site = {
   /** Número com DDI e DDD, só dígitos. Ex.: '5521999998888'. Vazio = WhatsApp abre para escolher o contato. */
   whatsapp: '5521968843029', // +55 21 96884-3029
   /** Usuário do Instagram, sem @. Ex.: 'pitua.artes'. Vazio = não aparece. */
-  instagram: '',
+  instagram: 'pituaartes',
   /** E-mail de contato. Vazio = não aparece. */
   email: '',
   /** Nome da artista, como deve aparecer no site. Vazio = o texto se ajusta sem o nome. */
-  artista: '',
+  artista: 'Nathaly',
 };
 
 /** Link do WhatsApp com mensagem pronta. */
