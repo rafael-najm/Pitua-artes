@@ -216,7 +216,7 @@ const todas: PecaPersonalizavel[] = [
     ],
     aPartirDe: 398,
     foto: parDeCasticais,
-    alt: 'Par de castiçais de porcelana branca em formato de coluna, com anéis e bordas abertas',
+    alt: 'Par de castiçais de porcelana branca, com detalhes arredondados e base larga',
   },
   {
     slug: 'castical-classico',
@@ -240,7 +240,7 @@ const todas: PecaPersonalizavel[] = [
     ],
     aPartirDe: 768,
     foto: casticalClassico,
-    alt: 'Par de castiçais clássicos de porcelana branca, com detalhes arredondados e base larga',
+    alt: 'Par de castiçais clássicos de porcelana branca em formato de coluna, com anéis e bordas abertas',
   },
   {
     slug: 'potes-multiuso-mel',
