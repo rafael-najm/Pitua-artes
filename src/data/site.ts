@@ -13,7 +13,7 @@ export const site = {
   /** Usuário do Instagram, sem @. Ex.: 'pitua.artes'. Vazio = não aparece. */
   instagram: 'pituaartes',
   /** E-mail de contato. Vazio = não aparece. */
-  email: '',
+  email: 'contato@pituaartes.com.br',
   /** Nome da artista, como deve aparecer no site. Vazio = o texto se ajusta sem o nome. */
   artista: 'Nathaly',
 };

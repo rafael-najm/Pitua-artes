@@ -8,7 +8,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build:hostgator": "SITE_URL=https://pituaartes.com.br BASE_PATH=/ astro build && cd dist && zip -qr ../pituaartes-site.zip . -x '*.DS_Store'"
   },
   "dependencies": {
     "@fontsource-variable/jost": "5.3.0",
