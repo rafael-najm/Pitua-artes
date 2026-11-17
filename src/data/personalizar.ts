@@ -15,7 +15,7 @@ import chanukia from '../assets/personalizar/chanukia.webp';
 import copinhosShabat from '../assets/personalizar/copinhos-shabat.webp';
 import potesBolinha from '../assets/personalizar/potes-multiuso-bolinha.webp';
 import potesMel from '../assets/personalizar/potes-multiuso-mel.webp';
-import parDeCasticais from '../assets/personalizar/par-de-casticais.webp';
+import casticalClassico from '../assets/personalizar/castical-classico.webp';
 import pratoOval from '../assets/personalizar/prato-grande-oval.webp';
 import pratoQuadrado from '../assets/personalizar/prato-grande-quadrado.webp';
 import portaJoias from '../assets/personalizar/porta-joias-do-dia.webp';
@@ -214,8 +214,32 @@ const todas: PecaPersonalizavel[] = [
       },
     ],
     aPartirDe: 398,
-    foto: parDeCasticais,
-    alt: 'Par de castiçais clássicos de porcelana branca, com base larga e boca levemente aberta',
+    // foto: falta a foto — a foto anterior era do Castiçal Clássico.
+    alt: 'Par de castiçais de porcelana branca',
+  },
+  {
+    slug: 'castical-classico',
+    nome: 'Castiçal Clássico',
+    chamada: 'Com desenho clássico e acabamento branco brilhante, este par de castiçais traz elegância e delicadeza à decoração.',
+    resumo: '2 peças · 15,5 cm de altura',
+    descricao: [
+      'Seu formato com detalhes arredondados e base trabalhada cria uma presença especial, seja sobre a mesa de jantar, o aparador ou em uma composição decorativa.',
+      'Perfeito para acomodar velas e criar uma atmosfera acolhedora em ocasiões especiais ou no dia a dia. Também é uma bela opção para presentear.',
+    ],
+    material: 'Porcelana',
+    composicao: '2 peças',
+    medidas: [
+      {
+        titulo: 'Cada peça',
+        itens: [
+          ['Altura', '15,5 cm'],
+          ['Diâmetro da base', '8 cm'],
+        ],
+      },
+    ],
+    aPartirDe: 768,
+    foto: casticalClassico,
+    alt: 'Par de castiçais clássicos de porcelana branca, com detalhes arredondados e base larga',
   },
   {
     slug: 'potes-multiuso-mel',
