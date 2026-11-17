@@ -156,17 +156,12 @@ const formatos = [
     position: relative;
     overflow: hidden;
   }
-  .of-hero {
-    min-height: clamp(420px, 44vw, 600px);
-    display: grid;
-    align-items: center;
-  }
   .of-hero :global(.of-pinceis) {
     position: absolute;
-    top: 4%;
+    top: 0;
     right: 0;
-    bottom: 4%;
-    width: min(58vw, 900px);
+    bottom: 0;
+    width: min(56vw, 960px);
     z-index: 0;
     animation: pinceis-in 1.6s var(--ease) both;
   }
@@ -183,8 +178,8 @@ const formatos = [
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     align-items: center;
     gap: 2rem 3rem;
-    padding-top: clamp(3.5rem, 8vw, 7rem);
-    padding-bottom: clamp(3rem, 6vw, 5rem);
+    padding-top: clamp(2.5rem, 5vw, 4.5rem);
+    padding-bottom: clamp(2rem, 3.5vw, 3rem);
   }
   .of-head-txt {
     display: grid;
@@ -193,11 +188,11 @@ const formatos = [
   @media (max-width: 800px) {
     .of-head {
       grid-template-columns: 1fr;
-      padding-bottom: 15rem;
+      padding-bottom: 10.5rem;
     }
     .of-hero :global(.of-pinceis) {
       top: auto;
-      height: 15rem;
+      height: 10rem;
       width: 100vw;
     }
   }
