@@ -29,7 +29,7 @@ const frentes = [
   {
     id: 'encomendas',
     rotulo: 'Encomendas',
-    titulo: 'Uma peça só sua.',
+    titulo: 'Feita para você.',
     texto: 'Peças pintadas à mão a partir da sua ideia, da sua história e das cores da sua casa.',
     href: '/encomendas/',
     acao: 'Fazer uma encomenda',
@@ -162,6 +162,37 @@ const artista = site.artista;
     </div>
   </section>
 
+  <!-- ENCOMENDAS -->
+  <section class="encomenda" aria-labelledby="encomenda-titulo">
+    <div class="encomenda-media frame">
+      <Image
+        src={foto('cuba-baloes', 1)}
+        alt="Cuba de lavabo pintada sob medida, com faixas de padrões e balões coloridos"
+        widths={[720, 960, 1280, 1600]}
+        sizes="(max-width: 900px) 100vw, 50vw"
+      />
+      <span class="hero-cap">Cuba Balões — projeto sob medida</span>
+    </div>
+    <div class="encomenda-text">
+      <p class="eyebrow status" data-reveal>Encomendas abertas</p>
+      <h2 id="encomenda-titulo" class="h2" data-reveal>Uma peça só sua.</h2>
+      <p class="body-lg" data-reveal>
+        Do aparelho de jantar à cuba do lavabo, do presente de casamento ao prato de Shabat da família: a peça é
+        desenhada a partir da sua ideia e pintada exclusivamente para você.
+      </p>
+      <ol class="passos" data-reveal>
+        <li><span>01</span> Conversa</li>
+        <li><span>02</span> Desenho</li>
+        <li><span>03</span> Pintura</li>
+        <li><span>04</span> Entrega</li>
+      </ol>
+      <div class="encomenda-cta" data-reveal>
+        <a class="btn" href={u('/encomendas/')}>Começar uma encomenda</a>
+        <a class="link" href={u('/encomendas/#personalizar')}>Peças para personalizar <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
   <!-- DESTAQUES -->
   <section class="section destaques" aria-labelledby="destaques-titulo">
     <div class="wrap">
@@ -256,36 +287,6 @@ const artista = site.artista;
     </div>
   </section>
 
-  <!-- ENCOMENDAS -->
-  <section class="encomenda" aria-labelledby="encomenda-titulo">
-    <div class="encomenda-media frame">
-      <Image
-        src={foto('cuba-baloes', 1)}
-        alt="Cuba de lavabo pintada sob medida, com faixas de padrões e balões coloridos"
-        widths={[720, 960, 1280, 1600]}
-        sizes="(max-width: 900px) 100vw, 50vw"
-      />
-      <span class="hero-cap">Cuba Balões — projeto sob medida</span>
-    </div>
-    <div class="encomenda-text">
-      <p class="eyebrow status" data-reveal>Encomendas abertas</p>
-      <h2 id="encomenda-titulo" class="h2" data-reveal>Uma peça só sua.</h2>
-      <p class="body-lg" data-reveal>
-        Do aparelho de jantar à cuba do lavabo, do presente de casamento ao prato de Shabat da família: a peça é
-        desenhada a partir da sua ideia e pintada exclusivamente para você.
-      </p>
-      <ol class="passos" data-reveal>
-        <li><span>01</span> Conversa</li>
-        <li><span>02</span> Desenho</li>
-        <li><span>03</span> Pintura</li>
-        <li><span>04</span> Entrega</li>
-      </ol>
-      <div class="encomenda-cta" data-reveal>
-        <a class="btn" href={u('/encomendas/')}>Começar uma encomenda</a>
-        <a class="link" href={u('/encomendas/#personalizar')}>Peças para personalizar <span class="arrow">→</span></a>
-      </div>
-    </div>
-  </section>
 </Base>
 
 <style>
