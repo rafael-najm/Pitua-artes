@@ -1,0 +1,129 @@
+---
+/**
+ * Pincéis decorativos que entram pela lateral direita da página, como se estivessem
+ * num pote fora do quadro. Só as pontas aparecem; os cabos são cortados pela borda.
+ */
+interface Props {
+  class?: string;
+}
+const { class: classe } = Astro.props;
+
+// Ponto (fora da tela, à direita) de onde os pincéis saem em leque — o "pote".
+const P = { x: 1000, y: 300 };
+
+type Tipo = 'redondo' | 'chato' | 'lingua';
+interface Pincel {
+  x: number; // ponta
+  y: number;
+  w: number; // largura das cerdas
+  tipo: Tipo;
+  cabo: string;
+  metal: 'prata' | 'ouro';
+  cerdas: string;
+  tinta?: string;
+}
+
+// ângulo (graus, para cima é positivo), distância da ponta até o pote, largura, tipo, cores
+const leque: [number, number, number, Tipo, string, 'prata' | 'ouro', string, string?][] = [
+  [31, 430, 15, 'redondo', '#159daa', 'prata', '#b98a5c', '#78b82a'],
+  [20, 545, 22, 'chato', '#d9473b', 'prata', '#c49466'],
+  [9.5, 500, 12, 'redondo', '#2a2a2e', 'ouro', '#a87850'],
+  [-1, 600, 27, 'chato', '#cfa06a', 'prata', '#f4efe6', '#159daa'],
+  [-12, 485, 16, 'redondo', '#174b83', 'prata', '#b98a5c', '#e0679a'],
+  [-22.5, 560, 21, 'lingua', '#ef8a3c', 'prata', '#f1ebe1'],
+  [-33, 445, 14, 'redondo', '#e58aa8', 'ouro', '#c49466', '#f2c14e'],
+];
+const pinceis: Pincel[] = leque.map(([a, r, w, tipo, cabo, metal, cerdas, tinta]) => {
+  const rad = (a * Math.PI) / 180;
+  return { x: P.x - r * Math.cos(rad), y: P.y - r * Math.sin(rad), w, tipo, cabo, metal, cerdas, tinta };
+});
+
+const graus = (p: Pincel) => (Math.atan2(P.y - p.y, P.x - p.x) * 180) / Math.PI;
+
+function formas(p: Pincel) {
+  const w = p.w;
+  const h = w / 2;
+  const bl = p.tipo === 'redondo' ? w * 3.7 : p.tipo === 'chato' ? w * 1.9 : w * 2.5; // comprimento das cerdas
+  const fl = w * 2.6; // virola
+  const L = 1100; // cabo longo: sai da tela
+  const hw = h * 1.18; // meia-largura do cabo
+  let cerdas: string;
+  if (p.tipo === 'redondo') {
+    cerdas = `M0 0 C${bl * 0.28} ${-h * 0.55} ${bl * 0.62} ${-h * 1.02} ${bl} ${-h} L${bl} ${h} C${bl * 0.62} ${h * 1.02} ${bl * 0.28} ${h * 0.55} 0 0 Z`;
+  } else if (p.tipo === 'chato') {
+    cerdas = `M${w * 0.06} ${-h * 0.92} L${bl} ${-h} L${bl} ${h} L${w * 0.06} ${h * 0.92} Q${-w * 0.04} 0 ${w * 0.06} ${-h * 0.92} Z`;
+  } else {
+    cerdas = `M${bl * 0.12} ${-h * 0.5} C${bl * 0.3} ${-h * 1.05} ${bl * 0.7} ${-h} ${bl} ${-h} L${bl} ${h} C${bl * 0.7} ${h} ${bl * 0.3} ${h * 1.05} ${bl * 0.12} ${h * 0.5} Q${-bl * 0.02} 0 ${bl * 0.12} ${-h * 0.5} Z`;
+  }
+  const tinta =
+    p.tinta &&
+    (p.tipo === 'redondo'
+      ? `M0 0 C${bl * 0.16} ${-h * 0.34} ${bl * 0.32} ${-h * 0.62} ${bl * 0.42} ${-h * 0.78} L${bl * 0.42} ${h * 0.78} C${bl * 0.32} ${h * 0.62} ${bl * 0.16} ${h * 0.34} 0 0 Z`
+      : `M${w * 0.06} ${-h * 0.92} L${bl * 0.38} ${-h * 0.96} L${bl * 0.38} ${h * 0.96} L${w * 0.06} ${h * 0.92} Q${-w * 0.04} 0 ${w * 0.06} ${-h * 0.92} Z`);
+  const virola = `M${bl} ${-h * 1.02} L${bl + fl} ${-hw} L${bl + fl} ${hw} L${bl} ${h * 1.02} Z`;
+  const frisos = [0.22, 0.36].map((t) => `M${bl + fl * t} ${-h * 1.08} L${bl + fl * t} ${h * 1.08}`).join(' ');
+  const cabo = `M${bl + fl} ${-hw} C${bl + fl + 40} ${-hw * 1.12} ${bl + fl + 160} ${-hw * 1.2} ${L} ${-hw * 1.2} L${L} ${hw * 1.2} C${bl + fl + 160} ${hw * 1.2} ${bl + fl + 40} ${hw * 1.12} ${bl + fl} ${hw} Z`;
+  return { cerdas, tinta, virola, frisos, cabo };
+}
+---
+
+<div class:list={['pinceis', classe]} aria-hidden="true">
+  <svg viewBox="0 0 800 600" preserveAspectRatio="xMaxYMid meet" focusable="false">
+    <defs>
+      <!-- sombreado cilíndrico (transversal ao pincel) -->
+      <linearGradient id="pf-cilindro" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#000" stop-opacity=".28"></stop>
+        <stop offset=".28" stop-color="#fff" stop-opacity=".38"></stop>
+        <stop offset=".46" stop-color="#fff" stop-opacity="0"></stop>
+        <stop offset="1" stop-color="#000" stop-opacity=".32"></stop>
+      </linearGradient>
+      <linearGradient id="pf-prata" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8d9196"></stop>
+        <stop offset=".3" stop-color="#f4f5f6"></stop>
+        <stop offset=".55" stop-color="#c3c7cb"></stop>
+        <stop offset="1" stop-color="#7c8085"></stop>
+      </linearGradient>
+      <linearGradient id="pf-ouro" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8f6a2c"></stop>
+        <stop offset=".3" stop-color="#f3dc9c"></stop>
+        <stop offset=".55" stop-color="#c9a04f"></stop>
+        <stop offset="1" stop-color="#7d5b23"></stop>
+      </linearGradient>
+      <linearGradient id="pf-cerdas" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#000" stop-opacity=".22"></stop>
+        <stop offset=".35" stop-color="#fff" stop-opacity=".18"></stop>
+        <stop offset="1" stop-color="#000" stop-opacity=".26"></stop>
+      </linearGradient>
+      <filter id="pf-sombra" x="-10%" y="-30%" width="120%" height="160%">
+        <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#263746" flood-opacity=".16"></feDropShadow>
+      </filter>
+    </defs>
+    {
+      pinceis.map((p) => {
+        const f = formas(p);
+        return (
+          <g transform={`translate(${p.x} ${p.y}) rotate(${graus(p)})`} filter="url(#pf-sombra)">
+            <path d={f.cabo} fill={p.cabo} />
+            <path d={f.cabo} fill="url(#pf-cilindro)" />
+            <path d={f.virola} fill={`url(#pf-${p.metal})`} />
+            <path d={f.frisos} stroke="rgba(0,0,0,.28)" stroke-width="1" fill="none" />
+            <path d={f.cerdas} fill={p.cerdas} />
+            <path d={f.cerdas} fill="url(#pf-cerdas)" />
+            {f.tinta && <path d={f.tinta} fill={p.tinta} />}
+          </g>
+        );
+      })
+    }
+  </svg>
+</div>
+
+<style>
+  .pinceis {
+    pointer-events: none;
+  }
+  .pinceis svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+</style>

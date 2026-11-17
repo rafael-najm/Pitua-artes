@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import { linkWhatsapp } from '../data/site';
 import { foto } from '../lib/fotos';
 import { u } from '../lib/url';
-import IlustracaoAtelie from '../components/IlustracaoAtelie.astro';
+import PinceisFundo from '../components/PinceisFundo.astro';
 
 const formatos = [
   {
@@ -75,7 +75,9 @@ const formatos = [
   descricao="Aulas de pintura em porcelana, oficinas de porcelana com projeto definido, oficina criativa com um projeto novo a cada semana e oficinas temáticas, com a Pituá."
   imagem={foto('copos-pintados', 1)}
 >
-  <section class="of-head wrap">
+  <section class="of-hero">
+    <PinceisFundo class="of-pinceis" />
+    <div class="of-head wrap">
     <div class="of-head-txt">
       <p class="eyebrow" data-reveal>Oficinas</p>
       <h1 class="display" data-reveal style="--delay:.06s">Pegue no <em>pincel.</em></h1>
@@ -83,8 +85,6 @@ const formatos = [
         Aulas regulares, workshops e encontros criativos — com a orientação da artista, cor e boa companhia.
       </p>
     </div>
-    <div class="of-head-ilu" data-reveal style="--delay:.18s">
-      <IlustracaoAtelie />
     </div>
   </section>
 
@@ -152,7 +152,33 @@ const formatos = [
 </Base>
 
 <style>
+  .of-hero {
+    position: relative;
+    overflow: hidden;
+  }
+  .of-hero {
+    min-height: clamp(420px, 44vw, 600px);
+    display: grid;
+    align-items: center;
+  }
+  .of-hero :global(.of-pinceis) {
+    position: absolute;
+    top: 4%;
+    right: 0;
+    bottom: 4%;
+    width: min(58vw, 900px);
+    z-index: 0;
+    animation: pinceis-in 1.6s var(--ease) both;
+  }
+  @keyframes pinceis-in {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+  }
   .of-head {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     align-items: center;
@@ -164,18 +190,15 @@ const formatos = [
     display: grid;
     gap: 1.25rem;
   }
-  .of-head-ilu {
-    max-width: 500px;
-    width: 100%;
-    justify-self: end;
-  }
   @media (max-width: 800px) {
     .of-head {
       grid-template-columns: 1fr;
+      padding-bottom: 15rem;
     }
-    .of-head-ilu {
-      max-width: 340px;
-      justify-self: center;
+    .of-hero :global(.of-pinceis) {
+      top: auto;
+      height: 15rem;
+      width: 100vw;
     }
   }
   .of-head em {
