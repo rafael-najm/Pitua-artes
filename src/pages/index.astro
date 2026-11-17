@@ -85,16 +85,16 @@ const artista = site.artista;
         <a class="link" href={u('/encomendas/')}>Encomendar uma peça <span class="arrow">→</span></a>
       </div>
     </div>
-    <a class="hero-media frame" href={u('/acervo/potiches-orquideas/')}>
+    <a class="hero-media frame" href={u('/acervo/jardineira-mata-atlantica/')}>
       <Image
-        src={foto('potiches-orquideas', 2)}
-        alt="Detalhe de uma orquídea rosa pintada à mão sobre porcelana branca em relevo"
+        src={editorial('hero-tucano')}
+        alt="Detalhe de um tucano pintado à mão em porcelana, pousado num galho entre folhagens e uma borboleta"
         widths={[720, 960, 1280, 1600, 2000]}
         sizes="(max-width: 900px) 100vw, 58vw"
         loading="eager"
         fetchpriority="high"
       />
-      <span class="hero-cap">Potiches Orquídeas — detalhe</span>
+      <span class="hero-cap">Jardineira Mata Atlântica — detalhe</span>
     </a>
   </section>
 
@@ -345,6 +345,7 @@ const artista = site.artista;
   .hero-media :global(img) {
     position: absolute;
     inset: 0;
+    object-position: 62% 50%;
     animation: hero-zoom 2.4s var(--ease) both;
   }
   @keyframes hero-zoom {
