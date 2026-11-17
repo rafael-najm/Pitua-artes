@@ -191,7 +191,7 @@ const todas: PecaPersonalizavel[] = [
     medidas: [{ itens: [['Capacidade', '70 ou 90 ml']] }],
     aPartirDe: 138,
     foto: copinho,
-    alt: 'Copinho de porcelana branca usado como castiçal, com vela acesa',
+    alt: 'Copinho cilíndrico de porcelana branca',
   },
   {
     slug: 'par-de-casticais',
