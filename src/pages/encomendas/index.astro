@@ -41,10 +41,13 @@ const passos = [
   { t: 'Entrega', d: 'A peça é embalada com cuidado e entregue no prazo combinado.' },
 ];
 
-const faq = [
+const menorPreco = formatarPreco(Math.min(...personalizaveis.map((p) => p.aPartirDe)));
+
+const faq: { q: string; a: string; link?: { href: string; texto: string } }[] = [
   {
     q: 'Quanto custa uma encomenda?',
-    a: 'Cada peça é única e orçada individualmente, de acordo com o tamanho, a complexidade do desenho e os acabamentos.',
+    a: `Cada peça é única e orçada individualmente, de acordo com o tamanho, a complexidade do desenho e os acabamentos. Para ter uma referência, nesta página há peças para personalizar com valores a partir de ${menorPreco}.`,
+    link: { href: '#personalizar', texto: 'Ver as peças para personalizar' },
   },
   {
     q: 'Qual é o prazo?',
@@ -221,6 +224,15 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
             <summary>{f.q}</summary>
             <div class="acc-body">
               <p>{f.a}</p>
+              {
+                f.link && (
+                  <p>
+                    <a class="link" href={f.link.href}>
+                      {f.link.texto} <span class="arrow">→</span>
+                    </a>
+                  </p>
+                )
+              }
             </div>
           </details>
         ))
