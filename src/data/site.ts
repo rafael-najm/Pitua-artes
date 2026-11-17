@@ -18,15 +18,15 @@ export const site = {
   artista: 'Nathaly',
 };
 
-/** Nome da página para a mensagem do WhatsApp ("na página de Oficinas"…). */
+/** Nome da página, para indicar a origem na mensagem do WhatsApp. */
 export function paginaDe(caminho: string): string {
   const c = caminho.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '');
-  if (c.startsWith('/oficinas')) return 'na página de Oficinas';
-  if (c.startsWith('/encomendas/') && c.length > '/encomendas/'.length) return 'numa peça para personalizar';
-  if (c.startsWith('/encomendas')) return 'na página de Encomendas';
-  if (c.startsWith('/acervo/') && c.length > '/acervo/'.length) return 'numa peça do acervo';
-  if (c.startsWith('/acervo')) return 'no Acervo';
-  return 'na página inicial';
+  if (c.startsWith('/oficinas')) return 'Oficinas';
+  if (c.startsWith('/encomendas/') && c.length > '/encomendas/'.length) return 'Peça para personalizar';
+  if (c.startsWith('/encomendas')) return 'Encomendas';
+  if (c.startsWith('/acervo/') && c.length > '/acervo/'.length) return 'Peça do acervo';
+  if (c.startsWith('/acervo')) return 'Acervo';
+  return 'Página inicial';
 }
 
 /** Link do WhatsApp com mensagem pronta. */

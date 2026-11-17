@@ -515,7 +515,7 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
     const v = (k: string) => String(d.get(k) ?? '').trim();
     const peca = pecas.find((p) => p.slug === v('peca'));
     const linhas = [
-      `Olá! Meu nome é ${v('nome')}, vim pelo site da Pituá (formulário de encomendas) e gostaria de fazer uma encomenda.`,
+      `Olá! Meu nome é ${v('nome')} e gostaria de fazer uma encomenda. (Formulário de encomendas)`,
       peca?.grupo === 'personalizar' && `• Peça: ${peca.nome} (a partir de ${peca.preco})`,
       peca?.grupo === 'acervo' && `• Inspirada em: ${peca.nome}`,
       v('ideia') && `\n${v('ideia')}`,

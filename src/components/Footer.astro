@@ -24,7 +24,7 @@ const ano = new Date().getFullYear();
 
       <div class="ftr-col">
         <p class="eyebrow">Contato</p>
-        <a href={linkWhatsapp(`Olá! Vim pelo site da Pituá (rodapé, ${paginaDe(Astro.url.pathname)}) e gostaria de conversar.`)} target="_blank" rel="noopener">WhatsApp</a>
+        <a href={linkWhatsapp(`Olá! Gostaria de conversar. (Rodapé · ${paginaDe(Astro.url.pathname)})`)} target="_blank" rel="noopener">WhatsApp</a>
         {
           site.instagram && (
             <a href={`https://instagram.com/${site.instagram}`} target="_blank" rel="noopener">
