@@ -10,9 +10,9 @@ interface Props {
 const { atual = '' } = Astro.props;
 
 const nav = [
-  { href: '/acervo/', label: 'Acervo' },
   { href: '/oficinas/', label: 'Oficinas' },
   { href: '/encomendas/', label: 'Encomendas' },
+  { href: '/acervo/', label: 'Acervo' },
 ];
 const ativo = (href: string) => atual.startsWith(href);
 ---
