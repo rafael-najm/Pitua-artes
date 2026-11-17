@@ -187,16 +187,6 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
         <input id="f-nome" name="nome" autocomplete="name" required />
       </div>
       <div class="field">
-        <label for="f-tipo">Tipo de peça</label>
-        <select id="f-tipo" name="tipo">
-          <option value="">Ainda não sei</option>
-          <option>Mesa posta</option>
-          <option>Judaica</option>
-          <option>Decoração</option>
-          <option>Projeto especial</option>
-        </select>
-      </div>
-      <div class="field">
         <label for="f-peca">Peça escolhida <span class="opt">(opcional)</span></label>
         <select id="f-peca" name="peca">
           <option value="">Ainda não escolhi</option>
@@ -207,10 +197,6 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
             {opcoesAcervo.map((p) => <option value={p.slug}>{p.nome}</option>)}
           </optgroup>
         </select>
-      </div>
-      <div class="field">
-        <label for="f-ocasiao">Ocasião <span class="opt">(opcional)</span></label>
-        <input id="f-ocasiao" name="ocasiao" placeholder="Casamento, aniversário, casa nova…" />
       </div>
       <div class="field field--full">
         <label for="f-ideia">Sua ideia</label>
@@ -502,10 +488,8 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
     const peca = pecas.find((p) => p.slug === v('peca'));
     const linhas = [
       `Olá! Meu nome é ${v('nome')} e gostaria de fazer uma encomenda.`,
-      v('tipo') && `• Tipo de peça: ${v('tipo')}`,
       peca?.grupo === 'personalizar' && `• Peça: ${peca.nome} (a partir de ${peca.preco})`,
       peca?.grupo === 'acervo' && `• Inspirada em: ${peca.nome}`,
-      v('ocasiao') && `• Ocasião: ${v('ocasiao')}`,
       v('prazo') && `• Para quando: ${v('prazo')}`,
       v('ideia') && `\n${v('ideia')}`,
     ].filter(Boolean);
