@@ -13,6 +13,7 @@ import moringaLisa from '../assets/personalizar/moringa-lisa.webp';
 import vela from '../assets/personalizar/vela-copo-porcelana.webp';
 import chanukia from '../assets/personalizar/chanukia.webp';
 import copinhosShabat from '../assets/personalizar/copinhos-shabat.webp';
+import potesBolinha from '../assets/personalizar/potes-multiuso-bolinha.webp';
 
 export interface Medidas {
   /** Ex.: "Moringa", "Copo". Vazio quando há um só bloco. */
@@ -237,8 +238,8 @@ const todas: PecaPersonalizavel[] = [
       },
     ],
     aPartirDe: 848,
-    // foto: falta a foto
-    alt: 'Conjunto de três potes multiuso de porcelana branca com tampa, modelo Bolinha',
+    foto: potesBolinha,
+    alt: 'Três potes de porcelana branca de tamanhos diferentes, com tampas de pegador em bolinha',
   },
   {
     slug: 'prato-grande-quadrado',
