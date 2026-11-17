@@ -16,6 +16,7 @@ import copinhosShabat from '../assets/personalizar/copinhos-shabat.webp';
 import potesBolinha from '../assets/personalizar/potes-multiuso-bolinha.webp';
 import potesMel from '../assets/personalizar/potes-multiuso-mel.webp';
 import casticalClassico from '../assets/personalizar/castical-classico.webp';
+import parDeCasticais from '../assets/personalizar/par-de-casticais.webp';
 import pratoOval from '../assets/personalizar/prato-grande-oval.webp';
 import pratoQuadrado from '../assets/personalizar/prato-grande-quadrado.webp';
 import portaJoias from '../assets/personalizar/porta-joias-do-dia.webp';
@@ -214,8 +215,8 @@ const todas: PecaPersonalizavel[] = [
       },
     ],
     aPartirDe: 398,
-    // foto: falta a foto — a foto anterior era do Castiçal Clássico.
-    alt: 'Par de castiçais de porcelana branca',
+    foto: parDeCasticais,
+    alt: 'Par de castiçais de porcelana branca em formato de coluna, com anéis e bordas abertas',
   },
   {
     slug: 'castical-classico',
