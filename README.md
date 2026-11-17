@@ -11,7 +11,8 @@ Feito com [Astro](https://astro.build) — gera um site estático, rápido e lev
 | Início | `/` | Abertura, "O que acontece por aqui", destaques, vídeos de uso, a história do Prato de Shabat, a artista e chamada para encomendas |
 | Acervo | `/acervo/` | Todas as peças, com filtro por categoria |
 | Peça | `/acervo/<nome-da-peca>/` | Galeria com zoom, descrição, botão "Consultar disponibilidade" (WhatsApp) e "Encomendar uma peça inspirada" |
-| Encomendas | `/encomendas/` | O que dá para encomendar, como funciona, formulário que abre o WhatsApp com a mensagem pronta e perguntas frequentes |
+| Encomendas | `/encomendas/` | Peças para personalizar (com preço "a partir de"), projetos sob medida, como funciona, formulário que abre o WhatsApp com a mensagem pronta e perguntas frequentes |
+| Peça para personalizar | `/encomendas/<nome-da-peca>/` | Foto, preço a partir de, medidas, descrição e botão de encomenda pelo WhatsApp |
 | Oficinas | `/oficinas/` | Oficinas criativas e oficinas especiais |
 
 ## ✏️ Antes de publicar: preencha os contatos
@@ -48,6 +49,12 @@ Instagram e e-mail só aparecem quando preenchidos.
   video: 'nome-do-video',       // opcional: arquivo em public/video/nome-do-video.mp4 (+ .jpg de capa)
 },
 ```
+
+## Peças para personalizar (encomendas)
+
+Ficam em `src/data/personalizar.ts`, com fotos em `src/assets/personalizar/`.
+Cada item tem nome, frase de abertura, descrição, material, medidas e o valor `aPartirDe` (em reais).
+Uma peça sem `foto` fica escondida do site até a foto ser adicionada (é o caso do Par de Castiçais).
 
 ## Rodar no computador
 

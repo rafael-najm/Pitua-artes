@@ -1,0 +1,200 @@
+/**
+ * PEÇAS PARA PERSONALIZAR
+ * -----------------------
+ * Peças em porcelana branca que recebem pintura personalizada sob encomenda.
+ * Aparecem na página de Encomendas e cada uma ganha a sua página em /encomendas/<slug>/.
+ *
+ * Para adicionar uma peça: coloque a foto em `src/assets/personalizar/` e acrescente um item na lista.
+ * Peças sem `foto` ficam escondidas do site até a foto ser adicionada.
+ */
+import type { ImageMetadata } from 'astro';
+import moringaFaixa from '../assets/personalizar/moringa-faixa.webp';
+import moringaLisa from '../assets/personalizar/moringa-lisa.webp';
+import vela from '../assets/personalizar/vela-copo-porcelana.webp';
+import chanukia from '../assets/personalizar/chanukia.webp';
+import copinhosShabat from '../assets/personalizar/copinhos-shabat.webp';
+
+export interface Medidas {
+  /** Ex.: "Moringa", "Copo". Vazio quando há um só bloco. */
+  titulo?: string;
+  itens: [rotulo: string, valor: string][];
+}
+
+export interface PecaPersonalizavel {
+  slug: string;
+  nome: string;
+  /** Frase de abertura, aparece abaixo do nome. */
+  chamada: string;
+  /** Linha curta para o card (capacidade, tamanho…). */
+  resumo: string;
+  descricao: string[];
+  material: string;
+  composicao?: string;
+  medidas: Medidas[];
+  /** Valor em reais (sem centavos). */
+  aPartirDe: number;
+  foto?: ImageMetadata;
+  alt: string;
+}
+
+const todas: PecaPersonalizavel[] = [
+  {
+    slug: 'moringa-faixa',
+    nome: 'Moringa Faixa com Copo',
+    chamada: 'Um clássico que ganha personalidade e exclusividade.',
+    resumo: '1,1 litro · 21 cm de altura',
+    descricao: [
+      'A moringa com copo é uma peça que une beleza, funcionalidade e delicadeza. Ideal para manter água sempre à mão na mesa de cabeceira, no escritório ou em um cantinho especial da casa.',
+      'Confeccionada em porcelana branca, recebe pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência. Flores, desenhos, monogramas, ilustrações ou uma composição exclusiva: você escolhe a arte e nós transformamos a peça em algo único.',
+    ],
+    material: 'Porcelana',
+    medidas: [
+      {
+        titulo: 'Moringa',
+        itens: [
+          ['Altura', '21 cm'],
+          ['Diâmetro', '13 cm'],
+          ['Capacidade', '1.100 ml'],
+        ],
+      },
+      {
+        titulo: 'Copo',
+        itens: [
+          ['Altura', '7,5 cm'],
+          ['Diâmetro', '7 cm'],
+          ['Capacidade', '125 ml'],
+        ],
+      },
+    ],
+    aPartirDe: 548,
+    foto: moringaFaixa,
+    alt: 'Moringa de porcelana branca com faixa em relevo e copo encaixado no gargalo',
+  },
+  {
+    slug: 'moringa-lisa',
+    nome: 'Moringa Lisa com Copo',
+    chamada: 'Linhas retas e design minimalista.',
+    resumo: '800 ml · 17 cm de altura',
+    descricao: [
+      'Com linhas retas e design minimalista, a moringa é ideal para manter água sempre à mão na mesa de cabeceira, no escritório ou em um cantinho especial da casa.',
+      'Confeccionada em porcelana branca, recebe pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência. Flores, desenhos, monogramas, ilustrações ou uma composição exclusiva: você escolhe a arte e nós transformamos a peça em algo único.',
+    ],
+    material: 'Porcelana',
+    medidas: [
+      {
+        titulo: 'Moringa',
+        itens: [
+          ['Altura', '17 cm'],
+          ['Diâmetro', '11,5 cm'],
+          ['Capacidade', '800 ml'],
+        ],
+      },
+      {
+        titulo: 'Copo',
+        itens: [
+          ['Altura', '6,6 cm'],
+          ['Diâmetro', '5,5 cm'],
+          ['Capacidade', '80 ml'],
+        ],
+      },
+    ],
+    aPartirDe: 448,
+    foto: moringaLisa,
+    alt: 'Moringa de porcelana branca de linhas retas, com copo cilíndrico encaixado',
+  },
+  {
+    slug: 'vela-copo-porcelana',
+    nome: 'Vela em Copo de Porcelana',
+    chamada: 'Delicadeza, perfume e arte para deixar qualquer ambiente mais acolhedor.',
+    resumo: 'Vela perfumada · 160 ml',
+    descricao: [
+      'Nossa vela perfumada é apresentada em um copo de porcelana branca, que recebe pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência. Flores, desenhos, monogramas ou ilustrações exclusivas transformam a peça em um objeto único.',
+      'Além de perfumar o ambiente, é uma peça decorativa que pode continuar sendo apreciada mesmo depois que a vela terminar.',
+      'Uma opção especial para presentear, surpreender e demonstrar carinho em ocasiões especiais. Afinal, presentes personalizados carregam um significado a mais.',
+    ],
+    material: 'Porcelana (recipiente)',
+    medidas: [
+      {
+        itens: [
+          ['Altura', '8 cm'],
+          ['Diâmetro', '6,8 cm'],
+          ['Capacidade da vela', '160 ml'],
+        ],
+      },
+    ],
+    aPartirDe: 188,
+    foto: vela,
+    alt: 'Vela perfumada em copo de porcelana branca',
+  },
+  {
+    slug: 'chanukia',
+    nome: 'Chanukiá',
+    chamada: 'Uma maneira especial de celebrar Chanucá, unindo tradição, arte e personalidade.',
+    resumo: '8 copinhos + shamash',
+    descricao: [
+      'Composta por 8 copinhos de porcelana e um copinho mais alto para o shamash (vela auxiliar), nossa chanukiá tem uma proposta contemporânea e versátil. As peças recebem pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência.',
+      'Um detalhe especial: os copinhos podem ser usados separadamente ao longo do ano, como pequenos castiçais decorativos, prolongando a beleza e a utilidade da peça para além da celebração.',
+    ],
+    material: 'Porcelana',
+    composicao: '8 copinhos para as velas + 1 copinho mais alto para o shamash',
+    medidas: [
+      {
+        itens: [['Capacidade', 'Copinhos de 70 ml e 90 ml']],
+      },
+    ],
+    aPartirDe: 699,
+    foto: chanukia,
+    alt: 'Chanukiá com oito copinhos de porcelana branca e um copinho mais alto para o shamash, com velas acesas',
+  },
+  {
+    slug: 'copinhos-shabat',
+    nome: 'Par de Copinhos — Castiçais de Shabat',
+    chamada: 'Delicadeza nos detalhes para criar uma atmosfera especial.',
+    resumo: '2 copinhos · 70 ou 90 ml',
+    descricao: [
+      'O par é composto por dois copinhos de porcelana branca, ideais para acomodar velas e trazer um toque de charme à decoração. Também podem ser usados para as velas de Shabat.',
+      'Versáteis e delicados, ficam lindos em mesas de jantar, aparadores ou em composições decorativas pela casa.',
+      'Cada peça recebe pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência, tornando o conjunto exclusivo.',
+    ],
+    material: 'Porcelana',
+    composicao: '2 copinhos',
+    medidas: [
+      {
+        itens: [['Capacidade', '70 ou 90 ml cada']],
+      },
+    ],
+    aPartirDe: 299,
+    foto: copinhosShabat,
+    alt: 'Par de copinhos de porcelana branca com velas acesas',
+  },
+  {
+    slug: 'par-de-casticais',
+    nome: 'Par de Castiçais',
+    chamada: 'Elegância e delicadeza para iluminar momentos especiais.',
+    resumo: '2 castiçais · 9,5 cm de altura',
+    descricao: [
+      'Com design clássico e acabamento em porcelana branca, este par de castiçais é perfeito para compor mesas de jantar, aparadores e cantinhos especiais da casa. Também pode ser usado para as velas de Shabat, trazendo beleza e personalidade à celebração.',
+      'Cada peça recebe pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência, tornando o conjunto exclusivo.',
+    ],
+    material: 'Porcelana',
+    composicao: '2 castiçais',
+    medidas: [
+      {
+        titulo: 'Cada peça',
+        itens: [
+          ['Altura', '9,5 cm'],
+          ['Diâmetro da base', '7 cm'],
+        ],
+      },
+    ],
+    aPartirDe: 398,
+    // foto: falta a foto — a peça aparece no site assim que ela for adicionada.
+    alt: 'Par de castiçais de porcelana branca',
+  },
+];
+
+/** Só as peças com foto aparecem no site. */
+export const personalizaveis = todas.filter((p): p is PecaPersonalizavel & { foto: ImageMetadata } => !!p.foto);
+
+export const formatarPreco = (valor: number) =>
+  new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(valor);

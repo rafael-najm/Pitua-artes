@@ -300,8 +300,9 @@ const artista = site.artista;
         <li><span>03</span> Pintura</li>
         <li><span>04</span> Entrega</li>
       </ol>
-      <div data-reveal>
+      <div class="encomenda-cta" data-reveal>
         <a class="btn" href={u('/encomendas/')}>Começar uma encomenda</a>
+        <a class="link" href={u('/encomendas/#personalizar')}>Peças para personalizar <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -656,6 +657,12 @@ const artista = site.artista;
   }
   .encomenda-text .body-lg {
     max-width: 32em;
+  }
+  .encomenda-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem 2rem;
   }
   .passos {
     list-style: none;
