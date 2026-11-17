@@ -1,6 +1,6 @@
-# Pitua · Arte em porcelana
+# Pituá · Arte sob encomenda
 
-Site-portfólio da Pitua: acervo de peças pintadas à mão, encomendas personalizadas e oficinas criativas.
+Site-portfólio da Pituá: acervo de peças pintadas à mão, encomendas personalizadas e oficinas criativas.
 
 Feito com [Astro](https://astro.build) — gera um site estático, rápido e leve, com as fotos otimizadas automaticamente (WebP em vários tamanhos).
 

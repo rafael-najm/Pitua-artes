@@ -14,11 +14,14 @@
   --muted: #736c62;
   --line: rgb(27 25 22 / 0.12);
   --line-strong: rgb(27 25 22 / 0.28);
-  --night: #171513;
-  --night-2: #24211d;
-  --on-night: #f2eee7;
-  --on-night-muted: #a9a196;
+  --night: #1f2d3b;
+  --night-2: #2a3a4a;
+  --on-night: #f3efe8;
+  --on-night-muted: #aab4bf;
   --gold: #a8854a;
+  /* Cor da marca: títulos, botões e links de ação. */
+  --brand: #263746;
+  --heading: var(--brand);
   --open: #4f8a5b;
 
   --serif: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
@@ -93,6 +96,7 @@ h3,
 h4 {
   font-family: var(--serif);
   font-weight: 350;
+  color: var(--heading);
   line-height: 1.04;
   letter-spacing: -0.015em;
   margin: 0;
@@ -105,12 +109,12 @@ p {
 }
 
 ::selection {
-  background: var(--ink);
+  background: var(--brand);
   color: var(--paper);
 }
 
 :focus-visible {
-  outline: 1.5px solid var(--ink);
+  outline: 1.5px solid var(--brand);
   outline-offset: 3px;
 }
 
@@ -217,7 +221,7 @@ em,
    Buttons & links
    ———————————————————————————————————————————————— */
 .btn {
-  --btn-bg: var(--ink);
+  --btn-bg: var(--brand);
   --btn-fg: var(--paper);
   display: inline-flex;
   align-items: center;
@@ -265,6 +269,7 @@ em,
 }
 
 .link {
+  color: var(--heading);
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -284,6 +289,11 @@ em,
 }
 .link:hover .arrow {
   transform: translateX(4px);
+}
+
+/* Seções de fundo escuro: títulos e links voltam para o claro. */
+.on-dark {
+  --heading: var(--on-night);
 }
 
 /* Status "encomendas abertas" */

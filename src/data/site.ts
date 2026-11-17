@@ -3,8 +3,8 @@
  * Preencha os campos vazios — o site se ajusta sozinho.
  */
 export const site = {
-  nome: 'Pitua',
-  assinatura: 'Arte em porcelana',
+  nome: 'Pituá',
+  assinatura: 'Arte sob encomenda',
   descricao:
     'Porcelana pintada à mão. Peças únicas, encomendas personalizadas e oficinas criativas.',
 

@@ -27,12 +27,12 @@ const idx = pecas.findIndex((p) => p.slug === peca.slug);
 const anterior = pecas[(idx - 1 + pecas.length) % pecas.length];
 const proxima = pecas[(idx + 1) % pecas.length];
 
-const msgDisponibilidade = `Olá! Vi a peça "${peca.nome}" no site da Pitua e gostaria de saber sobre a disponibilidade.\n${urlPeca}`;
+const msgDisponibilidade = `Olá! Vi a peça "${peca.nome}" no site da Pituá e gostaria de saber sobre a disponibilidade.\n${urlPeca}`;
 
 const largura = (f: ImageMetadata) => (f.width > f.height * 1.15 ? 'wide' : 'tall');
 ---
 
-<Base titulo={peca.nome} descricao={`${peca.nome} — ${peca.resumo} Porcelana pintada à mão pela Pitua.`} imagem={fotos[0]}>
+<Base titulo={peca.nome} descricao={`${peca.nome} — ${peca.resumo} Porcelana pintada à mão pela Pituá.`} imagem={fotos[0]}>
   <nav class="crumbs wrap" aria-label="Você está em">
     <a href={u('/acervo/')}>Acervo</a>
     <span aria-hidden="true">/</span>

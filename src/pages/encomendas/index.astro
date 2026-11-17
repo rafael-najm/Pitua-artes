@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import { pecas } from '../../data/pecas';
 import { site, linkWhatsapp } from '../../data/site';
-import { foto } from '../../lib/fotos';
+import { foto, editorial } from '../../lib/fotos';
 import { personalizaveis, formatarPreco } from '../../data/personalizar';
 import PersonalizavelCard from '../../components/PersonalizavelCard.astro';
 
@@ -96,8 +96,8 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
     </div>
     <div class="enc-hero-media frame">
       <Image
-        src={foto('taca-de-kidush', 2)}
-        alt="Vinho sendo servido no Kos de Kidush pintado à mão"
+        src={editorial('casticais-turquesa-encomendas')}
+        alt="Par de castiçais pintados à mão em turquesa e verde-pistache, com arabescos em ouro"
         widths={[720, 960, 1280, 1600]}
         sizes="(max-width: 900px) 100vw, 50vw"
         loading="eager"
@@ -145,7 +145,7 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
     </div>
   </section>
 
-  <section class="processo" aria-labelledby="processo-titulo">
+  <section class="processo on-dark" aria-labelledby="processo-titulo">
     <div class="wrap">
       <header class="sec-head" data-reveal>
         <p class="eyebrow">Como funciona</p>
@@ -260,7 +260,7 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
   .enc-hero-media :global(img) {
     position: absolute;
     inset: 0;
-    object-position: 50% 30%;
+    object-position: 50% 50%;
   }
 
   .sec-head {
