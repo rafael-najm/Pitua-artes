@@ -280,6 +280,12 @@ const artista = site.artista;
           desenho à última pincelada. Um trabalho paciente e detalhista, que mistura as cores do Brasil, padrões do mundo
           inteiro e muitas histórias de família.
         </p>
+        <blockquote class="artista-frase">
+          <p>
+            Toda peça começa em branco. Depois vêm o desenho, o pincel e as camadas de cor — até a porcelana
+            virar <em>obra</em>.
+          </p>
+        </blockquote>
         <a class="link" href={linkWhatsapp('Olá! Vim pelo site da Pituá e queria conversar sobre uma peça.')} target="_blank" rel="noopener">
           Conversar com a artista <span class="arrow">→</span>
         </a>
@@ -614,6 +620,18 @@ const artista = site.artista;
     display: grid;
     gap: 1.4rem;
     justify-items: start;
+  }
+
+  .artista-frase {
+    margin: 0.5rem 0 0.75rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--accent);
+    font-family: var(--serif);
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    font-weight: 300;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--brand);
   }
 
   /* ENCOMENDA */
