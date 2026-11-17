@@ -80,12 +80,12 @@ export const pecas: Peca[] = [
     destaque: true,
   },
   {
-    slug: 'potiches-orquideas',
-    nome: 'Potiches Orquídeas',
+    slug: 'vasos-orquideas',
+    nome: 'Vasos Orquídeas',
     categoria: 'decoracao',
-    resumo: 'Par de potiches com orquídeas sobre relevo branco.',
+    resumo: 'Par de vasos com orquídeas sobre relevo branco.',
     descricao: [
-      'Orquídeas em rosa e amarelo sobem pelo corpo dos potiches, pintadas sobre um relevo branco de arabescos.',
+      'Orquídeas em rosa e amarelo sobem pelo corpo dos vasos, pintadas sobre um relevo branco de arabescos.',
       'Tampa e base em vermelho, com filetes em ouro, fecham o par.',
     ],
     destaque: true,
@@ -166,44 +166,54 @@ export const pecas: Peca[] = [
     ],
   },
   {
-    slug: 'bomboniere-rose',
-    nome: 'Bomboniere Rosé',
+    slug: 'sorveteira-oriental',
+    nome: 'Sorveteira Oriental',
     categoria: 'decoracao',
     resumo: 'Florais em coral e azul, alças em ouro.',
     descricao: [
-      'Uma caixa com tampa e alças em ouro, pintada em rosa-chá com arabescos e flores em coral e azul. Para doces, joias ou pequenos tesouros.',
+      'Uma sorveteira com tampa e alças em ouro, pintada em rosa-chá com arabescos e flores em coral e azul, inspirada nos padrões orientais.',
     ],
   },
   {
-    slug: 'prato-imari',
-    nome: 'Prato Imari',
+    slug: 'caixa-imari',
+    nome: 'Caixa Imari',
     categoria: 'decoracao',
     resumo: 'Ramos em coral e ouro, borda pontilhada.',
     descricao: [
-      'Prato decorativo em vermelho-coral e ouro, com motivos florais que irradiam do centro e borda trabalhada em pontilhado dourado.',
+      'Caixa decorativa em vermelho-coral e ouro, com motivos florais que irradiam do centro e borda trabalhada em pontilhado dourado.',
     ],
   },
 
   // ——— Mesa posta ———
   {
-    slug: 'consome-tropical',
-    nome: 'Consomê Tropical',
+    slug: 'petisqueira-tropical',
+    nome: 'Petisqueira Tropical',
     categoria: 'mesa',
     resumo: 'Hibiscos, aves-do-paraíso e folhagens.',
     descricao: [
-      'Conjunto de consomê com pires de alças, pintado com hibiscos em lilás, aves-do-paraíso e grandes folhas tropicais.',
-      'A xícara, em verde, fecha a composição.',
+      'Petisqueira com tigela central e base com alças, pintada com hibiscos em lilás, aves-do-paraíso e grandes folhas tropicais.',
+      'A tigela, em verde, fecha a composição.',
     ],
     destaque: true,
   },
   {
-    slug: 'aparelho-horta',
-    nome: 'Aparelho Horta',
+    slug: 'aparelho-risoto-horta',
+    nome: 'Aparelho para Risoto Horta',
     categoria: 'mesa',
     resumo: 'Uma colheita diferente em cada prato.',
     descricao: [
-      'Um aparelho de jantar em que cada prato traz a sua colheita: tomates, cogumelos, berinjelas, alcachofras e ervas, com filete vermelho e borda verde.',
+      'Um aparelho para risoto em que cada prato traz a sua colheita: alcachofras, milho, cogumelos, berinjelas, rabanetes e ervas, contornando a borda em vermelho.',
       'Mesa posta com cara de feira de domingo.',
+    ],
+  },
+  {
+    slug: 'pratos-massas-horta',
+    nome: 'Pratos para Massas Horta',
+    categoria: 'mesa',
+    resumo: 'Tomates, cogumelos e ervas na aba do prato.',
+    descricao: [
+      'Pratos fundos para massas, com tomates, cogumelos, azeitonas e ervas pintados na aba, filete vermelho e borda verde.',
+      'Cada prato com a sua composição — juntos, contam a história de uma boa macarronada.',
     ],
   },
   {
@@ -268,12 +278,12 @@ export const pecas: Peca[] = [
     ],
   },
   {
-    slug: 'consome-geometrico',
-    nome: 'Consomê Geométrico',
+    slug: 'petisqueira-geometrica',
+    nome: 'Petisqueira Geométrica',
     categoria: 'mesa',
     resumo: 'Triângulos, círculos e azul-royal.',
     descricao: [
-      'Uma leitura geométrica e moderna: triângulos em azul, verde e ouro, círculos concêntricos e pontilhados que dançam em volta da xícara.',
+      'Uma leitura geométrica e moderna: triângulos em azul, verde e ouro, círculos concêntricos e pontilhados que dançam em volta da tigela central.',
     ],
   },
   {
@@ -350,8 +360,8 @@ export const pecas: Peca[] = [
 
   // ——— Placas ———
   {
-    slug: 'diptico-tropical',
-    nome: 'Díptico Tropical',
+    slug: 'placas-emolduradas-tropicais',
+    nome: 'Placas Emolduradas Tropicais',
     categoria: 'placas',
     resumo: 'Ave-do-paraíso e helicônia, em par.',
     descricao: [

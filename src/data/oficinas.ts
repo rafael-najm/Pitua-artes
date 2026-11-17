@@ -51,10 +51,10 @@ export const formatos = [
     detalhes: ['Projeto definido', '2, 3 ou 4 aulas', 'Porcelana, vidro e outras técnicas'],
     cta: 'Quero saber dos próximos workshops',
     msg: 'Olá! Tenho interesse nos workshops. Quais são os próximos projetos? (Oficinas · Workshops)',
-    img: foto('consome-geometrico', 1),
+    img: foto('petisqueira-geometrica', 1),
     imgMob: editorial('oficina-mob-workshops'),
     ratioMob: '3 / 2',
-    alt: 'Conjunto de consomê pintado com triângulos e círculos em azul e verde',
+    alt: 'Petisqueira pintada com triângulos e círculos em azul e verde',
   },
   {
     id: 'tematicas',
