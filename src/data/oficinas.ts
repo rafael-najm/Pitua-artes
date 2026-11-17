@@ -18,6 +18,8 @@ export const formatos = [
     cta: 'Quero fazer aulas',
     msg: 'Olá! Tenho interesse nas aulas de pintura em porcelana da Pituá. Como funcionam as turmas?',
     img: editorial('oficina-aulas-travessa'),
+    imgMob: editorial('oficina-mob-aulas'),
+    ratioMob: '3 / 2',
     alt: 'Travessa retangular pintada com limões e azulejos azuis, servindo bolo de rolo',
   },
   {
@@ -33,6 +35,8 @@ export const formatos = [
     cta: 'Quero participar',
     msg: 'Olá! Tenho interesse na oficina criativa da Pituá. Como funcionam as turmas?',
     img: foto('bomboniere-arlequim', 1),
+    imgMob: editorial('oficina-mob-criativa'),
+    ratioMob: '3 / 2',
     alt: 'Bomboniere de vidro pintada à mão, com tampa amarela, pé listrado e bolinhas',
   },
   {
@@ -48,6 +52,8 @@ export const formatos = [
     cta: 'Quero saber dos próximos workshops',
     msg: 'Olá! Tenho interesse nos workshops da Pituá. Quais são os próximos projetos?',
     img: foto('consome-geometrico', 1),
+    imgMob: editorial('oficina-mob-workshops'),
+    ratioMob: '3 / 2',
     alt: 'Conjunto de consomê pintado com triângulos e círculos em azul e verde',
   },
   {
@@ -63,6 +69,8 @@ export const formatos = [
     cta: 'Planejar uma oficina temática',
     msg: 'Olá! Gostaria de planejar uma oficina temática com a Pituá.',
     img: editorial('oficina-tematica-prato'),
+    imgMob: editorial('oficina-mob-tematicas'),
+    ratioMob: '1 / 1',
     alt: 'Prato fundo pintado com tomates e folhas, sobre jogo americano de palha',
   },
 ];

@@ -64,8 +64,9 @@ import PinceisFundo from '../components/PinceisFundo.astro';
   {
     formatos.map((f, i) => (
       <section id={f.id} class:list={['formato wrap', { 'formato--rev': i % 2 }]} aria-labelledby={`${f.id}-t`}>
-        <div class="formato-media frame" data-reveal>
-          <Image src={f.img} alt={f.alt} widths={[480, 720, 960, 1280]} sizes="(max-width: 900px) 100vw, 45vw" />
+        <div class="formato-media frame" data-reveal style={`--ratio-mob:${f.ratioMob}`}>
+          <Image src={f.img} alt={f.alt} widths={[480, 720, 960, 1280]} sizes="(max-width: 700px) 1px, (max-width: 900px) 100vw, 45vw" class="fm-desk" />
+          <Image src={f.imgMob} alt="" widths={[480, 720, 1080]} sizes="(max-width: 700px) 100vw, 1px" class="fm-mob" />
         </div>
         <div class="formato-text" data-reveal style="--delay:.1s">
           <p class="srv-n serif">{String(i + 1).padStart(2, '0')}</p>
@@ -351,6 +352,17 @@ import PinceisFundo from '../components/PinceisFundo.astro';
       justify-content: flex-start;
     }
   }
+  .formato-media :global(.fm-mob) {
+    display: none;
+  }
+  @media (max-width: 700px) {
+    .formato-media :global(.fm-desk) {
+      display: none;
+    }
+    .formato-media :global(.fm-mob) {
+      display: block;
+    }
+  }
   /* Celular: título primeiro, foto paisagem no meio, depois texto e botão */
   @media (max-width: 700px) {
     .formato,
@@ -382,7 +394,7 @@ import PinceisFundo from '../components/PinceisFundo.astro';
     .formato--rev .formato-media {
       order: 4;
       width: 100%;
-      aspect-ratio: 3 / 2;
+      aspect-ratio: var(--ratio-mob, 3 / 2);
       margin-bottom: 1.25rem;
       opacity: 1;
       transform: none;
