@@ -107,7 +107,7 @@ const todas: PecaPersonalizavel[] = [
         ],
       },
     ],
-    aPartirDe: 448,
+    aPartirDe: 538,
     foto: moringaLisa,
     alt: 'Moringa de porcelana branca de linhas retas, com copo cilíndrico encaixado',
   },
