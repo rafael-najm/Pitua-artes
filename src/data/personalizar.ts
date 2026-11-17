@@ -141,7 +141,7 @@ const todas: PecaPersonalizavel[] = [
     slug: 'chanukia',
     nome: 'Chanukiá',
     chamada: 'Uma maneira especial de celebrar Chanucá, unindo tradição, arte e personalidade.',
-    resumo: '8 copinhos + shamash',
+    resumo: '9 copinhos',
     descricao: [
       'Composta por 8 copinhos de porcelana e um copinho mais alto para o shamash (vela auxiliar), nossa chanukiá tem uma proposta contemporânea e versátil. As peças recebem pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência.',
       'Um detalhe especial: os copinhos podem ser usados separadamente ao longo do ano, como pequenos castiçais decorativos, prolongando a beleza e a utilidade da peça para além da celebração.',
@@ -182,7 +182,7 @@ const todas: PecaPersonalizavel[] = [
     slug: 'copinho',
     nome: 'Copinho',
     chamada: 'Uma peça delicada e cheia de possibilidades.',
-    resumo: 'Cálice ou castiçal · 70 ou 90 ml',
+    resumo: '70 ou 90 ml',
     descricao: [
       'Com design simples e elegante, este copinho de porcelana pode ser usado como um pequeno cálice para servir vinho ou transformado em um charmoso castiçal para velas.',
       'Versátil e atemporal, fica lindo na composição da mesa, em ocasiões especiais ou na decoração da casa. Também pode receber pintura artística personalizada, criada especialmente para você.',
@@ -198,13 +198,13 @@ const todas: PecaPersonalizavel[] = [
     slug: 'par-de-casticais',
     nome: 'Par de Castiçais',
     chamada: 'Elegância e delicadeza para iluminar momentos especiais.',
-    resumo: '2 castiçais · 9,5 cm de altura',
+    resumo: '2 peças · 9,5 cm de altura',
     descricao: [
       'Com design clássico e acabamento em porcelana branca, este par de castiçais é perfeito para compor mesas de jantar, aparadores e cantinhos especiais da casa. Também pode ser usado para as velas de Shabat, trazendo beleza e personalidade à celebração.',
       'Cada peça recebe pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência, tornando o conjunto exclusivo.',
     ],
     material: 'Porcelana',
-    composicao: '2 castiçais',
+    composicao: '2 peças',
     medidas: [
       {
         titulo: 'Cada peça',
