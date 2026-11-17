@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import { linkWhatsapp } from '../data/site';
 import { foto } from '../lib/fotos';
 import { u } from '../lib/url';
+import IlustracaoAtelie from '../components/IlustracaoAtelie.astro';
 
 const formatos = [
   {
@@ -12,7 +13,7 @@ const formatos = [
     titulo: 'A sua peça, do primeiro traço ao acabamento.',
     resumo: 'Aulas recorrentes: você escolhe a peça e faz tudo.',
     texto: [
-      'Você escolhe a sua peça de porcelana e faz tudo, com a orientação da artista: escolhe o desenho, monta a composição, define as cores e acompanha a peça do início ao fim.',
+      'Você escolhe a sua peça de porcelana e faz tudo, com a orientação da artista: escolhe o desenho, monta a composição, define as cores e produz a peça do início ao fim.',
       'Um aprendizado contínuo, no seu ritmo — a cada peça, mais técnica e mais segurança no pincel.',
     ],
     detalhes: ['Aulas semanais', '3 horas por aula', 'Turma recorrente'],
@@ -75,11 +76,16 @@ const formatos = [
   imagem={foto('copos-pintados', 1)}
 >
   <section class="of-head wrap">
-    <p class="eyebrow" data-reveal>Oficinas</p>
-    <h1 class="display" data-reveal style="--delay:.06s">Pegue no <em>pincel.</em></h1>
-    <p class="lede" data-reveal style="--delay:.12s">
-      Aulas regulares, workshops e encontros criativos — com a orientação da artista, cor e boa companhia.
-    </p>
+    <div class="of-head-txt">
+      <p class="eyebrow" data-reveal>Oficinas</p>
+      <h1 class="display" data-reveal style="--delay:.06s">Pegue no <em>pincel.</em></h1>
+      <p class="lede" data-reveal style="--delay:.12s">
+        Aulas regulares, workshops e encontros criativos — com a orientação da artista, cor e boa companhia.
+      </p>
+    </div>
+    <div class="of-head-ilu" data-reveal style="--delay:.18s">
+      <IlustracaoAtelie />
+    </div>
   </section>
 
   <nav class="of-indice wrap" aria-label="Formatos de oficina">
@@ -148,9 +154,29 @@ const formatos = [
 <style>
   .of-head {
     display: grid;
-    gap: 1.25rem;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: center;
+    gap: 2rem 3rem;
     padding-top: clamp(3.5rem, 8vw, 7rem);
     padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+  .of-head-txt {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .of-head-ilu {
+    max-width: 500px;
+    width: 100%;
+    justify-self: end;
+  }
+  @media (max-width: 800px) {
+    .of-head {
+      grid-template-columns: 1fr;
+    }
+    .of-head-ilu {
+      max-width: 340px;
+      justify-self: center;
+    }
   }
   .of-head em {
     font-weight: 300;
