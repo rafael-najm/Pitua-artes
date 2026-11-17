@@ -351,6 +351,56 @@ import PinceisFundo from '../components/PinceisFundo.astro';
       justify-content: flex-start;
     }
   }
+  /* Celular: título primeiro, foto paisagem no meio, depois texto e botão */
+  @media (max-width: 700px) {
+    .formato,
+    .formato--rev {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding-block: 2.75rem;
+    }
+    .formato-text {
+      display: contents;
+    }
+    .formato .srv-n {
+      order: 1;
+      font-size: 2.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .formato .eyebrow {
+      order: 2;
+      margin-bottom: 0.5rem;
+    }
+    .formato .h2 {
+      order: 3;
+      font-size: 1.95rem;
+      margin-bottom: 1.25rem;
+    }
+    .formato-media,
+    .formato--rev .formato-media {
+      order: 4;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      margin-bottom: 1.25rem;
+      opacity: 1;
+      transform: none;
+    }
+    .formato .body-lg {
+      order: 5;
+      margin-bottom: 0.75rem;
+    }
+    .formato-tags {
+      order: 6;
+      margin-bottom: 1.25rem;
+    }
+    .formato .btn {
+      order: 7;
+      margin-top: 0;
+      width: 100%;
+    }
+  }
   @media (max-width: 700px) {
     .of-faixa-in {
       grid-template-columns: repeat(3, minmax(0, 1fr));

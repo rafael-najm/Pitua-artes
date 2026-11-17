@@ -43,6 +43,8 @@ const ativo = (href: string) => atual.startsWith(href);
     </div>
   </div>
 
+</header>
+
   <div class="menu" id="menu" data-menu hidden>
     <nav class="menu-nav wrap" aria-label="Menu">
       <a href={u('/')}>Início</a>
@@ -55,7 +57,7 @@ const ativo = (href: string) => atual.startsWith(href);
       </a>
     </div>
   </div>
-</header>
+
 
 <style>
   .hdr {
@@ -152,6 +154,7 @@ const ativo = (href: string) => atual.startsWith(href);
   .menu {
     position: fixed;
     inset: var(--header-h) 0 0 0;
+    z-index: 49;
     background: var(--paper);
     display: flex;
     flex-direction: column;

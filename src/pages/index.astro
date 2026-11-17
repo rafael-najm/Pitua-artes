@@ -135,7 +135,8 @@ const artista = site.artista;
           patê — e ficam ainda mais bonitas em uso.
         </p>
       </header>
-      <div class="usos-grid">
+      <div class="usos-car">
+      <div class="usos-grid" data-carrossel>
         {
           usos.map((v, i) => (
             <a class="uso" href={u(`/acervo/${v.slug}/`)} data-reveal style={`--delay:${i * 0.08}s`}>
@@ -158,6 +159,12 @@ const artista = site.artista;
             </a>
           ))
         }
+      </div>
+      <div class="car-nav" aria-label="Navegar pelos vídeos">
+        <button type="button" class="car-btn" data-car-prev aria-label="Vídeo anterior">←</button>
+        <span class="car-dots" aria-hidden="true">{usos.map((_, i) => <i class:list={{ on: i === 0 }}></i>)}</span>
+        <button type="button" class="car-btn" data-car-next aria-label="Próximo vídeo">→</button>
+      </div>
       </div>
     </div>
   </section>
@@ -523,6 +530,43 @@ const artista = site.artista;
     transform: translateX(4px);
   }
 
+  .car-nav {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  .car-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    background: var(--porcelain);
+    color: var(--brand);
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  .car-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+  .car-dots {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .car-dots i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--line-strong);
+    transition: background 0.3s, transform 0.3s;
+  }
+  .car-dots i.on {
+    background: var(--accent);
+    transform: scale(1.25);
+  }
+
   /* HISTÓRIA */
   .historia {
     background: var(--night);
@@ -881,19 +925,25 @@ const artista = site.artista;
     }
     .usos-grid {
       display: flex;
+      gap: 1rem;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       margin-inline: calc(var(--gutter) * -1);
-      padding-inline: var(--gutter);
-      scroll-padding-inline: var(--gutter);
+      padding-inline: 17%;
       scrollbar-width: none;
     }
     .usos-grid::-webkit-scrollbar {
       display: none;
     }
     .uso {
-      flex: 0 0 64%;
-      scroll-snap-align: start;
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+    }
+    .uso-name {
+      text-align: center;
+    }
+    .car-nav {
+      display: flex;
     }
     .passos {
       grid-template-columns: repeat(2, auto);
@@ -911,6 +961,36 @@ const artista = site.artista;
       video.play();
     });
     video.addEventListener('play', () => p.classList.add('is-playing'));
+  });
+
+  document.querySelectorAll<HTMLElement>('[data-carrossel]').forEach((track) => {
+    const wrap = track.parentElement!;
+    const itens = [...track.children] as HTMLElement[];
+    const dots = [...wrap.querySelectorAll<HTMLElement>('.car-dots i')];
+    const prev = wrap.querySelector<HTMLButtonElement>('[data-car-prev]');
+    const next = wrap.querySelector<HTMLButtonElement>('[data-car-next]');
+    const atual = () => {
+      const centro = track.scrollLeft + track.clientWidth / 2;
+      let melhor = 0;
+      itens.forEach((el, i) => {
+        if (Math.abs(el.offsetLeft + el.offsetWidth / 2 - centro) < Math.abs(itens[melhor].offsetLeft + itens[melhor].offsetWidth / 2 - centro)) melhor = i;
+      });
+      return melhor;
+    };
+    const ir = (i: number) => {
+      const el = itens[Math.max(0, Math.min(itens.length - 1, i))];
+      track.scrollTo({ left: el.offsetLeft - (track.clientWidth - el.offsetWidth) / 2, behavior: 'smooth' });
+    };
+    const marca = () => {
+      const i = atual();
+      dots.forEach((d, j) => d.classList.toggle('on', j === i));
+      if (prev) prev.disabled = i === 0;
+      if (next) next.disabled = i === itens.length - 1;
+    };
+    prev?.addEventListener('click', () => ir(atual() - 1));
+    next?.addEventListener('click', () => ir(atual() + 1));
+    track.addEventListener('scroll', marca, { passive: true });
+    marca();
   });
 
   document.querySelectorAll<HTMLButtonElement>('[data-abre-video]').forEach((btn) => {
