@@ -6,30 +6,37 @@
    Tokens
    ———————————————————————————————————————————————— */
 :root {
+  /* Paleta da marca (tirada do logo) */
+  --azul: #174b83; /* títulos, botões e links */
+  --turquesa: #159daa; /* detalhes, ícones e destaques */
+  --verde: #78b82a; /* pequenos detalhes, etiquetas e chamadas */
+  --creme: #f5ebdd; /* faixas, áreas de respiro e banners */
+  --grafite: #263746; /* textos corridos e faixas escuras */
+
+  /* Fundo neutro: preserva o branco da porcelana nas fotos */
   --paper: #f7f5f1;
-  --paper-2: #efebe4;
+  --paper-2: var(--creme);
   --porcelain: #fcfbf9;
-  --ink: #1b1916;
-  --ink-2: #3a3631;
-  --muted: #736c62;
-  --line: rgb(27 25 22 / 0.12);
-  --line-strong: rgb(27 25 22 / 0.28);
-  --night: #1f2d3b;
-  --night-2: #2a3a4a;
-  --on-night: #f3efe8;
-  --on-night-muted: #aab4bf;
-  --gold: #a8854a;
-  /* Cor da marca: títulos, botões e links de ação. */
-  --brand: #263746;
+  --ink: var(--grafite);
+  --ink-2: #3b4a58;
+  --muted: #5f6b76;
+  --line: rgb(38 55 70 / 0.13);
+  --line-strong: rgb(38 55 70 / 0.3);
+  --night: var(--grafite);
+  --night-2: #2f4255;
+  --on-night: #f7f0e6;
+  --on-night-muted: #b4bec8;
+  --brand: var(--azul);
+  --accent: var(--turquesa);
   --heading: var(--brand);
-  --open: #4f8a5b;
+  --open: var(--verde);
 
   --serif: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
   --sans: 'Jost Variable', 'Jost', 'Helvetica Neue', Arial, sans-serif;
 
   --gutter: clamp(1rem, 4vw, 3.5rem);
   --max: 1440px;
-  --header-h: 72px;
+  --header-h: 80px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --radius-pebble: 58% 42% 47% 53% / 46% 54% 46% 54%;
@@ -109,8 +116,8 @@ p {
 }
 
 ::selection {
-  background: var(--brand);
-  color: var(--paper);
+  background: var(--accent);
+  color: #fff;
 }
 
 :focus-visible {
@@ -212,6 +219,10 @@ em,
 .it {
   font-style: italic;
 }
+h1 em,
+h2 em {
+  color: var(--accent);
+}
 
 .serif {
   font-family: var(--serif);
@@ -278,13 +289,14 @@ em,
   letter-spacing: 0.18em;
   text-transform: uppercase;
   padding-bottom: 0.35rem;
-  background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
+  background: linear-gradient(var(--accent), var(--accent)) left bottom / 100% 1px no-repeat;
   transition: background-size 0.5s var(--ease);
 }
 .link:hover {
   background-size: 35% 1px;
 }
 .link .arrow {
+  color: var(--accent);
   transition: transform 0.5s var(--ease);
 }
 .link:hover .arrow {
@@ -455,9 +467,10 @@ em,
   width: 11px;
   height: 11px;
   flex: none;
+  color: var(--accent);
   background:
-    linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
-    linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat;
+    linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1.5px 100% no-repeat;
   transition: transform 0.4s var(--ease);
 }
 .acc[open] summary::after {

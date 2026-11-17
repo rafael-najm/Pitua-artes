@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { u } from '../lib/url';
 import { site, linkWhatsapp } from '../data/site';
+import logoEscuro from '../assets/marca/pitua-logo-escuro.png';
 
 const ano = new Date().getFullYear();
 ---
@@ -9,7 +11,7 @@ const ano = new Date().getFullYear();
   <div class="wrap">
     <div class="ftr-top">
       <div class="ftr-brand">
-        <p class="ftr-name">{site.nome}</p>
+        <Image src={logoEscuro} alt={site.nome} widths={[240, 360, 480, 720]} sizes="260px" class="ftr-logo" />
         <p class="ftr-tag">Um universo de cores feitas à mão.</p>
       </div>
 
@@ -61,6 +63,11 @@ const ano = new Date().getFullYear();
     display: grid;
     grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
     gap: 3rem 2rem;
+  }
+  .ftr-brand :global(.ftr-logo) {
+    display: block;
+    width: clamp(180px, 20vw, 260px);
+    height: auto;
   }
   .ftr-name {
     font-family: var(--serif);
