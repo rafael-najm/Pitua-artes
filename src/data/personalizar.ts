@@ -19,6 +19,8 @@ import parDeCasticais from '../assets/personalizar/par-de-casticais.webp';
 import pratoOval from '../assets/personalizar/prato-grande-oval.webp';
 import pratoQuadrado from '../assets/personalizar/prato-grande-quadrado.webp';
 import portaJoias from '../assets/personalizar/porta-joias-do-dia.webp';
+import canecaAfeto from '../assets/personalizar/caneca-afeto.webp';
+import canecaComTampa from '../assets/personalizar/caneca-com-tampa.webp';
 
 export interface Medidas {
   /** Ex.: "Moringa", "Copo". Vazio quando há um só bloco. */
@@ -294,6 +296,53 @@ const todas: PecaPersonalizavel[] = [
     aPartirDe: 168,
     foto: portaJoias,
     alt: 'Porta-joias redondo de porcelana branca com borda ondulada',
+  },
+  {
+    slug: 'caneca-afeto',
+    nome: 'Caneca Afeto',
+    chamada: 'Uma peça versátil e atemporal, com design clean e acabamento branco brilhante.',
+    resumo: '300 ml · 9 cm de altura',
+    descricao: [
+      'Ideal para acompanhar o café, o chá ou a sua bebida preferida em qualquer momento do dia.',
+      'Produzida em porcelana, pode receber pintura artística personalizada, criada especialmente para você. Uma ótima opção para presentear ou trazer um toque de personalidade à mesa.',
+    ],
+    material: 'Porcelana',
+    medidas: [
+      {
+        itens: [
+          ['Capacidade', '300 ml'],
+          ['Altura', '9 cm'],
+          ['Largura', '12 cm (com alça)'],
+        ],
+      },
+    ],
+    aPartirDe: 298,
+    foto: canecaAfeto,
+    alt: 'Caneca de porcelana branca com alça, de design clean',
+  },
+  {
+    slug: 'caneca-com-tampa',
+    nome: 'Caneca com Tampa',
+    chamada: 'Uma peça delicada e versátil, perfeita para tornar os momentos de pausa ainda mais especiais.',
+    resumo: '280 ml · acompanha tampa',
+    descricao: [
+      'A caneca de porcelana acompanha uma tampa que ajuda a conservar a temperatura da bebida e traz um charme extra à composição.',
+      'Ideal para café, chá e outras bebidas quentes, também é uma ótima opção para presentear. Pode receber pintura artística personalizada, criada especialmente para você ou para alguém querido.',
+    ],
+    material: 'Porcelana',
+    composicao: 'Caneca + tampa',
+    medidas: [
+      {
+        itens: [
+          ['Capacidade', '280 ml'],
+          ['Altura', '9 cm'],
+          ['Diâmetro', '8 cm'],
+        ],
+      },
+    ],
+    aPartirDe: 349,
+    foto: canecaComTampa,
+    alt: 'Caneca de porcelana branca com tampa',
   },
 ];
 
