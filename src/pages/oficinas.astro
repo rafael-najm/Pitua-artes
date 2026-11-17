@@ -7,28 +7,62 @@ import { u } from '../lib/url';
 
 const formatos = [
   {
-    id: 'criativas',
-    rotulo: 'Oficinas criativas',
-    titulo: 'Um projeto novo a cada encontro.',
+    id: 'pintura-em-porcelana',
+    rotulo: 'Aulas de pintura em porcelana',
+    titulo: 'A sua peça, do primeiro traço ao acabamento.',
+    resumo: 'Aulas recorrentes: você escolhe a peça e faz tudo.',
     texto: [
-      'Encontros em turma para quem quer aprender a pintar — ou simplesmente passar algumas horas com as mãos ocupadas e a cabeça leve.',
-      'A cada oficina, uma peça diferente: do primeiro traço ao acabamento, você leva para casa algo pintado por você.',
+      'Você escolhe a sua peça de porcelana e faz tudo, com a orientação da artista: escolhe o desenho, monta a composição, define as cores e acompanha a peça do início ao fim.',
+      'Um aprendizado contínuo, no seu ritmo — a cada peça, mais técnica e mais segurança no pincel.',
     ],
-    cta: 'Quero saber das próximas turmas',
-    msg: 'Olá! Tenho interesse nas oficinas criativas da Pituá. Quando são as próximas turmas?',
+    detalhes: ['Aulas semanais', '3 horas por aula', 'Turma recorrente'],
+    cta: 'Quero fazer aulas',
+    msg: 'Olá! Tenho interesse nas aulas de pintura em porcelana da Pituá. Como funcionam as turmas?',
+    img: foto('jardineira-mata-atlantica', 4),
+    alt: 'Detalhe de tucano pintado à mão em porcelana',
+  },
+  {
+    id: 'oficina-de-porcelana',
+    rotulo: 'Oficina de porcelana',
+    titulo: 'Um projeto escolhido para cada workshop.',
+    resumo: 'Workshops com projeto definido, de 2 a 4 aulas.',
+    texto: [
+      'Workshops com um projeto em porcelana definido para aquela turma, desenvolvido ao longo de 2, 3 ou 4 aulas, com o passo a passo guiado pela artista.',
+      'Para quem quer aprender com um objetivo claro e terminar o workshop com a peça pronta.',
+    ],
+    detalhes: ['Projeto definido', '2, 3 ou 4 aulas'],
+    cta: 'Quero saber dos próximos workshops',
+    msg: 'Olá! Tenho interesse nas oficinas de porcelana da Pituá. Quais são os próximos projetos?',
+    img: foto('consome-geometrico', 1),
+    alt: 'Conjunto de consomê pintado com triângulos e círculos em azul e verde',
+  },
+  {
+    id: 'criativa',
+    rotulo: 'Oficina criativa',
+    titulo: 'Um projeto novo a cada encontro.',
+    resumo: 'Aulas semanais, cada uma com um projeto diferente.',
+    texto: [
+      'A cada semana, um projeto diferente: pintura em porcelana, vidro, decoupage, dobraduras e muito mais.',
+      'Criatividade solta — um material, uma técnica e uma descoberta nova a cada encontro.',
+    ],
+    detalhes: ['Aulas semanais', '3 horas por aula', 'Porcelana, vidro, decoupage, dobraduras…'],
+    cta: 'Quero participar',
+    msg: 'Olá! Tenho interesse na oficina criativa da Pituá. Como funcionam as turmas?',
     img: foto('copos-pintados', 3),
     alt: 'Copo de vidro com pinceladas abstratas coloridas',
   },
   {
-    id: 'especiais',
-    rotulo: 'Oficinas especiais',
+    id: 'tematicas',
+    rotulo: 'Oficinas temáticas',
     titulo: 'Temáticas, pensadas por projeto.',
+    resumo: 'Sob medida para datas, grupos e eventos.',
     texto: [
       'Oficinas desenhadas sob medida para uma ocasião: datas comemorativas, aniversários, encontros entre amigas, grupos e empresas.',
       'O tema, a peça e o formato são definidos junto com você.',
     ],
-    cta: 'Planejar uma oficina especial',
-    msg: 'Olá! Gostaria de planejar uma oficina especial com a Pituá.',
+    detalhes: ['Sob medida', 'Grupos e eventos'],
+    cta: 'Planejar uma oficina temática',
+    msg: 'Olá! Gostaria de planejar uma oficina temática com a Pituá.',
     img: foto('boleira-confeitaria', 3),
     alt: 'Boleira pintada com doces de confeitaria',
   },
@@ -37,16 +71,32 @@ const formatos = [
 
 <Base
   titulo="Oficinas"
-  descricao="Oficinas criativas de pintura com a Pituá: um projeto novo a cada encontro, e oficinas especiais temáticas, pensadas por projeto."
+  descricao="Aulas de pintura em porcelana, oficinas de porcelana com projeto definido, oficina criativa com um projeto novo a cada semana e oficinas temáticas, com a Pituá."
   imagem={foto('copos-pintados', 1)}
 >
   <section class="of-head wrap">
     <p class="eyebrow" data-reveal>Oficinas</p>
     <h1 class="display" data-reveal style="--delay:.06s">Pegue no <em>pincel.</em></h1>
     <p class="lede" data-reveal style="--delay:.12s">
-      Encontros para descobrir a pintura com calma, cor e boa companhia — em turma ou num formato pensado para a sua ocasião.
+      Aulas regulares, workshops e encontros criativos — com a orientação da artista, cor e boa companhia.
     </p>
   </section>
+
+  <nav class="of-indice wrap" aria-label="Formatos de oficina">
+    <ol>
+      {
+        formatos.map((f, i) => (
+          <li data-reveal style={`--delay:${i * 0.05}s`}>
+            <a href={`#${f.id}`}>
+              <span class="ind-n serif">{String(i + 1).padStart(2, '0')}</span>
+              <span class="ind-t">{f.rotulo}</span>
+              <span class="ind-r">{f.resumo}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </nav>
 
   <section class="of-faixa" aria-hidden="true">
     <div class="of-faixa-in">
@@ -71,6 +121,9 @@ const formatos = [
           <p class="eyebrow">{f.rotulo}</p>
           <h2 id={`${f.id}-t`} class="h2">{f.titulo}</h2>
           {f.texto.map((t) => <p class="body-lg">{t}</p>)}
+          <ul class="formato-tags">
+            {f.detalhes.map((d) => <li>{d}</li>)}
+          </ul>
           <a class="btn" href={linkWhatsapp(f.msg)} target="_blank" rel="noopener">
             {f.cta}
           </a>
@@ -128,6 +181,79 @@ const formatos = [
     transform: translateY(18%);
   }
 
+  .of-indice {
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+  .of-indice ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid var(--line);
+  }
+  .of-indice li + li {
+    border-left: 1px solid var(--line);
+  }
+  .of-indice a {
+    display: grid;
+    gap: 0.4rem;
+    align-content: start;
+    height: 100%;
+    padding: 1.4rem 1.25rem 1.5rem;
+    transition: background 0.4s var(--ease);
+  }
+  .of-indice li:first-child a {
+    padding-left: 0;
+  }
+  .of-indice a:hover {
+    background: var(--creme);
+  }
+  .ind-n {
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .ind-t {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 350;
+    line-height: 1.2;
+    color: var(--brand);
+  }
+  .ind-r {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .formato-tags {
+    list-style: none;
+    margin: 0.25rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .formato-tags li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .formato-tags li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--verde);
+  }
   .formato {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -191,6 +317,32 @@ const formatos = [
     justify-content: flex-end;
   }
 
+  @media (max-width: 1000px) {
+    .of-indice ol {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .of-indice li:nth-child(3) {
+      border-left: 0;
+    }
+    .of-indice li:nth-child(n + 3) {
+      border-top: 1px solid var(--line);
+    }
+    .of-indice li:nth-child(3) a {
+      padding-left: 0;
+    }
+  }
+  @media (max-width: 600px) {
+    .of-indice ol {
+      grid-template-columns: 1fr;
+    }
+    .of-indice li + li {
+      border-left: 0;
+      border-top: 1px solid var(--line);
+    }
+    .of-indice a {
+      padding-left: 0;
+    }
+  }
   @media (max-width: 900px) {
     .formato,
     .formato--rev {
