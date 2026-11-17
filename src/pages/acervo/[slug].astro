@@ -27,7 +27,7 @@ const idx = pecas.findIndex((p) => p.slug === peca.slug);
 const anterior = pecas[(idx - 1 + pecas.length) % pecas.length];
 const proxima = pecas[(idx + 1) % pecas.length];
 
-const msgDisponibilidade = `Olá! Vi a peça "${peca.nome}" no site da Pituá e gostaria de saber sobre a disponibilidade.\n${urlPeca}`;
+const msgDisponibilidade = `Olá! Vim pelo site da Pituá (Acervo) e gostaria de saber sobre a peça "${peca.nome}".\n${urlPeca}`;
 
 const largura = (f: ImageMetadata) => (f.width > f.height * 1.15 ? 'wide' : 'tall');
 ---

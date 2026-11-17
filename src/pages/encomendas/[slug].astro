@@ -17,8 +17,8 @@ interface Props {
 const { peca } = Astro.props;
 const preco = formatarPreco(peca.aPartirDe);
 const urlPeca = new URL(Astro.url.pathname, Astro.site).toString();
-const msg = `Olá! Quero encomendar a peça "${peca.nome}" (a partir de ${preco}) com pintura personalizada.\n${urlPeca}`;
-const msgDisponibilidade = `Olá! Gostaria de consultar a disponibilidade da peça "${peca.nome}" para personalizar.\n${urlPeca}`;
+const msg = `Olá! Vim pelo site da Pituá e quero encomendar a peça "${peca.nome}" (a partir de ${preco}) com pintura personalizada.\n${urlPeca}`;
+const msgDisponibilidade = `Olá! Vim pelo site da Pituá e gostaria de consultar a disponibilidade da peça "${peca.nome}" para personalizar.\n${urlPeca}`;
 const outras = personalizaveis.filter((p) => p.slug !== peca.slug);
 
 const passos = [
