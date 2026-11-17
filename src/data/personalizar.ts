@@ -316,7 +316,7 @@ const todas: PecaPersonalizavel[] = [
         ],
       },
     ],
-    aPartirDe: 298,
+    aPartirDe: 268,
     foto: canecaAfeto,
     alt: 'Caneca de porcelana branca com alça, de design clean',
   },
