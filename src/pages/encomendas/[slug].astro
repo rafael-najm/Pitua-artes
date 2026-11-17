@@ -79,6 +79,7 @@ const passos = [
         <div class="pp-ficha">
           <dl class="dl">
             <dt>Material</dt><dd>{peca.material}</dd>
+            {peca.formato && (<><dt>Formato</dt><dd>{peca.formato}</dd></>)}
             {peca.composicao && (<><dt>Composição</dt><dd>{peca.composicao}</dd></>)}
           </dl>
           {

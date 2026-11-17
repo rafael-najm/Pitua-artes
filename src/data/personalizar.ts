@@ -29,6 +29,7 @@ export interface PecaPersonalizavel {
   resumo: string;
   descricao: string[];
   material: string;
+  formato?: string;
   composicao?: string;
   medidas: Medidas[];
   /** Valor em reais (sem centavos). */
@@ -190,6 +191,103 @@ const todas: PecaPersonalizavel[] = [
     aPartirDe: 398,
     // foto: falta a foto — a peça aparece no site assim que ela for adicionada.
     alt: 'Par de castiçais de porcelana branca',
+  },
+  {
+    slug: 'potes-multiuso-mel',
+    nome: 'Conjunto de 3 Potes Multiuso Mel',
+    chamada: 'Beleza, organização e versatilidade em peças que ganham a sua personalidade.',
+    resumo: '3 potes com tampa · 5 a 10 cm de altura',
+    descricao: [
+      'Nosso conjunto de potes de porcelana é perfeito para organizar pequenos objetos e dar um toque especial à decoração. No banheiro, são ideais para guardar algodão, cotonetes e acessórios. Na papelaria, acomodam pequenos materiais de escritório. No quarto do bebê, podem fazer parte do enxoval, organizando itens de higiene e cuidados.',
+      'Confeccionados em porcelana branca, os potes recebem pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência. Assim, cada conjunto se transforma em uma criação exclusiva.',
+    ],
+    material: 'Porcelana',
+    composicao: 'Conjunto com 3 potes com tampas',
+    medidas: [
+      {
+        itens: [
+          ['Pote 1', 'Altura 5 cm · Diâmetro 9 cm'],
+          ['Pote 2', 'Altura 8,5 cm · Diâmetro 9 cm'],
+          ['Pote 3', 'Altura 10 cm · Diâmetro 9 cm'],
+        ],
+      },
+    ],
+    aPartirDe: 798,
+    // foto: falta a foto
+    alt: 'Conjunto de três potes multiuso de porcelana branca com tampa, modelo Mel',
+  },
+  {
+    slug: 'potes-multiuso-bolinha',
+    nome: 'Conjunto de 3 Potes Multiuso Bolinha',
+    chamada: 'Beleza, organização e versatilidade em peças que ganham a sua personalidade.',
+    resumo: '3 potes com tampa · 7,5 a 12 cm de altura',
+    descricao: [
+      'Nosso conjunto de potes de porcelana é perfeito para organizar pequenos objetos e dar um toque especial à decoração. No banheiro, são ideais para guardar algodão, cotonetes e acessórios. Na papelaria, acomodam pequenos materiais de escritório. No quarto do bebê, podem fazer parte do enxoval, organizando itens de higiene e cuidados.',
+      'Confeccionados em porcelana branca, os potes recebem pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência. Assim, cada conjunto se transforma em uma criação exclusiva.',
+    ],
+    material: 'Porcelana',
+    composicao: 'Conjunto com 3 potes com tampas',
+    medidas: [
+      {
+        itens: [
+          ['Pote pequeno', 'Altura 7,5 cm · Diâmetro 9,5 cm'],
+          ['Pote médio', 'Altura 10 cm · Diâmetro 9 cm'],
+          ['Pote grande', 'Altura 12 cm · Diâmetro 9 cm'],
+        ],
+      },
+    ],
+    aPartirDe: 848,
+    // foto: falta a foto
+    alt: 'Conjunto de três potes multiuso de porcelana branca com tampa, modelo Bolinha',
+  },
+  {
+    slug: 'prato-grande-quadrado',
+    nome: 'Prato Grande Quadrado',
+    chamada: 'Uma peça versátil que une funcionalidade e expressão artística.',
+    resumo: 'Quadrado · 26 × 26 cm',
+    descricao: [
+      'Com formato quadrado e linhas delicadas, este prato é perfeito para servir, apresentar petiscos e sobremesas ou compor uma mesa especial. Também pode ser usado como peça decorativa em aparadores e bandejas ou como prato de matzot para Pessach.',
+      'Confeccionado em porcelana branca, recebe pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência. Você escolhe a arte e nós transformamos o prato em uma peça exclusiva.',
+    ],
+    material: 'Porcelana',
+    formato: 'Quadrado',
+    medidas: [{ itens: [['Tamanho', '26 × 26 cm']] }],
+    aPartirDe: 498,
+    // foto: falta a foto
+    alt: 'Prato grande quadrado de porcelana branca',
+  },
+  {
+    slug: 'prato-grande-oval',
+    nome: 'Prato Grande Oval',
+    chamada: 'Uma peça especial para compor a mesa de Shabat com beleza, tradição e personalidade.',
+    resumo: 'Oval · 22 × 17 cm',
+    descricao: [
+      'Com formato oval e linhas delicadas, este prato é ideal para acomodar as chalot e dar destaque à mesa durante o Shabat e outras celebrações. Também pode ser usado para servir pães e outras preparações em ocasiões especiais.',
+      'Confeccionado em porcelana branca, recebe pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência. Você escolhe a arte e nós transformamos a peça em uma criação exclusiva.',
+    ],
+    material: 'Porcelana',
+    formato: 'Oval',
+    medidas: [{ itens: [['Tamanho', '22 × 17 cm']] }],
+    aPartirDe: 498,
+    // foto: falta a foto
+    alt: 'Prato grande oval de porcelana branca',
+  },
+  {
+    slug: 'porta-joias-do-dia',
+    nome: 'Porta-Joias do Dia',
+    chamada: 'Delicadeza para guardar pequenos tesouros e criar lembranças especiais.',
+    resumo: 'Redondo · 10 cm de diâmetro',
+    descricao: [
+      'Com design redondo e acabamento delicado, este porta-joias é ideal para acomodar anéis, brincos, colares e outros pequenos acessórios. Perfeito para deixar na mesa de cabeceira, na penteadeira ou no banheiro, mantendo suas peças favoritas sempre à mão.',
+      'Confeccionado em porcelana branca, recebe pintura artística personalizada, desenvolvida especialmente a partir da sua ideia ou referência.',
+      'Também é uma opção encantadora para presentear ou oferecer como lembrança em festas e ocasiões especiais, como casamentos, aniversários e eventos. Uma peça que pode receber uma arte exclusiva, tornando cada presente ainda mais significativo.',
+    ],
+    material: 'Porcelana',
+    formato: 'Redondo',
+    medidas: [{ itens: [['Diâmetro', '10 cm']] }],
+    aPartirDe: 168,
+    // foto: falta a foto
+    alt: 'Porta-joias redondo de porcelana branca',
   },
 ];
 
