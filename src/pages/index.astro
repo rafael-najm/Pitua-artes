@@ -18,8 +18,8 @@ const servicos = [
       'Vasos, aparelhos de jantar, esculturas e peças de Judaica pintados à mão, um a um. Mesmo quando nascem em par, nunca são idênticos.',
     href: '/acervo/',
     acao: 'Ver o acervo',
-    img: foto('jardineira-mata-atlantica', 2),
-    alt: 'Detalhe da Jardineira Mata Atlântica: duas araras-azuis pintadas em um galho',
+    img: editorial('hero-tucano'),
+    alt: 'Detalhe da Jardineira Mata Atlântica: tucano pintado à mão num galho, entre folhagens',
     forma: 'pebble',
   },
   {
@@ -87,8 +87,8 @@ const artista = site.artista;
     </div>
     <a class="hero-media frame" href={u('/acervo/jardineira-mata-atlantica/')}>
       <Image
-        src={editorial('hero-tucano')}
-        alt="Detalhe de um tucano pintado à mão em porcelana, pousado num galho entre folhagens e uma borboleta"
+        src={editorial('hero-araras')}
+        alt="Detalhe de um casal de araras-azuis pintado à mão em porcelana, pousado num galho entre folhagens"
         widths={[720, 960, 1280, 1600, 2000]}
         sizes="(max-width: 900px) 100vw, 58vw"
         loading="eager"
@@ -345,7 +345,7 @@ const artista = site.artista;
   .hero-media :global(img) {
     position: absolute;
     inset: 0;
-    object-position: 62% 50%;
+    object-position: 50% 50%;
     animation: hero-zoom 2.4s var(--ease) both;
   }
   @keyframes hero-zoom {
