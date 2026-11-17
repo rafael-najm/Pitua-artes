@@ -86,44 +86,6 @@ const artista = site.artista;
     </a>
   </section>
 
-  <!-- FEITAS PARA USAR -->
-  <section class="usos section" aria-labelledby="usos-titulo">
-    <div class="wrap usos-in">
-      <header class="usos-head" data-reveal>
-        <p class="eyebrow">À mesa</p>
-        <h2 id="usos-titulo" class="h2">Feitas para a mesa de todo dia.</h2>
-        <p class="body-lg">
-          Porcelana pintada não precisa morar na cristaleira. As peças vão à mesa, recebem o queijo, a manteiga, o
-          patê — e ficam ainda mais bonitas em uso.
-        </p>
-      </header>
-      <div class="usos-grid">
-        {
-          usos.map((v, i) => (
-            <a class="uso" href={u(`/acervo/${v.slug}/`)} data-reveal style={`--delay:${i * 0.08}s`}>
-              <div class="uso-media frame">
-                <video
-                  data-loop
-                  muted
-                  loop
-                  playsinline
-                  preload="none"
-                  poster={u(`/video/${v.video}.jpg`)}
-                  aria-label={`Vídeo: ${v.nome} em uso`}
-                >
-                  <source src={u(`/video/${v.video}.mp4`)} type="video/mp4" />
-                </video>
-              </div>
-              <p class="uso-name">
-                {v.nome} <span class="arrow">→</span>
-              </p>
-            </a>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
   <!-- O QUE ACONTECE POR AQUI -->
   <section class="servicos section" aria-labelledby="servicos-titulo">
     <div class="wrap">
@@ -156,6 +118,44 @@ const artista = site.artista;
               </ol>
               <a class="btn" href={u(f.href)}>{f.acao}</a>
             </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FEITAS PARA USAR -->
+  <section class="usos section" aria-labelledby="usos-titulo">
+    <div class="wrap usos-in">
+      <header class="usos-head" data-reveal>
+        <p class="eyebrow">À mesa</p>
+        <h2 id="usos-titulo" class="h2">Feitas para a mesa de todo dia.</h2>
+        <p class="body-lg">
+          Porcelana pintada não precisa morar na cristaleira. As peças vão à mesa, recebem o queijo, a manteiga, o
+          patê — e ficam ainda mais bonitas em uso.
+        </p>
+      </header>
+      <div class="usos-grid">
+        {
+          usos.map((v, i) => (
+            <a class="uso" href={u(`/acervo/${v.slug}/`)} data-reveal style={`--delay:${i * 0.08}s`}>
+              <div class="uso-media frame">
+                <video
+                  data-loop
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster={u(`/video/${v.video}.jpg`)}
+                  aria-label={`Vídeo: ${v.nome} em uso`}
+                >
+                  <source src={u(`/video/${v.video}.mp4`)} type="video/mp4" />
+                </video>
+              </div>
+              <p class="uso-name">
+                {v.nome} <span class="arrow">→</span>
+              </p>
+            </a>
           ))
         }
       </div>
