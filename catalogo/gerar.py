@@ -131,13 +131,13 @@ acervo = [
         ('queijeira-hibisco', 'Queijeira Hibisco', 'Porcelana'),
         ('boleira-confeitaria', 'Boleira Confeitaria', 'Porcelana', 6),
     ]),
-    ('Decoração e peças especiais', 'Vasos, esculturas e peças judaicas com pintura detalhada, feitas para durar '
+    ('Decoração e peças especiais', 'Vasos, esculturas e castiçais com pintura detalhada, feitos para durar '
                                     'gerações.', [
         ('vaso-carmim', 'Vaso Carmim', 'Porcelana'),
         ('vasos-orquideas', 'Vasos Orquídeas', 'Porcelana'),
         ('elefante-real', 'Elefante Real', 'Porcelana', 2),
         ('relogio-imari', 'Relógio Imari', 'Porcelana'),
-        ('casticais-shabat-shalom', 'Castiçais Shabat Shalom', 'Porcelana'),
+        ('casticais-turquesa', 'Castiçais Turquesa', 'Porcelana'),
         ('cachepo-elefante-indiano', 'Cachepô Elefante Indiano', 'Porcelana'),
     ]),
 ]
