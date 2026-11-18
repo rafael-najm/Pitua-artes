@@ -1,0 +1,45 @@
+# Publica o site em https://pituaartes.com.br (HostGator), enviando os arquivos por FTP.
+# Não roda sozinho: é disparado na aba Actions → "Publicar no HostGator" → Run workflow,
+# depois de conferir a prévia no GitHub Pages.
+#
+# Precisa de 3 segredos em Settings → Secrets and variables → Actions:
+#   FTP_SERVIDOR  ex.: ftp.pituaartes.com.br
+#   FTP_USUARIO   a conta de FTP criada no cPanel (com a pasta public_html)
+#   FTP_SENHA     a senha dessa conta
+#
+# Só envia o que mudou desde a última publicação e não mexe em arquivos
+# que não vieram daqui (como .well-known e cgi-bin).
+name: Publicar no HostGator
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: hostgator
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          SITE_URL: https://pituaartes.com.br
+          BASE_PATH: /
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVIDOR }}
+          username: ${{ secrets.FTP_USUARIO }}
+          password: ${{ secrets.FTP_SENHA }}
+          protocol: ftps
+          local-dir: ./dist/
+          server-dir: ./
