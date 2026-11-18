@@ -124,27 +124,27 @@ vantagens = [
 
 acervo = [
     ('À mesa', 'Peças de servir e louças com desenhos que vão do clássico ao tropical.', [
-        ('aparelho-risoto-horta', 'Aparelho para Risoto Horta', 'Porcelana', 2),
-        ('petisqueira-geometrica', 'Petisqueira Geométrica', 'Porcelana', 1),
-        ('jarra-olho-grego', 'Jarra Olho Grego', 'Porcelana'),
+        ('aparelho-risoto-horta', 'Aparelho para Risoto Horta', 'Porcelana', 1),
+        ('petisqueira-geometrica', 'Petisqueira Geométrica', 'Porcelana', 6),
+        ('jarra-olho-grego', 'Jarra Olho Grego', 'Porcelana', 6),
         ('manteigueira-borboletas', 'Manteigueira Borboletas', 'Porcelana'),
         ('queijeira-hibisco', 'Queijeira Hibisco', 'Porcelana'),
-        ('boleira-confeitaria', 'Boleira Confeitaria', 'Porcelana', 6),
+        ('boleira-confeitaria', 'Boleira Confeitaria', 'Porcelana', 2),
     ]),
-    ('Decoração e peças especiais', 'Vasos, esculturas e castiçais com pintura detalhada, feitos para durar '
+    ('Decoração e peças especiais', 'Vasos, esculturas e banquetas com pintura detalhada, feitos para durar '
                                     'gerações.', [
         ('vaso-carmim', 'Vaso Carmim', 'Porcelana'),
         ('vasos-orquideas', 'Vasos Orquídeas', 'Porcelana'),
-        ('elefante-real', 'Elefante Real', 'Porcelana', 2),
+        ('elefante-real', 'Elefante Real', 'Porcelana', 5),
         ('relogio-imari', 'Relógio Imari', 'Porcelana'),
-        ('casticais-turquesa', 'Castiçais Turquesa', 'Porcelana'),
-        ('cachepo-elefante-indiano', 'Cachepô Elefante Indiano', 'Porcelana'),
+        ('banquetas-jardim-oriental', 'Banquetas Jardim Oriental', 'Porcelana', 1),
+        ('cachepo-elefante-indiano', 'Cachepô Elefante Indiano', 'Porcelana', 2),
     ]),
 ]
 
 # Ajuste do recorte quadrado de algumas fotos (0 = topo/esquerda, 1 = base/direita)
-FOCO = {'boleira-confeitaria': (0.5, 0.52)}
-ZOOM = {'boleira-confeitaria': 1.3}
+FOCO = {}
+ZOOM = {}
 
 # ————————————————————————————————————————————————————————————— montagem
 
@@ -211,7 +211,7 @@ def gerar_html():
 
     # 3–6. blocos de ideias
     for i, b in enumerate(blocos):
-        img = prepara(b['img'], f'bloco{i}', lado=1400, quadrado=True, foco=b.get('foco', (0.5, 0.5)))
+        img = prepara(b['img'], f'bloco{i}', lado=1400)
         rev = ' rev' if i % 2 else ''
         paginas.append(f'''
     <section class="pg bloco{rev}">

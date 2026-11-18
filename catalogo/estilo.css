@@ -163,10 +163,11 @@ strong { font-weight: 600; color: var(--azul); }
 .bloco { display: grid; grid-template-columns: 560px 1fr; }
 .bloco.rev { grid-template-columns: 1fr 560px; }
 .bloco.rev .bloco-img { order: 2; }
-.bloco-img { padding: 64px 0 64px var(--pad); }
+.bloco-img { padding: 64px 0 64px var(--pad); display: flex; align-items: center; }
 .bloco.rev .bloco-img { padding: 64px var(--pad) 64px 0; }
-.bloco-img img { width: 488px; height: 592px; object-fit: cover; border-radius: 3px; }
-.bloco.rev .bloco-img img { margin-left: auto; }
+/* a foto aparece inteira, no formato dela (quadrada ou vertical) */
+.bloco-img img { width: auto; height: auto; max-width: 488px; max-height: 592px; border-radius: 3px; }
+.bloco.rev .bloco-img { justify-content: flex-end; }
 .bloco-txt {
   padding: 0 72px 30px 72px;
   display: flex;
