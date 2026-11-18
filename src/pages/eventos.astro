@@ -8,6 +8,7 @@ import portaJoias from '../assets/personalizar/porta-joias-do-dia.webp';
 import vela from '../assets/personalizar/vela-copo-porcelana.webp';
 import copinho from '../assets/personalizar/copinho.webp';
 import garrafaTacas from '../assets/eventos/bar-brinde-garrafa-tacas.webp';
+import heroPratinhos from '../assets/eventos/hero-pratinhos.webp';
 
 /**
  * EVENTOS & BRINDES
@@ -58,7 +59,6 @@ const blocos = [
       'Garrafas de espumante personalizadas',
       'Mini espumantes (187 ml)',
       'Garrafa de vinho “para abrir no 1º aniversário”',
-      'Jarras e dispensers para a estação de drinks',
     ],
     img: garrafaTacas,
     ratio: '1 / 1',
@@ -143,7 +143,7 @@ const faq = [
 <Base
   titulo="Eventos & Brindes"
   descricao="Lembranças e brindes pintados à mão para casamentos, eventos pessoais e marcas, em porcelana ou vidro, com desenho exclusivo que combina com a decoração da festa ou a identidade da marca."
-  imagem={foto('taca-de-kidush', 2)}
+  imagem={heroPratinhos}
 >
   <section class="ev-hero">
     <div class="ev-hero-text">
@@ -160,8 +160,8 @@ const faq = [
     </div>
     <div class="ev-hero-media frame">
       <Image
-        src={foto('taca-de-kidush', 2)}
-        alt="Vinho sendo servido em taça pintada à mão"
+        src={heroPratinhos}
+        alt="Cinco pratinhos de borda ondulada pintados à mão: olho grego, hibisco, azulejo, monograma e ursinho"
         widths={[720, 960, 1280, 1600]}
         sizes="(max-width: 900px) 100vw, 50vw"
         loading="eager"
@@ -385,7 +385,7 @@ const faq = [
   .ev-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: min(calc(100svh - var(--header-h)), 760px);
+    min-height: min(calc(100svh - var(--header-h)), 50vw, 760px);
   }
   .ev-hero-text {
     display: flex;
@@ -408,11 +408,13 @@ const faq = [
   }
   .ev-hero-media {
     min-height: 440px;
+    aspect-ratio: 1 / 1;
+    align-self: center;
   }
   .ev-hero-media :global(img) {
     position: absolute;
     inset: 0;
-    object-position: 50% 35%;
+    object-position: 50% 50%;
   }
 
   .publicos {
@@ -693,7 +695,7 @@ const faq = [
     .ev-hero-media {
       grid-row: 1;
       min-height: 0;
-      aspect-ratio: 4 / 3.4;
+      aspect-ratio: 1 / 1;
     }
     .ev-hero-text {
       padding: 2rem var(--gutter) 2.5rem;
