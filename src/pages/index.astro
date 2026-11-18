@@ -7,7 +7,7 @@ import { site, linkWhatsapp } from '../data/site';
 import { foto, editorial } from '../lib/fotos';
 import { u } from '../lib/url';
 import { formatos } from '../data/oficinas';
-import { personalizaveis, formatarPreco } from '../data/personalizar';
+import { personalizaveis, formatarPreco, mostrarPrecos } from '../data/personalizar';
 
 const destaques = pecas.filter((p) => p.destaque);
 
@@ -39,7 +39,7 @@ const frentes = [
     itens: [
       {
         nome: 'Peças para personalizar',
-        desc: `Escolha a peça; a arte é sua. A partir de ${menorPreco}.`,
+        desc: mostrarPrecos ? `Escolha a peça; a arte é sua. A partir de ${menorPreco}.` : 'Escolha a peça; a arte é sua.',
         href: '/encomendas/#personalizar',
       },
       { nome: 'Projetos sob medida', desc: 'Da mesa de jantar ao lavabo, criados do zero.', href: '/encomendas/#sob-medida' },

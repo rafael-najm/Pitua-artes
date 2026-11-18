@@ -54,6 +54,7 @@ Instagram e e-mail só aparecem quando preenchidos.
 
 Ficam em `src/data/personalizar.ts`, com fotos em `src/assets/personalizar/`.
 Cada item tem nome, frase de abertura, descrição, material, medidas e o valor `aPartirDe` (em reais).
+Os preços estão **escondidos** no site: para voltar a mostrá-los, troque `mostrarPrecos` para `true` no mesmo arquivo.
 Uma peça sem `foto` fica escondida do site até a foto ser adicionada (é o caso do Par de Castiçais).
 
 ## Rodar no computador

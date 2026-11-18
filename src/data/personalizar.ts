@@ -391,5 +391,12 @@ const todas: PecaPersonalizavel[] = [
 /** Só as peças com foto aparecem no site. */
 export const personalizaveis = todas.filter((p): p is PecaPersonalizavel & { foto: ImageMetadata } => !!p.foto);
 
+/**
+ * Mostrar os preços "a partir de" no site?
+ * false = preços escondidos (cards, páginas das peças, formulário e mensagens do WhatsApp).
+ * Para voltar a mostrar, troque para true. Os valores continuam guardados em `aPartirDe`.
+ */
+export const mostrarPrecos = false;
+
 export const formatarPreco = (valor: number) =>
   new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(valor);

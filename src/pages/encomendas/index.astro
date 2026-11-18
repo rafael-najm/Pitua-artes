@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import { pecas } from '../../data/pecas';
 import { site, linkWhatsapp } from '../../data/site';
 import { foto, editorial } from '../../lib/fotos';
-import { personalizaveis, formatarPreco } from '../../data/personalizar';
+import { personalizaveis, formatarPreco, mostrarPrecos } from '../../data/personalizar';
 import PersonalizavelCard from '../../components/PersonalizavelCard.astro';
 
 const tipos = [
@@ -46,7 +46,9 @@ const menorPreco = formatarPreco(Math.min(...personalizaveis.map((p) => p.aParti
 const faq: { q: string; a: string; link?: { href: string; texto: string } }[] = [
   {
     q: 'Quanto custa uma encomenda?',
-    a: `Cada peça é única e orçada individualmente, de acordo com o tamanho, a complexidade do desenho e os acabamentos. Para ter uma referência, nesta página há peças para personalizar com valores a partir de ${menorPreco}.`,
+    a: mostrarPrecos
+      ? `Cada peça é única e orçada individualmente, de acordo com o tamanho, a complexidade do desenho e os acabamentos. Para ter uma referência, nesta página há peças para personalizar com valores a partir de ${menorPreco}.`
+      : 'Cada peça é única e orçada individualmente, de acordo com o tamanho, a complexidade do desenho e os acabamentos. Conte a sua ideia que a gente prepara um orçamento sob medida, sem compromisso.',
     link: { href: '#personalizar', texto: 'Ver as peças para personalizar' },
   },
   {
@@ -70,7 +72,7 @@ const faq: { q: string; a: string; link?: { href: string; texto: string } }[] = 
 const opcoesPersonalizar = personalizaveis.map((p) => ({
   slug: p.slug,
   nome: p.nome,
-  preco: formatarPreco(p.aPartirDe),
+  preco: mostrarPrecos ? formatarPreco(p.aPartirDe) : '',
   grupo: 'personalizar' as const,
 }));
 const opcoesAcervo = pecas.map((p) => ({ slug: p.slug, nome: p.nome, preco: '', grupo: 'acervo' as const }));
@@ -194,7 +196,7 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
         <select id="f-peca" name="peca">
           <option value="">Ainda não escolhi</option>
           <optgroup label="Peças para personalizar">
-            {opcoesPersonalizar.map((p) => <option value={p.slug}>{`${p.nome} — a partir de ${p.preco}`}</option>)}
+            {opcoesPersonalizar.map((p) => <option value={p.slug}>{p.preco ? `${p.nome} — a partir de ${p.preco}` : p.nome}</option>)}
           </optgroup>
           <optgroup label="Inspirada em uma peça do acervo">
             {opcoesAcervo.map((p) => <option value={p.slug}>{p.nome}</option>)}
@@ -516,7 +518,7 @@ const opcoesPeca = [...opcoesPersonalizar, ...opcoesAcervo];
     const peca = pecas.find((p) => p.slug === v('peca'));
     const linhas = [
       `Olá! Meu nome é ${v('nome')} e gostaria de fazer uma encomenda. (Formulário de encomendas)`,
-      peca?.grupo === 'personalizar' && `• Peça: ${peca.nome} (a partir de ${peca.preco})`,
+      peca?.grupo === 'personalizar' && `• Peça: ${peca.nome}${peca.preco ? ` (a partir de ${peca.preco})` : ''}`,
       peca?.grupo === 'acervo' && `• Inspirada em: ${peca.nome}`,
       v('ideia') && `\n${v('ideia')}`,
     ].filter(Boolean);

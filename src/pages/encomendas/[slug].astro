@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Base from '../../layouts/Base.astro';
 import PersonalizavelCard from '../../components/PersonalizavelCard.astro';
-import { personalizaveis, formatarPreco, type PecaPersonalizavel } from '../../data/personalizar';
+import { personalizaveis, formatarPreco, mostrarPrecos, type PecaPersonalizavel } from '../../data/personalizar';
 import { linkWhatsapp } from '../../data/site';
 import { u } from '../../lib/url';
 
@@ -17,7 +17,7 @@ interface Props {
 const { peca } = Astro.props;
 const preco = formatarPreco(peca.aPartirDe);
 const urlPeca = new URL(Astro.url.pathname, Astro.site).toString();
-const msg = `Olá! Quero encomendar a peça "${peca.nome}" (a partir de ${preco}) com pintura personalizada. (Peças para personalizar)\n${urlPeca}`;
+const msg = `Olá! Quero encomendar a peça "${peca.nome}"${mostrarPrecos ? ` (a partir de ${preco})` : ''} com pintura personalizada. (Peças para personalizar)\n${urlPeca}`;
 const msgDisponibilidade = `Olá! Gostaria de consultar a disponibilidade da peça "${peca.nome}" para personalizar. (Peças para personalizar)\n${urlPeca}`;
 const outras = personalizaveis.filter((p) => p.slug !== peca.slug);
 
@@ -29,7 +29,7 @@ const passos = [
 ];
 ---
 
-<Base titulo={peca.nome} descricao={`${peca.nome} com pintura personalizada — ${peca.chamada} A partir de ${preco}.`} imagem={peca.foto}>
+<Base titulo={peca.nome} descricao={`${peca.nome} com pintura personalizada — ${peca.chamada}${mostrarPrecos ? ` A partir de ${preco}.` : ''}`} imagem={peca.foto}>
   <nav class="crumbs wrap" aria-label="Você está em">
     <a href={u('/encomendas/')}>Encomendas</a>
     <span aria-hidden="true">/</span>
@@ -59,11 +59,15 @@ const passos = [
         <h1 class="pp-nome">{peca.nome}</h1>
         <p class="pp-chamada">{peca.chamada}</p>
 
-        <div class="pp-preco">
-          <p class="eyebrow">A partir de</p>
-          <p class="pp-valor">{preco}</p>
-          <p class="pp-nota">O valor final depende da arte escolhida.</p>
-        </div>
+        {
+          mostrarPrecos && (
+            <div class="pp-preco">
+              <p class="eyebrow">A partir de</p>
+              <p class="pp-valor">{preco}</p>
+              <p class="pp-nota">O valor final depende da arte escolhida.</p>
+            </div>
+          )
+        }
 
         <div class="pp-acoes">
           <a class="btn btn--block" href={linkWhatsapp(msg)} target="_blank" rel="noopener">
