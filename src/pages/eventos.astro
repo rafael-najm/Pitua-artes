@@ -7,6 +7,7 @@ import { u } from '../lib/url';
 import portaJoias from '../assets/personalizar/porta-joias-do-dia.webp';
 import vela from '../assets/personalizar/vela-copo-porcelana.webp';
 import copinho from '../assets/personalizar/copinho.webp';
+import garrafaTacas from '../assets/eventos/bar-brinde-garrafa-tacas.webp';
 
 /**
  * EVENTOS & BRINDES
@@ -59,8 +60,9 @@ const blocos = [
       'Garrafa de vinho “para abrir no 1º aniversário”',
       'Jarras e dispensers para a estação de drinks',
     ],
-    img: foto('copos-pintados', 1),
-    alt: 'Copo de vidro pintado à mão com flores em magenta',
+    img: garrafaTacas,
+    ratio: '1 / 1',
+    alt: 'Garrafa de espumante e par de taças pintadas à mão com flores brancas, em caixa de presente',
   },
   {
     id: 'mesa',
@@ -205,7 +207,7 @@ const faq = [
     blocos.map((b, i) => (
       <section id={b.id} class:list={['bloco wrap', { 'bloco--rev': i % 2 }]} aria-labelledby={`${b.id}-t`}>
         <div class="bloco-media" data-reveal>
-          <div class="frame bloco-img">
+          <div class="frame bloco-img" style={b.ratio ? `aspect-ratio:${b.ratio}` : undefined}>
             <Image src={b.img} alt={b.alt} widths={[480, 720, 960, 1280]} sizes="(max-width: 900px) 100vw, 42vw" />
           </div>
           {b.extra && (
