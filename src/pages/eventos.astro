@@ -16,15 +16,15 @@ import copinho from '../assets/personalizar/copinho.webp';
 const publicos = [
   {
     titulo: 'Casamentos',
-    texto: 'Lembranças para os convidados, presentes para padrinhos e madrinhas e as peças especiais dos noivos.',
+    texto: 'Lembranças para os convidados, presentes para padrinhos e madrinhas e as peças especiais dos noivos — com a pintura inspirada na decoração do casamento.',
   },
   {
     titulo: 'Eventos pessoais',
-    texto: 'Bar e bat mitzvá, 15 anos, aniversários, chá de bebê, bodas — com o nome, a data e as cores da festa.',
+    texto: 'Bar e bat mitzvá, 15 anos, aniversários, chá de bebê, bodas — com um desenho que conversa com o tema e as cores da festa.',
   },
   {
     titulo: 'Marcas e empresas',
-    texto: 'Brindes de fim de ano, kits de boas-vindas, lançamentos e eventos corporativos, com o logo ou as cores da marca.',
+    texto: 'Brindes de fim de ano, kits de boas-vindas, lançamentos e eventos corporativos, com uma pintura criada a partir da identidade visual da marca.',
   },
 ];
 
@@ -34,7 +34,7 @@ const blocos = [
     rotulo: 'Para os convidados',
     titulo: 'A lembrança que vai para casa.',
     texto:
-      'Peças pequenas, pintadas uma a uma, com as iniciais, a data ou um detalhe da festa. Cada convidado leva um pedacinho do evento.',
+      'Peças pequenas, pintadas uma a uma, com um desenho exclusivo que repete as flores, as cores ou os elementos da decoração. Cada convidado leva um pedacinho do evento.',
     itens: [
       'Porta-joias do dia',
       'Copinho',
@@ -67,11 +67,11 @@ const blocos = [
     rotulo: 'Mesa e decoração',
     titulo: 'A decoração que vira presente.',
     texto:
-      'Centros de mesa, porta-velas e marcadores de lugar pintados à mão — que enfeitam a festa e, no fim, vão embora com os convidados.',
+      'Centros de mesa, porta-velas e marcadores de lugar pintados à mão no mesmo desenho da festa — que enfeitam o evento e, no fim, vão embora com os convidados.',
     itens: [
-      'Porta-velas e lanternas de vidro',
+      'Porta-velas e lanternas',
       'Vasinhos para flores',
-      'Marcadores de lugar em vidro ou espelho',
+      'Marcadores de lugar',
       'Placa ou espelho de boas-vindas',
       'Potes com tampa para bem-casados e doces',
     ],
@@ -83,10 +83,10 @@ const blocos = [
     rotulo: 'Noivos, padrinhos e anfitriões',
     titulo: 'As peças que ficam para a vida.',
     texto:
-      'Presentes principais, desenhados com calma: pratos com monograma, kits de Shabat e kidush, travessas e peças que passam a fazer parte da história da família.',
+      'Presentes principais, desenhados com calma: pratos com monograma, kits de Shabat, travessas e peças que passam a fazer parte da história da família.',
     itens: [
       'Prato com monograma dos noivos',
-      'Kit de kidush (taça e garrafa)',
+      'Kit de Shabat',
       'Castiçais para as velas de Shabat',
       'Peça para guardar o copo quebrado no casamento',
       'Travessas e aparelhos personalizados',
@@ -97,8 +97,8 @@ const blocos = [
 ];
 
 const passos = [
-  { t: 'Conversa', d: 'Você conta o evento, a data, a quantidade e as cores. Mande referências, convite ou paleta.' },
-  { t: 'Amostra', d: 'A artista desenha a proposta e, se for o caso, pinta uma peça-amostra para aprovação.' },
+  { t: 'Conversa', d: 'Você conta o evento, a quantidade e mostra a decoração: convite, paleta, flores, identidade visual.' },
+  { t: 'Desenho e amostra', d: 'A artista cria um desenho exclusivo, combinando com a festa ou a marca, e pinta uma peça-amostra para aprovação.' },
   { t: 'Produção', d: 'Com tudo aprovado, as peças são pintadas à mão, uma a uma, e finalizadas.' },
   { t: 'Embalagem e entrega', d: 'Embaladas com cuidado — com caixinha, tag e fita, se quiser — e entregues no prazo combinado.' },
 ];
@@ -132,15 +132,15 @@ const faq = [
     a: 'Sim. As lembranças podem ir em embalagem individual, com tag personalizada e fita nas cores do evento.',
   },
   {
-    q: 'Dá para colocar o logo da marca?',
-    a: 'Sim. Logos, nomes, datas, monogramas e paletas da marca podem ser pintados à mão nas peças.',
+    q: 'Como é feito o desenho?',
+    a: 'Cada projeto ganha um desenho exclusivo, criado a partir da decoração da festa ou da identidade visual da marca — flores, padrões, cores, elementos do convite ou do logo. Nomes e datas também podem entrar, se fizer sentido.',
   },
 ];
 ---
 
 <Base
   titulo="Eventos & Brindes"
-  descricao="Lembranças e brindes pintados à mão para casamentos, eventos pessoais e marcas: porcelana e vidro personalizados com nomes, datas, monogramas e logos."
+  descricao="Lembranças e brindes pintados à mão para casamentos, eventos pessoais e marcas, em porcelana ou vidro, com desenho exclusivo que combina com a decoração da festa ou a identidade da marca."
   imagem={foto('taca-de-kidush', 2)}
 >
   <section class="ev-hero">
@@ -148,8 +148,8 @@ const faq = [
       <p class="eyebrow" data-reveal>Eventos &amp; Brindes</p>
       <h1 class="display" data-reveal style="--delay:.06s">Lembranças <em>pintadas à mão.</em></h1>
       <p class="lede" data-reveal style="--delay:.12s">
-        Para casamentos, eventos pessoais e marcas: peças em porcelana e vidro com o nome, a data e as cores de cada
-        celebração.
+        Para casamentos, eventos pessoais e marcas: peças em porcelana ou vidro com um desenho criado para combinar com
+        a decoração da festa ou com a identidade visual da marca.
       </p>
       <div class="ev-cta" data-reveal style="--delay:.18s">
         <a class="btn" href="#orcamento">Pedir um orçamento</a>
@@ -180,6 +180,17 @@ const faq = [
           </article>
         ))
       }
+    </div>
+  </section>
+
+  <section class="material wrap" data-reveal>
+    <div class="material-box">
+    <p class="eyebrow">Porcelana ou vidro</p>
+    <p class="material-txt">
+      Todas as peças podem ser feitas em <strong>porcelana</strong> ou em <strong>vidro</strong> — taças, copos, garrafas,
+      potes, porta-velas, pratos —, sempre com um <strong>desenho exclusivo</strong>, criado para combinar com a decoração da
+      festa ou com a identidade visual da marca.
+    </p>
     </div>
   </section>
 
@@ -271,8 +282,8 @@ const faq = [
       <p class="eyebrow">Para marcas e empresas</p>
       <h3 class="h3">Brindes com a cara da sua marca.</h3>
       <p>
-        Copos, taças, garrafas, canecas e kits de presente com o logo ou as cores da marca — para clientes, equipes,
-        fim de ano e lançamentos.
+        Copos, taças, garrafas, canecas e kits de presente com uma pintura criada a partir da identidade visual da marca
+        — para clientes, equipes, fim de ano e lançamentos.
       </p>
       <a
         class="link"
@@ -429,6 +440,28 @@ const faq = [
     color: var(--ink-2);
   }
 
+  .material {
+    padding-bottom: clamp(2rem, 4vw, 3rem);
+  }
+  .material-box {
+    display: grid;
+    gap: 0.6rem;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    background: var(--creme);
+    border-left: 3px solid var(--accent);
+  }
+  .material-txt {
+    max-width: 46em;
+    font-family: var(--serif);
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    font-weight: 300;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .material-txt strong {
+    font-weight: 450;
+    color: var(--brand);
+  }
   .ev-indice {
     display: flex;
     flex-wrap: wrap;
