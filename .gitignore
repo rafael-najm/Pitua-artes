@@ -6,3 +6,5 @@ dist/
 .env
 .env.*
 pituaartes-site.zip
+catalogo/.build/
+catalogo/*.pdf
