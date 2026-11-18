@@ -111,7 +111,6 @@ informacoes = [
 vantagens = [
     'Atendimento prioritário para os seus clientes',
     'Catálogo para apresentar aos noivos e anfitriões',
-    'Kit de amostras para o seu ateliê',
 ]
 
 acervo = [
