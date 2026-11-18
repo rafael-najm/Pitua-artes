@@ -4,9 +4,9 @@ import Base from '../layouts/Base.astro';
 import { linkWhatsapp } from '../data/site';
 import { foto } from '../lib/fotos';
 import { u } from '../lib/url';
-import portaJoias from '../assets/personalizar/porta-joias-do-dia.webp';
-import vela from '../assets/personalizar/vela-copo-porcelana.webp';
-import copinho from '../assets/personalizar/copinho.webp';
+import velaPintada from '../assets/eventos/convidados-vela.webp';
+import vasinho from '../assets/eventos/mesa-vasinho.webp';
+import aparelhoPratos from '../assets/eventos/anfitrioes-aparelho.jpg';
 import garrafaTacas from '../assets/eventos/bar-brinde-garrafa-tacas.webp';
 import heroPratinhos from '../assets/eventos/hero-pratinhos.webp';
 
@@ -43,9 +43,9 @@ const blocos = [
       'Vela em copo de porcelana',
       'Pratinho de doces',
     ],
-    img: portaJoias,
-    alt: 'Porta-joias redondo de porcelana com borda ondulada',
-    extra: [copinho, vela],
+    img: velaPintada,
+    ratio: '1 / 1',
+    alt: 'Vela em copo de porcelana pintado à mão com flores em laranja, azul e vermelho',
   },
   {
     id: 'bar',
@@ -77,8 +77,9 @@ const blocos = [
       'Placa ou espelho de boas-vindas',
       'Potes com tampa para bem-casados e doces',
     ],
-    img: foto('bomboniere-arlequim', 1),
-    alt: 'Bomboniere de vidro pintada à mão com tampa amarela e pé listrado',
+    img: vasinho,
+    ratio: '1 / 1',
+    alt: 'Vasinho de porcelana pintado à mão com folhas em rosa e lilás e gargalo amarelo, com flores brancas',
   },
   {
     id: 'anfitrioes',
@@ -93,8 +94,9 @@ const blocos = [
       'Peça para guardar o copo quebrado no casamento',
       'Travessas e aparelhos personalizados',
     ],
-    img: foto('prato-de-shabat', 1),
-    alt: 'Prato de Shabat pintado à mão com as palavras Paz, Salam e Shalom',
+    img: aparelhoPratos,
+    ratio: '4 / 5',
+    alt: 'Aparelho de pratos pintados à mão com legumes e ervas, sobre jogos americanos de palha',
   },
 ];
 
