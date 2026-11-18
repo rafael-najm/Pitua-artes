@@ -244,7 +244,7 @@ strong { font-weight: 600; color: var(--azul); }
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 40px;
-  padding: 52px var(--pad) 0;
+  padding: 44px var(--pad) 0;
 }
 .ac-head { display: flex; flex-direction: column; gap: 18px; padding-top: 4px; }
 .ac-head .h2 { font-size: 42px; }
@@ -252,11 +252,12 @@ strong { font-weight: 600; color: var(--azul); }
 .nota a { color: var(--azul); border-bottom: 1px solid var(--turquesa); }
 .grade {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px 24px;
+  grid-template-columns: repeat(3, 208px);
+  justify-content: end;
+  gap: 18px 40px;
   align-content: start;
 }
-.grade figure img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 3px; height: 248px; width: 248px; }
+.grade figure img { object-fit: cover; border-radius: 3px; width: 208px; height: 260px; }
 .grade figcaption {
   margin-top: 8px;
   font-size: 15px;
@@ -265,7 +266,7 @@ strong { font-weight: 600; color: var(--azul); }
   display: flex;
   flex-direction: column;
   gap: 3px;
-  width: 248px;
+  width: 208px;
 }
 .grade figcaption span {
   font-family: var(--sans);

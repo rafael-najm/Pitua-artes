@@ -38,12 +38,21 @@ def zap(msg: str) -> str:
 
 # ————————————————————————————————————————————————————————————— fotos
 
-def prepara(origem: Path, nome: str, lado=1600, quadrado=False, foco=(0.5, 0.5)) -> str:
+def prepara(origem: Path, nome: str, lado=1600, quadrado=False, foco=(0.5, 0.5), retrato=False, zoom=1.0) -> str:
     """Reduz a foto (para o PDF ficar leve) e devolve o caminho file://."""
     BUILD.mkdir(parents=True, exist_ok=True)
     destino = BUILD / f'{nome}.jpg'
     im = ImageOps.exif_transpose(Image.open(origem)).convert('RGB')
-    if quadrado:
+    if zoom > 1:  # aproxima a peça quando ela aparece pequena na foto
+        w, h = im.size
+        cw, ch = w / zoom, h / zoom
+        cx, cy = w * foco[0], h * foco[1]
+        x0 = min(max(cx - cw / 2, 0), w - cw)
+        y0 = min(max(cy - ch / 2, 0), h - ch)
+        im = im.crop((round(x0), round(y0), round(x0 + cw), round(y0 + ch)))
+    if retrato:  # 4:5, o formato original das fotos do acervo (a peça aparece inteira)
+        im = ImageOps.fit(im, (lado * 4 // 5, lado), Image.LANCZOS, centering=foco)
+    elif quadrado:
         im = ImageOps.fit(im, (lado, lado), Image.LANCZOS, centering=foco)
     else:
         im.thumbnail((lado, lado), Image.LANCZOS)
@@ -115,18 +124,18 @@ vantagens = [
 
 acervo = [
     ('À mesa', 'Peças de servir e louças com desenhos que vão do clássico ao tropical.', [
-        ('aparelho-risoto-horta', 'Aparelho para Risoto Horta', 'Porcelana', 4),
+        ('aparelho-risoto-horta', 'Aparelho para Risoto Horta', 'Porcelana', 2),
         ('petisqueira-geometrica', 'Petisqueira Geométrica', 'Porcelana', 1),
         ('jarra-olho-grego', 'Jarra Olho Grego', 'Porcelana'),
         ('manteigueira-borboletas', 'Manteigueira Borboletas', 'Porcelana'),
         ('queijeira-hibisco', 'Queijeira Hibisco', 'Porcelana'),
-        ('boleira-confeitaria', 'Boleira Confeitaria', 'Porcelana'),
+        ('boleira-confeitaria', 'Boleira Confeitaria', 'Porcelana', 6),
     ]),
     ('Decoração e peças especiais', 'Vasos, esculturas e peças judaicas com pintura detalhada, feitas para durar '
                                     'gerações.', [
         ('vaso-carmim', 'Vaso Carmim', 'Porcelana'),
         ('vasos-orquideas', 'Vasos Orquídeas', 'Porcelana'),
-        ('elefante-real', 'Elefante Real', 'Porcelana'),
+        ('elefante-real', 'Elefante Real', 'Porcelana', 2),
         ('relogio-imari', 'Relógio Imari', 'Porcelana'),
         ('casticais-shabat-shalom', 'Castiçais Shabat Shalom', 'Porcelana'),
         ('cachepo-elefante-indiano', 'Cachepô Elefante Indiano', 'Porcelana'),
@@ -134,7 +143,8 @@ acervo = [
 ]
 
 # Ajuste do recorte quadrado de algumas fotos (0 = topo/esquerda, 1 = base/direita)
-FOCO = {}
+FOCO = {'boleira-confeitaria': (0.5, 0.52)}
+ZOOM = {'boleira-confeitaria': 1.3}
 
 # ————————————————————————————————————————————————————————————— montagem
 
@@ -279,7 +289,8 @@ def gerar_html():
     for k, (titulo, sub, pecas) in enumerate(acervo):
         figs = ''
         for slug, nome, mat, *qual in pecas:
-            src = prepara(peca(slug, *qual), f'acervo-{slug}', lado=800, quadrado=True, foco=FOCO.get(slug, (0.5, 0.5)))
+            src = prepara(peca(slug, *qual), f'acervo-{slug}', lado=800, retrato=True, foco=FOCO.get(slug, (0.5, 0.5)),
+                         zoom=ZOOM.get(slug, 1.0))
             figs += f'<figure><img src="{src}" alt=""><figcaption>{escape(nome)}<span>{mat}</span></figcaption></figure>'
         paginas.append(f'''
     <section class="pg acervo">
