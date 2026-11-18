@@ -263,8 +263,8 @@ strong { font-weight: 600; color: var(--azul); }
   font-weight: 350;
   color: var(--ink);
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  flex-direction: column;
+  gap: 3px;
   width: 248px;
 }
 .grade figcaption span {

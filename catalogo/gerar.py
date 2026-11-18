@@ -114,9 +114,9 @@ vantagens = [
 ]
 
 acervo = [
-    ('À mesa', 'Peças de servir, vidro pintado e louças com desenhos que vão do clássico ao tropical.', [
-        ('copos-pintados', 'Copos Pintados', 'Vidro'),
-        ('bomboniere-arlequim', 'Bomboniere Arlequim', 'Vidro'),
+    ('À mesa', 'Peças de servir e louças com desenhos que vão do clássico ao tropical.', [
+        ('aparelho-risoto-horta', 'Aparelho para Risoto Horta', 'Porcelana', 4),
+        ('petisqueira-geometrica', 'Petisqueira Geométrica', 'Porcelana', 1),
         ('jarra-olho-grego', 'Jarra Olho Grego', 'Porcelana'),
         ('manteigueira-borboletas', 'Manteigueira Borboletas', 'Porcelana'),
         ('queijeira-hibisco', 'Queijeira Hibisco', 'Porcelana'),
@@ -134,7 +134,7 @@ acervo = [
 ]
 
 # Ajuste do recorte quadrado de algumas fotos (0 = topo/esquerda, 1 = base/direita)
-FOCO = {'copos-pintados': (0.5, 0.35)}
+FOCO = {}
 
 # ————————————————————————————————————————————————————————————— montagem
 
@@ -278,8 +278,8 @@ def gerar_html():
     # 10–11. do acervo
     for k, (titulo, sub, pecas) in enumerate(acervo):
         figs = ''
-        for slug, nome, mat in pecas:
-            src = prepara(peca(slug), f'acervo-{slug}', lado=800, quadrado=True, foco=FOCO.get(slug, (0.5, 0.5)))
+        for slug, nome, mat, *qual in pecas:
+            src = prepara(peca(slug, *qual), f'acervo-{slug}', lado=800, quadrado=True, foco=FOCO.get(slug, (0.5, 0.5)))
             figs += f'<figure><img src="{src}" alt=""><figcaption>{escape(nome)}<span>{mat}</span></figcaption></figure>'
         paginas.append(f'''
     <section class="pg acervo">
