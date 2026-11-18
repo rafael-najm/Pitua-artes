@@ -22,6 +22,7 @@ export const site = {
 export function paginaDe(caminho: string): string {
   const c = caminho.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '');
   if (c.startsWith('/oficinas')) return 'Oficinas';
+  if (c.startsWith('/eventos')) return 'Eventos';
   if (c.startsWith('/encomendas/') && c.length > '/encomendas/'.length) return 'Peça para personalizar';
   if (c.startsWith('/encomendas')) return 'Encomendas';
   if (c.startsWith('/acervo/') && c.length > '/acervo/'.length) return 'Peça do acervo';

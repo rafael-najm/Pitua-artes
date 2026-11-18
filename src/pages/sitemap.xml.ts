@@ -9,6 +9,7 @@ export const GET: APIRoute = ({ site }) => {
     '/acervo/',
     '/oficinas/',
     '/encomendas/',
+    '/eventos/',
     ...pecas.map((p) => `/acervo/${p.slug}/`),
     ...personalizaveis.map((p) => `/encomendas/${p.slug}/`),
   ];

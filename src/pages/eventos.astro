@@ -1,0 +1,711 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { linkWhatsapp } from '../data/site';
+import { foto } from '../lib/fotos';
+import { u } from '../lib/url';
+import portaJoias from '../assets/personalizar/porta-joias-do-dia.webp';
+import vela from '../assets/personalizar/vela-copo-porcelana.webp';
+import copinho from '../assets/personalizar/copinho.webp';
+
+/**
+ * EVENTOS & BRINDES
+ * Textos e fotos desta página. Para trocar uma foto, troque o `img` do bloco.
+ */
+
+const publicos = [
+  {
+    titulo: 'Casamentos',
+    texto: 'Lembranças para os convidados, presentes para padrinhos e madrinhas e as peças especiais dos noivos.',
+  },
+  {
+    titulo: 'Eventos pessoais',
+    texto: 'Bar e bat mitzvá, 15 anos, aniversários, chá de bebê, bodas — com o nome, a data e as cores da festa.',
+  },
+  {
+    titulo: 'Marcas e empresas',
+    texto: 'Brindes de fim de ano, kits de boas-vindas, lançamentos e eventos corporativos, com o logo ou as cores da marca.',
+  },
+];
+
+const blocos = [
+  {
+    id: 'convidados',
+    rotulo: 'Para os convidados',
+    titulo: 'A lembrança que vai para casa.',
+    texto:
+      'Peças pequenas, pintadas uma a uma, com as iniciais, a data ou um detalhe da festa. Cada convidado leva um pedacinho do evento.',
+    itens: [
+      'Porta-joias do dia',
+      'Copinho com nome e data',
+      'Vela em copo de porcelana',
+      'Pratinho de doces',
+      'Mini garrafinhas de azeite ou licor',
+      'Potinhos de mel ou geleia',
+      'Copinho de shot',
+    ],
+    img: portaJoias,
+    alt: 'Porta-joias redondo de porcelana com borda ondulada',
+    extra: [copinho, vela],
+  },
+  {
+    id: 'bar',
+    rotulo: 'Bar e brinde',
+    titulo: 'Taças, copos e garrafas pintados à mão.',
+    texto:
+      'O vidro aparece no brinde, no bar e nas fotos. Taças dos noivos e dos padrinhos, copos para o open bar que o convidado leva para casa e garrafas personalizadas para a mesa de honra.',
+    itens: [
+      'Taças de vinho e espumante',
+      'Taças de gin e copos long drink',
+      'Garrafas de espumante personalizadas',
+      'Mini espumantes (187 ml)',
+      'Garrafa de vinho “para abrir no 1º aniversário”',
+      'Jarras e dispensers para a estação de drinks',
+    ],
+    img: foto('copos-pintados', 1),
+    alt: 'Copo de vidro pintado à mão com flores em magenta',
+  },
+  {
+    id: 'mesa',
+    rotulo: 'Mesa e decoração',
+    titulo: 'A decoração que vira presente.',
+    texto:
+      'Centros de mesa, porta-velas e marcadores de lugar pintados à mão — que enfeitam a festa e, no fim, vão embora com os convidados.',
+    itens: [
+      'Porta-velas e lanternas de vidro',
+      'Vasinhos para flores',
+      'Marcadores de lugar em vidro ou espelho',
+      'Placa ou espelho de boas-vindas',
+      'Potes com tampa para bem-casados e doces',
+    ],
+    img: foto('bomboniere-arlequim', 1),
+    alt: 'Bomboniere de vidro pintada à mão com tampa amarela e pé listrado',
+  },
+  {
+    id: 'anfitrioes',
+    rotulo: 'Noivos, padrinhos e anfitriões',
+    titulo: 'As peças que ficam para a vida.',
+    texto:
+      'Presentes principais, desenhados com calma: pratos com monograma, kits de Shabat e kidush, travessas e peças que passam a fazer parte da história da família.',
+    itens: [
+      'Prato com monograma dos noivos',
+      'Kit de kidush (taça e garrafa)',
+      'Castiçais para as velas de Shabat',
+      'Peça para guardar o copo quebrado no casamento',
+      'Travessas e aparelhos personalizados',
+    ],
+    img: foto('prato-de-shabat', 1),
+    alt: 'Prato de Shabat pintado à mão com as palavras Paz, Salam e Shalom',
+  },
+];
+
+const passos = [
+  { t: 'Conversa', d: 'Você conta o evento, a data, a quantidade e as cores. Mande referências, convite ou paleta.' },
+  { t: 'Amostra', d: 'A artista desenha a proposta e, se for o caso, pinta uma peça-amostra para aprovação.' },
+  { t: 'Produção', d: 'Com tudo aprovado, as peças são pintadas à mão, uma a uma, e finalizadas.' },
+  { t: 'Embalagem e entrega', d: 'Embaladas com cuidado — com caixinha, tag e fita, se quiser — e entregues no prazo combinado.' },
+];
+
+const vantagens = [
+  'Atendimento prioritário para os seus clientes',
+  'Catálogo para apresentar aos noivos e anfitriões',
+  'Kit de amostras para o seu ateliê',
+  'Condições especiais para parceiras',
+];
+
+const faq = [
+  {
+    q: 'Qual é a quantidade mínima?',
+    a: 'Depende da peça: algumas lembranças são feitas a partir de pequenas quantidades, outras pedem um lote maior. Conte o que tem em mente que a gente indica o melhor caminho.',
+  },
+  {
+    q: 'Com quanto tempo de antecedência preciso encomendar?',
+    a: 'Como tudo é pintado à mão, quanto antes, melhor. O prazo é combinado no orçamento, de acordo com a quantidade e a data do evento.',
+  },
+  {
+    q: 'Quanto custa?',
+    a: 'O valor por peça varia com o modelo, o tamanho, a pintura e a quantidade. O orçamento é feito sob medida, sem compromisso.',
+  },
+  {
+    q: 'A pintura nas peças de vidro é resistente?',
+    a: 'Sim. As peças recebem tinta própria e acabamento para o uso — inclusive garrafas no balde de gelo. Junto com cada encomenda vão as orientações de cuidado e lavagem.',
+  },
+  {
+    q: 'Vocês fazem embalagem?',
+    a: 'Sim. As lembranças podem ir em embalagem individual, com tag personalizada e fita nas cores do evento.',
+  },
+  {
+    q: 'Dá para colocar o logo da marca?',
+    a: 'Sim. Logos, nomes, datas, monogramas e paletas da marca podem ser pintados à mão nas peças.',
+  },
+];
+---
+
+<Base
+  titulo="Eventos & Brindes"
+  descricao="Lembranças e brindes pintados à mão para casamentos, eventos pessoais e marcas: porcelana e vidro personalizados com nomes, datas, monogramas e logos."
+  imagem={foto('taca-de-kidush', 2)}
+>
+  <section class="ev-hero">
+    <div class="ev-hero-text">
+      <p class="eyebrow" data-reveal>Eventos &amp; Brindes</p>
+      <h1 class="display" data-reveal style="--delay:.06s">Lembranças <em>pintadas à mão.</em></h1>
+      <p class="lede" data-reveal style="--delay:.12s">
+        Para casamentos, eventos pessoais e marcas: peças em porcelana e vidro com o nome, a data e as cores de cada
+        celebração.
+      </p>
+      <div class="ev-cta" data-reveal style="--delay:.18s">
+        <a class="btn" href="#orcamento">Pedir um orçamento</a>
+        <a class="link" href="#cerimonialistas">Sou cerimonialista <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="ev-hero-media frame">
+      <Image
+        src={foto('taca-de-kidush', 2)}
+        alt="Vinho sendo servido em taça pintada à mão"
+        widths={[720, 960, 1280, 1600]}
+        sizes="(max-width: 900px) 100vw, 50vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="publicos-t">
+    <h2 id="publicos-t" class="sr-only">Para quem</h2>
+    <div class="publicos">
+      {
+        publicos.map((p, i) => (
+          <article class="publico" data-reveal style={`--delay:${i * 0.07}s`}>
+            <span class="pub-n serif">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="pub-t">{p.titulo}</h3>
+            <p>{p.texto}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <nav class="ev-indice wrap" aria-label="Ideias de brindes">
+    <p class="eyebrow">Ideias</p>
+    <ul>
+      {blocos.map((b) => <li><a href={`#${b.id}`}>{b.rotulo}</a></li>)}
+    </ul>
+  </nav>
+
+  {
+    blocos.map((b, i) => (
+      <section id={b.id} class:list={['bloco wrap', { 'bloco--rev': i % 2 }]} aria-labelledby={`${b.id}-t`}>
+        <div class="bloco-media" data-reveal>
+          <div class="frame bloco-img">
+            <Image src={b.img} alt={b.alt} widths={[480, 720, 960, 1280]} sizes="(max-width: 900px) 100vw, 42vw" />
+          </div>
+          {b.extra && (
+            <div class="bloco-extra">
+              {b.extra.map((x) => (
+                <div class="frame">
+                  <Image src={x} alt="" widths={[240, 360, 480]} sizes="(max-width: 900px) 45vw, 20vw" />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        <div class="bloco-text" data-reveal style="--delay:.1s">
+          <p class="eyebrow">{b.rotulo}</p>
+          <h2 id={`${b.id}-t`} class="h2">{b.titulo}</h2>
+          <p class="body-lg">{b.texto}</p>
+          <ul class="ideias">
+            {b.itens.map((it) => <li>{it}</li>)}
+          </ul>
+          <a
+            class="link"
+            href={linkWhatsapp(`Olá! Gostaria de um orçamento de brindes para evento. Tenho interesse em: ${b.rotulo.toLowerCase()}. (Eventos · ${b.rotulo})`)}
+            target="_blank"
+            rel="noopener"
+          >
+            Pedir orçamento <span class="arrow">→</span>
+          </a>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="processo on-dark" aria-labelledby="processo-t">
+    <div class="wrap">
+      <header class="sec-head" data-reveal>
+        <p class="eyebrow">Como funciona</p>
+        <h2 id="processo-t" class="h2">Do convite à última embalagem.</h2>
+      </header>
+      <ol class="passos">
+        {
+          passos.map((p, i) => (
+            <li data-reveal style={`--delay:${i * 0.08}s`}>
+              <span class="passo-n serif">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="passo-t">{p.t}</h3>
+              <p>{p.d}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section wrap parceria" id="cerimonialistas" aria-labelledby="cer-t">
+    <div class="parceria-text" data-reveal>
+      <p class="eyebrow">Para cerimonialistas</p>
+      <h2 id="cer-t" class="h2">Uma parceira para os seus eventos.</h2>
+      <p class="body-lg">
+        Lembranças exclusivas, pintadas à mão, para encantar os seus clientes — com atendimento próximo do primeiro
+        desenho até a entrega.
+      </p>
+      <ul class="vantagens">
+        {vantagens.map((v) => <li>{v}</li>)}
+      </ul>
+      <a
+        class="btn"
+        href={linkWhatsapp('Olá! Sou cerimonialista e gostaria de conhecer os brindes e a parceria. (Eventos · Cerimonialistas)')}
+        target="_blank"
+        rel="noopener"
+      >
+        Quero ser parceira
+      </a>
+    </div>
+    <div class="parceria-marcas" data-reveal style="--delay:.1s">
+      <p class="eyebrow">Para marcas e empresas</p>
+      <h3 class="h3">Brindes com a cara da sua marca.</h3>
+      <p>
+        Copos, taças, garrafas, canecas e kits de presente com o logo ou as cores da marca — para clientes, equipes,
+        fim de ano e lançamentos.
+      </p>
+      <a
+        class="link"
+        href={linkWhatsapp('Olá! Gostaria de um orçamento de brindes personalizados para a minha empresa. (Eventos · Marcas)')}
+        target="_blank"
+        rel="noopener"
+      >
+        Falar sobre brindes corporativos <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section wrap orc" id="orcamento" aria-labelledby="orc-t">
+    <div class="orc-intro" data-reveal>
+      <p class="eyebrow">Orçamento</p>
+      <h2 id="orc-t" class="h2">Conte sobre o evento.</h2>
+      <p class="body-lg">Preencha o que souber. Ao enviar, o WhatsApp abre com a mensagem pronta.</p>
+    </div>
+    <form class="form" data-form-evento data-reveal style="--delay:.08s">
+      <div class="field">
+        <label for="e-nome">Seu nome</label>
+        <input id="e-nome" name="nome" autocomplete="name" required />
+      </div>
+      <div class="field">
+        <label for="e-perfil">Você é</label>
+        <select id="e-perfil" name="perfil">
+          <option>Noiva / noivo</option>
+          <option>Cerimonialista</option>
+          <option>Anfitriã / anfitrião</option>
+          <option>Empresa / marca</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="e-evento">Tipo de evento</label>
+        <input id="e-evento" name="evento" placeholder="Casamento, bar mitzvá, fim de ano…" />
+      </div>
+      <div class="field">
+        <label for="e-data">Data do evento <span class="opt">(opcional)</span></label>
+        <input id="e-data" name="data" placeholder="Ex.: maio de 2027" />
+      </div>
+      <div class="field">
+        <label for="e-qtd">Quantidade estimada <span class="opt">(opcional)</span></label>
+        <input id="e-qtd" name="qtd" inputmode="numeric" placeholder="Ex.: 120" />
+      </div>
+      <div class="field field--full">
+        <label for="e-ideia">O que você imagina?</label>
+        <textarea id="e-ideia" name="ideia" rows="4" placeholder="Peças, cores, nomes, referências…" required></textarea>
+      </div>
+      <div class="form-acoes">
+        <button class="btn" type="submit">Enviar pelo WhatsApp</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="faq-sec wrap" aria-labelledby="faq-t">
+    <h2 id="faq-t" class="h3" data-reveal>Perguntas frequentes</h2>
+    <div class="faq" data-reveal>
+      {
+        faq.map((f) => (
+          <details class="acc">
+            <summary>{f.q}</summary>
+            <div class="acc-body">
+              <p>{f.a}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<script is:inline define:vars={{ waBase: linkWhatsapp('') }}>
+  window.__pituaEv = waBase;
+</script>
+
+<script>
+  const waBase = (window as unknown as { __pituaEv: string }).__pituaEv;
+  const form = document.querySelector<HTMLFormElement>('[data-form-evento]');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = new FormData(form);
+    const v = (k: string) => String(d.get(k) ?? '').trim();
+    const linhas = [
+      `Olá! Meu nome é ${v('nome')} e gostaria de um orçamento de brindes para evento. (Eventos · Formulário)`,
+      `• Sou: ${v('perfil')}`,
+      v('evento') && `• Evento: ${v('evento')}`,
+      v('data') && `• Data: ${v('data')}`,
+      v('qtd') && `• Quantidade estimada: ${v('qtd')}`,
+      v('ideia') && `\n${v('ideia')}`,
+    ].filter(Boolean);
+    const url = waBase.replace(/text=.*$/, 'text=' + encodeURIComponent(linhas.join('\n')));
+    window.open(url, '_blank', 'noopener');
+  });
+</script>
+
+<style>
+  .ev-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: min(calc(100svh - var(--header-h)), 760px);
+  }
+  .ev-hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.4rem;
+    padding: 2.5rem clamp(2rem, 5vw, 5rem) 3rem max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  }
+  .ev-hero-text em {
+    display: block;
+  }
+  .ev-hero-text .lede {
+    max-width: 28em;
+  }
+  .ev-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem 2rem;
+  }
+  .ev-hero-media {
+    min-height: 440px;
+  }
+  .ev-hero-media :global(img) {
+    position: absolute;
+    inset: 0;
+    object-position: 50% 35%;
+  }
+
+  .publicos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem clamp(1.5rem, 3vw, 3rem);
+  }
+  .publico {
+    display: grid;
+    gap: 0.6rem;
+    align-content: start;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+  }
+  .pub-n {
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .pub-t {
+    font-size: 1.6rem;
+    font-weight: 330;
+  }
+  .publico p {
+    color: var(--ink-2);
+  }
+
+  .ev-indice {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    padding-bottom: 1rem;
+  }
+  .ev-indice ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .ev-indice a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .ev-indice a:hover {
+    border-color: var(--accent);
+    background: var(--porcelain);
+  }
+
+  .bloco {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: center;
+    padding-block: clamp(2.5rem, 5vw, 4.5rem);
+    border-top: 1px solid var(--line);
+  }
+  .bloco-media {
+    grid-column: 1 / span 5;
+    display: grid;
+    gap: 0.75rem;
+  }
+  .bloco-img {
+    aspect-ratio: 4 / 5;
+  }
+  .bloco-extra {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .bloco-extra .frame {
+    aspect-ratio: 1;
+  }
+  .bloco-text {
+    grid-column: 7 / span 6;
+    display: grid;
+    gap: 1.1rem;
+    justify-items: start;
+  }
+  .bloco--rev .bloco-media {
+    grid-column: 8 / span 5;
+    grid-row: 1;
+  }
+  .bloco--rev .bloco-text {
+    grid-column: 1 / span 6;
+    grid-row: 1;
+  }
+  .ideias {
+    list-style: none;
+    margin: 0.25rem 0 0.5rem;
+    padding: 0;
+    display: grid;
+    gap: 0.55rem;
+    width: 100%;
+  }
+  .ideias li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 330;
+    color: var(--brand);
+  }
+  .ideias li::before {
+    content: '';
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--verde);
+    transform: translateY(-2px);
+  }
+
+  .processo {
+    background: var(--night);
+    color: var(--on-night);
+    padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  }
+  .processo .eyebrow {
+    color: var(--on-night-muted);
+  }
+  .sec-head {
+    display: grid;
+    gap: 0.9rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+  .passos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem clamp(1.5rem, 3vw, 3rem);
+  }
+  .passos li {
+    display: grid;
+    gap: 0.75rem;
+    align-content: start;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgb(242 238 231 / 0.18);
+  }
+  .passo-n {
+    font-size: 2.6rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .passo-t {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+  .passos p {
+    color: var(--on-night-muted);
+  }
+
+  .parceria {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+  .parceria-text {
+    display: grid;
+    gap: 1.2rem;
+    justify-items: start;
+  }
+  .vantagens {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1.5rem;
+    width: 100%;
+  }
+  .vantagens li {
+    padding: 1rem 1.1rem;
+    background: var(--porcelain);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    font-size: 0.95rem;
+  }
+  .parceria-marcas {
+    display: grid;
+    gap: 1rem;
+    justify-items: start;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: var(--creme);
+  }
+
+  .orc {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+    border-top: 1px solid var(--line);
+  }
+  .orc-intro {
+    display: grid;
+    gap: 1rem;
+  }
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem 2rem;
+  }
+  .field--full,
+  .form-acoes {
+    grid-column: 1 / -1;
+  }
+  .opt {
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 350;
+  }
+
+  .faq-sec {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    padding-bottom: clamp(3.5rem, 6vw, 5rem);
+  }
+  .faq .acc summary {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 350;
+    letter-spacing: -0.01em;
+    text-transform: none;
+  }
+
+  @media (max-width: 1000px) {
+    .passos {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 900px) {
+    .ev-hero {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+    .ev-hero-media {
+      grid-row: 1;
+      min-height: 0;
+      aspect-ratio: 4 / 3.4;
+    }
+    .ev-hero-text {
+      padding: 2rem var(--gutter) 2.5rem;
+    }
+    .publicos {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .bloco,
+    .bloco--rev {
+      grid-template-columns: 1fr;
+    }
+    .bloco-media,
+    .bloco-text,
+    .bloco--rev .bloco-media,
+    .bloco--rev .bloco-text {
+      grid-column: auto;
+      grid-row: auto;
+    }
+    .bloco-img {
+      aspect-ratio: 3 / 2;
+    }
+    .parceria,
+    .orc,
+    .faq-sec {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .form,
+    .vantagens {
+      grid-template-columns: 1fr;
+    }
+    .passos {
+      gap: 1.5rem 0.9rem;
+    }
+    .passo-n {
+      font-size: 2rem;
+    }
+    .passo-t {
+      font-size: 1.25rem;
+    }
+    .passos p {
+      font-size: 0.85rem;
+    }
+  }
+</style>
