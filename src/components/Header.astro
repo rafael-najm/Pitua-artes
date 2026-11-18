@@ -9,10 +9,10 @@ interface Props {
 }
 const { atual = '' } = Astro.props;
 
-const nav = [
+const nav: { href: string; label: string; curto?: string }[] = [
   { href: '/oficinas/', label: 'Oficinas' },
   { href: '/encomendas/', label: 'Encomendas' },
-  { href: '/eventos/', label: 'Eventos' },
+  { href: '/eventos/', label: 'Eventos & Brindes', curto: 'Eventos' },
   { href: '/acervo/', label: 'Acervo' },
 ];
 const ativo = (href: string) => atual.startsWith(href);
@@ -24,7 +24,14 @@ const ativo = (href: string) => atual.startsWith(href);
       {
         nav.map((i) => (
           <a href={u(i.href)} aria-current={ativo(i.href) ? 'page' : undefined}>
-            {i.label}
+            {i.curto ? (
+              <>
+                <span class="lbl-longo">{i.label}</span>
+                <span class="lbl-curto" aria-hidden="true">{i.curto}</span>
+              </>
+            ) : (
+              i.label
+            )}
           </a>
         ))
       }
@@ -83,7 +90,22 @@ const ativo = (href: string) => atual.startsWith(href);
   }
   .hdr-nav {
     display: flex;
-    gap: 2.25rem;
+    gap: clamp(1.25rem, 2.2vw, 2.25rem);
+  }
+  .hdr-nav a {
+    white-space: nowrap;
+  }
+  .lbl-curto {
+    display: none;
+  }
+  /* Entre o tablet e o notebook pequeno, o nome completo empurra o logo do centro */
+  @media (max-width: 1299px) {
+    .lbl-longo {
+      display: none;
+    }
+    .lbl-curto {
+      display: inline;
+    }
   }
   .hdr-nav a,
   .hdr-status {
