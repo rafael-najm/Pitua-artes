@@ -91,13 +91,14 @@ const largura = (f: ImageMetadata) => (f.width > f.height * 1.15 ? 'wide' : 'tal
         <p class="info-resumo">{peca.resumo}</p>
 
         <ul class="info-tags">
-          <li>Peça única</li>
+          <li>Peça do acervo</li>
           <li>Pintada à mão</li>
           {peca.encomenda && <li>Projeto sob encomenda</li>}
         </ul>
 
         <div class="info-acoes">
           <a class="btn btn--block" href={u(`/encomendas/?peca=${peca.slug}#formulario`)}>Encomendar uma peça inspirada</a>
+          <p class="info-nota">Esta peça faz parte do acervo e não está à venda. Ela pode inspirar uma nova, pintada só para você.</p>
         </div>
 
         <div class="info-desc">
@@ -111,8 +112,7 @@ const largura = (f: ImageMetadata) => (f.width > f.height * 1.15 ? 'wide' : 'tal
               <dl class="dl">
                 <dt>Técnica</dt><dd>Pintura à mão</dd>
                 <dt>Exemplar</dt><dd>Único — nenhuma peça se repete</dd>
-                <dt>Medidas</dt><dd>Sob consulta</dd>
-                <dt>Valor</dt><dd>Sob consulta</dd>
+                <dt>Acervo</dt><dd>Peça da artista, não está à venda</dd>
               </dl>
             </div>
           </details>
@@ -127,7 +127,7 @@ const largura = (f: ImageMetadata) => (f.width > f.height * 1.15 ? 'wide' : 'tal
             <summary>Encomendas</summary>
             <div class="acc-body">
               <p>
-                Gostou desta peça? É possível encomendar uma nova, inspirada nela — com as suas cores, nomes ou detalhes. Como
+                Gostou desta peça? Ela não está à venda, mas pode inspirar uma nova, feita sob encomenda — com as suas cores, nomes ou detalhes. Como
                 tudo é pintado à mão, a nova peça terá a sua própria personalidade.
               </p>
             </div>
@@ -329,6 +329,12 @@ const largura = (f: ImageMetadata) => (f.width > f.height * 1.15 ? 'wide' : 'tal
     display: grid;
     gap: 0.75rem;
     margin-block: 0.5rem;
+  }
+  .info-nota {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--muted);
+    text-align: center;
   }
   .info-desc {
     display: grid;

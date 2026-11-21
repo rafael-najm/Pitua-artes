@@ -10,7 +10,7 @@ Feito com [Astro](https://astro.build) — gera um site estático, rápido e lev
 | --- | --- | --- |
 | Início | `/` | Abertura, "O que acontece por aqui", destaques, vídeos de uso, a história do Prato de Shabat, a artista e chamada para encomendas |
 | Acervo | `/acervo/` | Todas as peças, com filtro por categoria |
-| Peça | `/acervo/<nome-da-peca>/` | Galeria com zoom, descrição, botão "Consultar disponibilidade" (WhatsApp) e "Encomendar uma peça inspirada" |
+| Peça | `/acervo/<nome-da-peca>/` | Galeria com zoom, descrição e botão "Encomendar uma peça inspirada" (as peças do acervo não estão à venda) |
 | Encomendas | `/encomendas/` | Peças para personalizar (com preço "a partir de"), projetos sob medida, como funciona, formulário que abre o WhatsApp com a mensagem pronta e perguntas frequentes |
 | Peça para personalizar | `/encomendas/<nome-da-peca>/` | Foto, preço a partir de, medidas, descrição e botão de encomenda pelo WhatsApp |
 | Oficinas | `/oficinas/` | Oficinas criativas e oficinas especiais |
