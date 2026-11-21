@@ -195,16 +195,6 @@ export const pecas: Peca[] = [
     ],
   },
   {
-    slug: 'conjunto-quarto-do-bebe-abelha-mel',
-    nome: 'Conjunto Quarto do Bebê Abelha Mel',
-    categoria: 'decoracao',
-    resumo: 'Três potinhos com abelhas, borboletas e corações.',
-    descricao: [
-      'Trio de potinhos com tampa para o quarto do bebê: abelhas e borboletas nas tampas, corações, bolinhas e florzinhas nas laterais, em rosa, verde e azul.',
-      'Para algodão, cotonetes e pequenos tesouros.',
-    ],
-  },
-  {
     slug: 'conjunto-quarto-do-bebe-menino-rafa',
     nome: 'Conjunto Quarto do Bebê Menino Rafa',
     categoria: 'decoracao',
@@ -212,6 +202,26 @@ export const pecas: Peca[] = [
     descricao: [
       'Conjunto para o quarto do bebê com três potes de tampa em céu azul e uma tigela. Cada pote conta uma brincadeira: o menino de boné, a pipa, a bicicleta, o aviãozinho, o ursinho e os cubos de letras.',
       'A tigela traz um ursinho no fundo, cercado de azul.',
+    ],
+  },
+  {
+    slug: 'moringa-abelhas',
+    nome: 'Moringa Abelhas',
+    categoria: 'mesa',
+    resumo: 'Abelhas, borboletas e um laço turquesa.',
+    descricao: [
+      'Moringa com copo, pintada com abelhas e borboletas em tons suaves, gargalo amarelo e um laço turquesa em relevo.',
+      'Delicada para a mesa de cabeceira ou o quarto das crianças.',
+    ],
+  },
+  {
+    slug: 'conjunto-quarto-do-bebe-abelha-mel',
+    nome: 'Conjunto Quarto do Bebê Abelha Mel',
+    categoria: 'decoracao',
+    resumo: 'Três potinhos com abelhas, borboletas e corações.',
+    descricao: [
+      'Trio de potinhos com tampa para o quarto do bebê: abelhas e borboletas nas tampas, corações, bolinhas e florzinhas nas laterais, em rosa, verde e azul.',
+      'Para algodão, cotonetes e pequenos tesouros.',
     ],
   },
   {
@@ -547,16 +557,6 @@ export const pecas: Peca[] = [
     ],
   },
   {
-    slug: 'moringa-abelhas',
-    nome: 'Moringa Abelhas',
-    categoria: 'mesa',
-    resumo: 'Abelhas, borboletas e um laço turquesa.',
-    descricao: [
-      'Moringa com copo, pintada com abelhas e borboletas em tons suaves, gargalo amarelo e um laço turquesa em relevo.',
-      'Delicada para a mesa de cabeceira ou o quarto das crianças.',
-    ],
-  },
-  {
     slug: 'porta-queijo-ralado',
     nome: 'Porta Queijo Ralado',
     categoria: 'mesa',
@@ -661,7 +661,6 @@ export const pecas: Peca[] = [
       'A borda da cuba foi dividida em faixas de cor e padrão — folhagens, quadriculados, listras em preto e branco — e balões coloridos sobem por um céu lilás.',
       'Prova de que a pintura em porcelana vai muito além da mesa.',
     ],
-    encomenda: true,
   },
 ];
 
