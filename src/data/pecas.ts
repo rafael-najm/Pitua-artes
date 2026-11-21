@@ -184,6 +184,177 @@ export const pecas: Peca[] = [
     ],
   },
 
+  {
+    slug: 'abajur-menino-rafa',
+    nome: 'Abajur Menino Rafa',
+    categoria: 'decoracao',
+    resumo: 'Céu de nuvens e um menino entre brinquedos.',
+    descricao: [
+      'Abajur de porcelana com céu azul e nuvens brancas, onde um menino de boné brinca cercado de ursinho, bolas e cubos de letras.',
+      'O gargalo listrado em azul e a cúpula de linho completam uma peça feita para o quarto de criança.',
+    ],
+  },
+  {
+    slug: 'conjunto-quarto-do-bebe-abelha-mel',
+    nome: 'Conjunto Quarto do Bebê Abelha Mel',
+    categoria: 'decoracao',
+    resumo: 'Três potinhos com abelhas, borboletas e corações.',
+    descricao: [
+      'Trio de potinhos com tampa para o quarto do bebê: abelhas e borboletas nas tampas, corações, bolinhas e florzinhas nas laterais, em rosa, verde e azul.',
+      'Para algodão, cotonetes e pequenos tesouros.',
+    ],
+  },
+  {
+    slug: 'conjunto-quarto-do-bebe-menino-rafa',
+    nome: 'Conjunto Quarto do Bebê Menino Rafa',
+    categoria: 'decoracao',
+    resumo: 'Potes com tampa e tigela, com brinquedos e nuvens.',
+    descricao: [
+      'Conjunto para o quarto do bebê com três potes de tampa em céu azul e uma tigela. Cada pote conta uma brincadeira: o menino de boné, a pipa, a bicicleta, o aviãozinho, o ursinho e os cubos de letras.',
+      'A tigela traz um ursinho no fundo, cercado de azul.',
+    ],
+  },
+  {
+    slug: 'globo',
+    nome: 'Globo',
+    categoria: 'decoracao',
+    resumo: 'O mundo em azul profundo, com continentes coloridos.',
+    descricao: [
+      'Globo terrestre de porcelana sobre base dourada: oceanos em azul profundo, linhas de latitude e longitude em ouro e continentes pintados em mosaico de rosa, laranja, amarelo e verde.',
+      'Uma peça para escritórios, estantes e para quem gosta de viajar.',
+    ],
+  },
+  {
+    slug: 'kit-lavabo',
+    nome: 'Kit Lavabo',
+    categoria: 'decoracao',
+    resumo: 'Saboneteira, porta-escovas e copo com padrões gráficos.',
+    descricao: [
+      'Kit para lavabo com saboneteira, porta-escovas e copo, cada peça com um padrão gráfico diferente: escamas, xadrez, florzinhas e listras coloridas.',
+      'As cores conversam entre si e deixam o banheiro alegre.',
+    ],
+  },
+  {
+    slug: 'par-de-vasos-pistache',
+    nome: 'Par de Vasos Pistache',
+    categoria: 'decoracao',
+    resumo: 'Centáureas e flores do campo sobre verde-pistache.',
+    descricao: [
+      'Par de vasos com borda recortada em ouro, pintados com centáureas azuis, flores do campo e folhagens sobre fundo branco e verde-pistache.',
+      'Bonitos juntos ou separados, com ou sem flores.',
+    ],
+  },
+  {
+    slug: 'pote-marmore',
+    nome: 'Pote Mármore',
+    categoria: 'decoracao',
+    resumo: 'Efeito de mármore amarelo com filetes azuis.',
+    descricao: [
+      'Pote com tampa pintado com efeito de mármore em amarelo e veios delicados, emoldurado por faixas em azul-cobalto e ouro.',
+      'Uma peça clássica, que combina com ambientes sóbrios e coloridos.',
+    ],
+  },
+  {
+    slug: 'potiche-tulipa',
+    nome: 'Potiche Tulipa',
+    categoria: 'decoracao',
+    resumo: 'Uma grande tulipa sobre xadrez laranja e poás verdes.',
+    descricao: [
+      'Potiche com tampa em que uma grande tulipa em laranja e vermelho se destaca sobre um fundo que mistura xadrez laranja e poás verde-água.',
+      'Uma composição ousada, que muda a cada lado da peça.',
+    ],
+  },
+  {
+    slug: 'vaso-areia-ninfeia',
+    nome: 'Vaso Areia Ninfeia',
+    categoria: 'decoracao',
+    resumo: 'Ninfeia em rosa e amarelo sobre um céu em aquarela.',
+    descricao: [
+      'Vaso com acabamento de textura arenosa, pintado em aquarela de azul, lilás e amarelo, com uma ninfeia em rosa e grandes folhas de lago em verde.',
+      'Cada lado da peça traz uma parte da cena.',
+    ],
+  },
+  {
+    slug: 'vaso-conchas',
+    nome: 'Vaso Conchas',
+    categoria: 'decoracao',
+    resumo: 'Conchas, corais e golfinhos em relevo.',
+    descricao: [
+      'Vaso com golfinhos em relevo nas laterais, pintado com conchas, cavalos-marinhos, águas-vivas e corais em tons de terracota, sobre uma base que imita palha trançada.',
+      'Uma peça que traz o mar para dentro de casa.',
+    ],
+  },
+  {
+    slug: 'vaso-cordas',
+    nome: 'Vaso Cordas',
+    categoria: 'decoracao',
+    resumo: 'Peônias e cordas douradas sobre fundo escuro.',
+    descricao: [
+      'Par de vasos em fundo marrom-escuro, com grandes peônias em rosa e creme e cordões dourados com borlas, que contornam a borda e descem pela lateral.',
+      'Elegantes e dramáticos, lado a lado.',
+    ],
+  },
+  {
+    slug: 'vaso-pavao-persa',
+    nome: 'Vaso Pavão Persa',
+    categoria: 'decoracao',
+    resumo: 'Arabescos persas e um pavão entre flores.',
+    descricao: [
+      'Vaso de gargalo longo em degradê de lilás a azul-cobalto, com medalhões de arabescos persas e um pavão entre flores, contornados em ouro.',
+      'A borda recortada e a base dourada completam a peça.',
+    ],
+  },
+  {
+    slug: 'vaso-peixes',
+    nome: 'Vaso Peixes',
+    categoria: 'decoracao',
+    resumo: 'Peixes tropicais em um mosaico de cores.',
+    descricao: [
+      'Vaso bojudo pintado como um recife de corais: peixes-palhaço, peixes-anjo e anêmonas em mosaico de cores vivas, com faixas em amarelo, verde e lilás no gargalo.',
+      'Uma peça cheia de movimento, para ambientes alegres.',
+    ],
+  },
+  {
+    slug: 'vaso-rouen',
+    nome: 'Vaso Rouen',
+    categoria: 'decoracao',
+    resumo: 'Azul-cobalto sobre branco, no estilo da faiança de Rouen.',
+    descricao: [
+      'Vaso pintado em azul-cobalto sobre branco, com lambrequins, arabescos e flores inspirados na faiança francesa de Rouen.',
+      'Um clássico que atravessa estilos e combina com qualquer ambiente.',
+    ],
+  },
+  {
+    slug: 'vaso-silhueta-floral',
+    nome: 'Vaso Silhueta Floral',
+    categoria: 'decoracao',
+    resumo: 'Curvas de porcelana com flores e faixas em azul.',
+    descricao: [
+      'Vaso de silhueta sinuosa, com flores coloridas emolduradas por contornos em ouro e faixas em azul que acompanham as curvas da peça.',
+      'Cada ângulo revela uma composição diferente.',
+    ],
+  },
+  {
+    slug: 'anfora-cisnes',
+    nome: 'Ânfora Cisnes',
+    categoria: 'decoracao',
+    resumo: 'Cena romântica, azul-cobalto e alças de cisne.',
+    descricao: [
+      'Ânfora em azul-cobalto com alças em forma de cisne e um medalhão com uma cena romântica em jardim, pintada com riqueza de detalhes e emoldurada em ouro.',
+      'O verso traz estrelas douradas sobre o azul, e a base quadrada fecha a peça com um friso grego.',
+    ],
+  },
+  {
+    slug: 'anfora-floral-lilas',
+    nome: 'Ânfora Floral Lilás',
+    categoria: 'decoracao',
+    resumo: 'Guirlandas de flores em lilás, branco e ouro.',
+    descricao: [
+      'Ânfora com tampa e alças douradas, pintada em faixas de lilás e branco, com uma guirlanda de rosas e flores do campo ao redor do corpo.',
+      'A base sextavada traz borboletas e flores silvestres, em contraste delicado com o lilás.',
+    ],
+  },
+
   // ——— Mesa posta ———
   {
     slug: 'petisqueira-tropical',
@@ -322,6 +493,117 @@ export const pecas: Peca[] = [
     resumo: 'Losangos, bolinhas e listras numa taça com tampa.',
     descricao: [
       'Bomboniere de vidro com pé e tampa pintados em verde-limão, vermelho, azul e preto e branco. Guarda doces, cápsulas de café ou o que a imaginação mandar.',
+    ],
+  },
+
+  {
+    slug: 'balde-de-gelo-rosas',
+    nome: 'Balde de Gelo Rosas',
+    categoria: 'mesa',
+    resumo: 'Rosas em traço preto sobre um degradê de verão.',
+    descricao: [
+      'Balde de gelo com borda ondulada e alça de metal, pintado em degradê de amarelo, rosa e verde, com rosas desenhadas em traço preto, xadrez e padrões gráficos.',
+      'Para levar cor ao bar e à mesa de verão.',
+    ],
+  },
+  {
+    slug: 'bule-camelo',
+    nome: 'Bule Camelo',
+    categoria: 'mesa',
+    resumo: 'Um camelo de manta bordada em laranja, turquesa e ouro.',
+    descricao: [
+      'Bule em forma de camelo deitado, com a manta pintada como um bordado: flores em azul e vermelho sobre fundo laranja, franjas em turquesa e detalhes em ouro.',
+      'A tampa turquesa e a alça dourada completam uma peça que é escultura e bule ao mesmo tempo.',
+    ],
+  },
+  {
+    slug: 'descansos-de-colher-chefs',
+    nome: 'Descansos de Colher Chefs',
+    categoria: 'mesa',
+    resumo: 'Um casal de chefs para a bancada da cozinha.',
+    descricao: [
+      'Par de descansos de colher em forma de chefs de cozinha: ela de lenço vermelho e avental xadrez, ele de bigode, lenço amarelo e avental listrado.',
+      'Divertidos e úteis, para quem gosta de cozinhar com bom humor.',
+    ],
+  },
+  {
+    slug: 'fruteira-borboletas',
+    nome: 'Fruteira Borboletas',
+    categoria: 'mesa',
+    resumo: 'Borboletas coloridas em uma fruteira com pé.',
+    descricao: [
+      'Fruteira oval com pé, coberta de borboletas em laranja, azul, rosa e amarelo, pousadas entre ramos verde-claros.',
+      'O pé listrado e a base com cantos coloridos fazem dela uma peça de centro de mesa.',
+    ],
+  },
+  {
+    slug: 'galheteiro-oliva',
+    nome: 'Galheteiro Oliva',
+    categoria: 'mesa',
+    resumo: 'Ramos de oliveira e azeitonas em tons de roxo.',
+    descricao: [
+      'Galheteiro quadrado com bico dosador, pintado com ramos de oliveira, azeitonas roxas e arabescos em preto, com o gargalo em amarelo.',
+      'Para o azeite de todo dia ganhar lugar de destaque na mesa.',
+    ],
+  },
+  {
+    slug: 'moringa-abelhas',
+    nome: 'Moringa Abelhas',
+    categoria: 'mesa',
+    resumo: 'Abelhas, borboletas e um laço turquesa.',
+    descricao: [
+      'Moringa com copo, pintada com abelhas e borboletas em tons suaves, gargalo amarelo e um laço turquesa em relevo.',
+      'Delicada para a mesa de cabeceira ou o quarto das crianças.',
+    ],
+  },
+  {
+    slug: 'porta-queijo-ralado',
+    nome: 'Porta Queijo Ralado',
+    categoria: 'mesa',
+    resumo: 'Uma fatia de queijo, com furinhos e tudo.',
+    descricao: [
+      'Porta-queijo ralado em forma de fatia de queijo, com casca vermelha, tampa furada para servir e alça lateral.',
+      'Bem-humorado, para a mesa da macarronada.',
+    ],
+  },
+  {
+    slug: 'potinho-listras',
+    nome: 'Potinho Listras',
+    categoria: 'mesa',
+    resumo: 'Listras coloridas em diagonais, com alças amarelas.',
+    descricao: [
+      'Potinho retangular com alças amarelas, pintado com listras em azul, verde, laranja, vermelho e roxo, em blocos de diagonais.',
+      'Para servir petiscos, molhos e sobremesas com alegria.',
+    ],
+  },
+  {
+    slug: 'potinhos-coruja',
+    nome: 'Potinhos Coruja',
+    categoria: 'mesa',
+    resumo: 'Coruja, raposa e flores, com interior laranja.',
+    descricao: [
+      'Par de cumbucas com borda ondulada e interior laranja, pintadas com coruja, raposa, flores vermelhas e folhagens.',
+      'Para petiscos e para a mesa de quem gosta de bichos.',
+    ],
+  },
+  {
+    slug: 'travessas-animal-print',
+    nome: 'Travessas Animal Print',
+    categoria: 'mesa',
+    resumo: 'Onça, zebra e flores tropicais.',
+    descricao: [
+      'Par de travessas retangulares que misturam estampa de onça e de zebra com flores tropicais em amarelo e laranja, com bordas em azul-claro e amarelo.',
+      'Para uma mesa cheia de personalidade.',
+    ],
+  },
+  {
+    slug: 'travessas-folhagem',
+    nome: 'Travessas Folhagem',
+    categoria: 'mesa',
+    resumo: 'Folhagens tropicais em verde, com filete escuro.',
+    descricao: [
+      'Conjunto de travessas retangulares em três tamanhos, pintadas com costela-de-adão, palmeiras e samambaias em tons de verde, com borda em filete escuro.',
+      'Do forno à mesa, com o frescor de um jardim.',
     ],
   },
 
