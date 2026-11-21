@@ -205,8 +205,8 @@ export const pecas: Peca[] = [
     ],
   },
   {
-    slug: 'moringa-abelhas',
-    nome: 'Moringa Abelhas',
+    slug: 'moringa-abelha-mel',
+    nome: 'Moringa Abelha Mel',
     categoria: 'mesa',
     resumo: 'Abelhas, borboletas e um laço turquesa.',
     descricao: [
