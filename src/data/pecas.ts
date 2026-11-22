@@ -365,6 +365,17 @@ export const pecas: Peca[] = [
     ],
   },
 
+  {
+    slug: 'gato-paisley',
+    nome: 'Gato Paisley',
+    categoria: 'decoracao',
+    resumo: 'Chapéu terracota, laço vermelho e paisley sobre preto.',
+    descricao: [
+      'Escultura de gato com chapéu de aba larga em terracota e laço vermelho no pescoço, com o corpo coberto de paisleys em amarelo, laranja, rosa e azul sobre fundo preto.',
+      'Uma borboleta pousada no ombro completa a peça, cheia de bossa.',
+    ],
+  },
+
   // ——— Mesa posta ———
   {
     slug: 'petisqueira-tropical',
@@ -604,6 +615,37 @@ export const pecas: Peca[] = [
     descricao: [
       'Conjunto de travessas retangulares em três tamanhos, pintadas com costela-de-adão, palmeiras e samambaias em tons de verde, com borda em filete escuro.',
       'Do forno à mesa, com o frescor de um jardim.',
+    ],
+  },
+
+  {
+    slug: 'jarra-gladiolos',
+    nome: 'Jarra Gladíolos',
+    categoria: 'mesa',
+    resumo: 'Gladíolos cor-de-rosa e borda em ouro.',
+    descricao: [
+      'Jarra de porcelana com gladíolos em rosa que nascem de folhas verdes na base, com borda e alça contornadas em ouro.',
+      'Leve e delicada, para flores, sucos e mesas de primavera.',
+    ],
+  },
+  {
+    slug: 'jarra-arabesco-azul',
+    nome: 'Jarra Arabesco Azul',
+    categoria: 'mesa',
+    resumo: 'Arabescos em azul-cobalto, turquesa e ouro.',
+    descricao: [
+      'Jarra de linhas clássicas, coberta de arabescos em turquesa e verde sobre azul-cobalto, com frisos e pés em ouro e uma faixa branca com ornamentos delicados.',
+      'Uma peça de presença, para servir ou para enfeitar.',
+    ],
+  },
+  {
+    slug: 'porta-guardanapos-orquideas',
+    nome: 'Porta-Guardanapos Orquídeas',
+    categoria: 'mesa',
+    resumo: 'Orquídeas e filete dourado em cada argola.',
+    descricao: [
+      'Conjunto de argolas para guardanapo, cada uma com uma orquídea diferente em rosa, lilás, laranja ou amarelo, sobre uma faixa em tons de ouro.',
+      'Um detalhe que deixa a mesa posta com cara de festa.',
     ],
   },
 
