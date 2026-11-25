@@ -1,0 +1,166 @@
+/* Stories para os destaques do Instagram — mesmas cores e fontes do site.
+   Cada story tem 1080 x 1920. Zonas seguras: o topo (até ~250px) e a base (últimos ~330px)
+   ficam cobertos pela interface do Instagram, então o texto importante fica no meio. */
+:root {
+  --azul: #174b83;
+  --turquesa: #159daa;
+  --verde: #78b82a;
+  --creme: #f5ebdd;
+  --grafite: #263746;
+  --paper: #f7f5f1;
+  --ink: #263746;
+  --ink-2: #3b4a58;
+  --muted: #5f6b76;
+  --line: rgb(38 55 70 / 0.16);
+  --on-night: #f7f0e6;
+  --on-night-muted: #c3ccd5;
+  --serif: 'Newsreader', Georgia, serif;
+  --sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #ddd; font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+img { display: block; }
+
+.st {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--paper);
+  margin-bottom: 40px;
+}
+.st.creme { background: var(--creme); }
+.st.azul { background: var(--azul); color: var(--on-night); }
+.st.grafite { background: var(--grafite); color: var(--on-night); }
+.st.turquesa { background: var(--turquesa); color: #fff; }
+
+/* tipografia */
+.eyebrow {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.azul .eyebrow, .grafite .eyebrow, .capa .eyebrow { color: var(--on-night-muted); }
+.turquesa .eyebrow { color: rgb(255 255 255 / 0.8); }
+.eyebrow .n { color: var(--turquesa); }
+.azul .eyebrow .n, .grafite .eyebrow .n, .capa .eyebrow .n { color: #8fd8df; }
+.titulo {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 104px;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--azul);
+}
+.titulo em { font-style: italic; color: var(--turquesa); }
+.azul .titulo, .grafite .titulo, .capa .titulo, .turquesa .titulo { color: var(--on-night); }
+.azul .titulo em, .grafite .titulo em, .capa .titulo em { color: #8fd8df; }
+.turquesa .titulo em { color: #fff; }
+.texto { font-size: 41px; font-weight: 350; line-height: 1.5; color: var(--ink-2); }
+.azul .texto, .grafite .texto, .capa .texto { color: var(--on-night-muted); }
+.turquesa .texto { color: rgb(255 255 255 / 0.92); }
+.logo { width: 230px; height: auto; }
+
+/* ——— capa: foto inteira + degradê ——— */
+.capa { color: var(--on-night); background: var(--grafite); }
+.capa .foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.capa::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(20 30 40 / 0.35) 0%, rgb(20 30 40 / 0) 22%, rgb(20 30 40 / 0) 42%, rgb(20 30 40 / 0.78) 78%, rgb(20 30 40 / 0.86) 100%);
+}
+.capa .topo { position: absolute; z-index: 2; top: 260px; left: 80px; }
+.capa .base { position: absolute; z-index: 2; left: 80px; right: 80px; bottom: 380px; display: grid; gap: 30px; }
+.capa .titulo { font-size: 120px; }
+
+/* ——— peça: fundo claro + foto emoldurada ——— */
+.peca { display: flex; flex-direction: column; align-items: center; padding: 270px 90px 0; text-align: center; }
+.peca .eyebrow { margin-bottom: 40px; }
+.peca .moldura { width: 860px; height: 1000px; border-radius: 6px; overflow: hidden; box-shadow: 0 30px 60px -30px rgb(38 55 70 / 0.35); }
+.peca .moldura img { width: 100%; height: 100%; object-fit: cover; }
+.peca .titulo { font-size: 92px; margin-top: 56px; }
+.peca .texto { margin-top: 18px; font-family: var(--serif); font-style: italic; font-size: 42px; font-weight: 300; color: var(--ink-2); max-width: 860px; }
+
+/* ——— foto + texto (formato de oficina / eventos) ——— */
+.ft { padding: 270px 90px 0; }
+.ft .moldura { width: 900px; height: 860px; border-radius: 6px; overflow: hidden; }
+.ft .moldura img { width: 100%; height: 100%; object-fit: cover; }
+.ft .eyebrow { margin-top: 56px; }
+.ft .titulo { font-size: 84px; margin-top: 22px; }
+.ft .texto { margin-top: 26px; font-size: 39px; }
+.chips { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; }
+.chips span {
+  border: 1.5px solid var(--line);
+  padding: 12px 22px;
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  border-radius: 999px;
+}
+.azul .chips span, .grafite .chips span { border-color: rgb(247 240 230 / 0.3); color: var(--on-night); }
+
+/* ——— lista (passos / para quem) ——— */
+.lista { padding: 300px 90px 0; }
+.lista .titulo { margin-top: 26px; font-size: 96px; }
+.lista ol { list-style: none; margin-top: 70px; display: grid; gap: 0; }
+.lista li { display: grid; grid-template-columns: 110px 1fr; padding: 34px 0; border-top: 1.5px solid var(--line); }
+.azul .lista li, .lista.azul li, .lista.grafite li { border-color: rgb(247 240 230 / 0.18); }
+.lista li:last-child { border-bottom: 1.5px solid var(--line); }
+.lista.azul li:last-child, .lista.grafite li:last-child { border-bottom-color: rgb(247 240 230 / 0.18); }
+.lista .num { font-family: var(--serif); font-style: italic; font-size: 44px; color: var(--turquesa); line-height: 1.1; }
+.lista.azul .num, .lista.grafite .num { color: #8fd8df; }
+.lista h3 { font-family: var(--serif); font-weight: 350; font-size: 52px; line-height: 1.1; color: var(--azul); }
+.lista.azul h3, .lista.grafite h3 { color: var(--on-night); }
+.lista p { font-size: 33px; line-height: 1.45; margin-top: 10px; color: var(--ink-2); }
+.lista.azul p, .lista.grafite p { color: var(--on-night-muted); }
+
+/* ——— frase ——— */
+.frase { display: flex; flex-direction: column; justify-content: center; padding: 0 100px 120px; }
+.frase .aspas { font-family: var(--serif); font-size: 220px; line-height: 0.6; color: var(--turquesa); }
+.frase.azul .aspas, .frase.grafite .aspas { color: #8fd8df; }
+.frase blockquote { font-family: var(--serif); font-weight: 300; font-size: 76px; line-height: 1.2; letter-spacing: -0.015em; margin-top: 40px; }
+.frase blockquote em { font-style: italic; color: var(--turquesa); }
+.frase.azul blockquote em, .frase.grafite blockquote em { color: #8fd8df; }
+.frase .assina { margin-top: 56px; }
+
+/* ——— grade de fotos ——— */
+.grade { padding: 270px 70px 0; }
+.grade .fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grade .fotos div { height: 560px; border-radius: 6px; overflow: hidden; position: relative; }
+.grade .fotos img { width: 100%; height: 100%; object-fit: cover; }
+.grade .fotos span {
+  position: absolute; left: 18px; bottom: 16px;
+  background: rgb(247 245 241 / 0.92); padding: 8px 16px; border-radius: 999px;
+  font-size: 22px; letter-spacing: 0.08em; color: var(--ink);
+}
+.grade .titulo { font-size: 84px; margin-top: 56px; padding: 0 20px; }
+.grade .texto { margin-top: 18px; padding: 0 20px; font-size: 39px; }
+
+/* ——— chamada final (espaço para o adesivo de link) ——— */
+.cta { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 300px 90px 0; }
+.cta .logo { margin-bottom: 90px; }
+.cta .titulo { font-size: 108px; }
+.cta .texto { margin-top: 36px; max-width: 860px; }
+.cta .infos { margin-top: 50px; display: grid; gap: 14px; }
+.cta .infos div { font-size: 30px; letter-spacing: 0.04em; }
+.cta .seta { margin-top: 90px; display: grid; justify-items: center; gap: 18px; }
+.cta .seta span { font-size: 26px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; }
+.cta .seta svg { width: 54px; height: 110px; }
+.azul .seta, .grafite .seta { color: var(--on-night); }
+.peca-mini { width: 520px; height: 520px; border-radius: 50%; overflow: hidden; margin-bottom: 70px; border: 10px solid rgb(255 255 255 / 0.12); }
+.peca-mini img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ——— artista ——— */
+.artista .foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+
+/* ——— capas dos destaques (1080 x 1080) ——— */
+.capa-destaque { width: 1080px; height: 1080px; position: relative; overflow: hidden; margin-bottom: 40px; }
+.capa-destaque img { width: 100%; height: 100%; object-fit: cover; }
+.capa-destaque.cor { display: grid; place-items: center; }
+.capa-destaque.cor .anel { width: 640px; height: 640px; border-radius: 50%; overflow: hidden; border: 18px solid rgb(255 255 255 / 0.9); }
+.capa-destaque.cor .anel img { width: 100%; height: 100%; object-fit: cover; }

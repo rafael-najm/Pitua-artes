@@ -8,3 +8,5 @@ dist/
 pituaartes-site.zip
 catalogo/.build/
 catalogo/*.pdf
+stories/.build/
+stories/saida/
