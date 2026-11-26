@@ -376,6 +376,17 @@ export const pecas: Peca[] = [
     ],
   },
 
+  {
+    slug: 'bengaleiro-penas-de-pavao',
+    nome: 'Bengaleiro Penas de Pavão',
+    categoria: 'decoracao',
+    resumo: 'Penas de pavão em tons de azul sobre o creme.',
+    descricao: [
+      'Um bengaleiro alto, pintado à mão com penas de pavão que sobem pela porcelana em todos os tons de azul, do cobalto ao céu.',
+      'Faixas azuis no alto e uma barra de escamas pintadas uma a uma na base completam a peça, feita para receber bem já na entrada da casa.',
+    ],
+  },
+
   // ——— Mesa posta ———
   {
     slug: 'petisqueira-tropical',
@@ -449,6 +460,16 @@ export const pecas: Peca[] = [
     descricao: [
       'A base imita uma trama de vime, pintada fio a fio; a tampa abre um jardim de hibiscos amarelos e laranja entre folhas tropicais.',
       'Para queijos, manteiga ou pães.',
+    ],
+  },
+  {
+    slug: 'tabua-de-queijos-orquideas',
+    nome: 'Tábua de Queijos Orquídeas',
+    categoria: 'mesa',
+    resumo: 'Orquídeas e arabescos em azul-marinho.',
+    descricao: [
+      'Uma tábua de porcelana para servir queijos, pintada à mão com orquídeas em amarelo, branco, vermelho e rosa entre arabescos em azul-marinho.',
+      'A borda pontilhada em azul e branco fecha o desenho como uma moldura.',
     ],
   },
   {
@@ -683,6 +704,36 @@ export const pecas: Peca[] = [
   },
 
   // ——— Placas ———
+  {
+    slug: 'painel-orquideas',
+    nome: 'Painel Orquídeas',
+    categoria: 'placas',
+    resumo: 'Azulejos com orquídeas num cachepô azul e branco.',
+    descricao: [
+      'Um painel de azulejos pintados à mão: orquídeas em amarelo, laranja e rosa saem de um cachepô azul e branco, emolduradas por uma barra amarela com folhas em azul.',
+      'Feito para a parede de uma varanda ou de um jardim, onde a pintura convive com as plantas de verdade.',
+    ],
+  },
+  {
+    slug: 'quadro-garcas',
+    nome: 'Quadro Garças',
+    categoria: 'placas',
+    resumo: 'Garças entre bambus, em moldura dourada.',
+    descricao: [
+      'Um casal de garças pousado num galho de bambu, entre folhas finas em muitos verdes, pintado à mão na porcelana.',
+      'A grega em preto, com detalhes em ouro e vermelho, faz uma moldura dentro da moldura.',
+    ],
+  },
+  {
+    slug: 'quadros-chocolate-com-pimenta',
+    nome: 'Quadros Chocolate com Pimenta',
+    categoria: 'placas',
+    resumo: 'Um par de placas inspirado nos anos 1920.',
+    descricao: [
+      'De um lado, uma moça de chapéu cercada de flores em terracota; do outro, um casal elegante de cartola e chapéu cloche, sob uma folha de bananeira e uma lua com estrelas.',
+      'As placas foram emolduradas sobre fundo verde-claro, que realça os traços finos e as cores suaves da pintura.',
+    ],
+  },
   {
     slug: 'placas-emolduradas-tropicais',
     nome: 'Placas Emolduradas Tropicais',
