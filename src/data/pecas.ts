@@ -488,6 +488,7 @@ export const pecas: Peca[] = [
     resumo: 'Arabescos florais e paisley em tons de jardim.',
     descricao: [
       'Uma travessa ampla tomada por florais de inspiração jacobina — paisleys, flores estilizadas e ramagens em verde, laranja, azul e lilás.',
+      'Por fora, a peça é toda turquesa, com uma trama fina e um filete de ouro na borda.',
     ],
   },
   {
