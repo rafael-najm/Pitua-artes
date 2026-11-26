@@ -66,10 +66,11 @@ REELS = {
     'relogio': {
         'arquivo': '04-relogio-imari',
         'cenas': [
-            ('L490', 0.2, 3.5, 0.7),   # do detalhe para a peça inteira
-            ('L497', 0.2, 3.6, 0.8),   # de lado
+            # L490P e L492P: os mesmos clipes com os ponteiros acrescentados (reels/ponteiros.py)
+            ('L490P', 0.2, 3.5, 0.7),  # do detalhe para a peça inteira
+            ('L500', 0.2, 3.6, 0.8),   # a paisagem da base
             ('L501', 0.1, 1.7, 0.6),   # detalhe da lateral
-            ('L492', 0.2, 3.2, 0.8),   # de frente
+            ('L492P', 0.2, 3.2, 0.8),  # de frente
         ],
         'textos': [
             {'cena': 0, 'mais': 0.2, 'dur': 4.2, 'pos': 'alto', 'eyebrow': 'Acervo Pituá', 'titulo': 'Relógio <em>Imari</em>'},
