@@ -23,7 +23,7 @@ REELS = {
             {'de': 7.8, 'ate': 11.3, 'pos': 'baixo', 'tam': 'm', 'titulo': 'Cada letra, cada flor,<br><em>pintada à mão.</em>'},
             {'de': 17.9, 'ate': 21.8, 'pos': 'alto', 'tam': 'm', 'titulo': 'Para a mesa do Shabat:<br><em>travessa, cálice e castiçais.</em>'},
         ],
-        'fim': {'titulo': 'Peças que atravessam <em>gerações.</em>', 'texto': 'Judaica pintada à mão, sob encomenda.',
+        'fim': {'titulo': 'Peças que atravessam<br><em>gerações.</em>', 'texto': 'Judaica pintada à mão, sob encomenda.',
                 'chamada': 'Encomende pelo link na bio'},
         'capa': 1.6,
     },
@@ -43,7 +43,7 @@ REELS = {
         'textos': [
             {'cena': 0, 'mais': 0.1, 'dur': 3.3, 'pos': 'centro', 'titulo': 'Detalhes que só<br><em>a mão</em> faz.'},
         ],
-        'fim': {'titulo': 'Cada peça, <em>uma obra única.</em>', 'texto': 'Porcelana pintada à mão, sob encomenda.',
+        'fim': {'titulo': 'Cada peça,<br><em>uma obra única.</em>', 'texto': 'Porcelana pintada à mão, sob encomenda.',
                 'chamada': 'Encomende pelo link na bio', 'dur': 3.0},
         'capa': 1.0,
     },
