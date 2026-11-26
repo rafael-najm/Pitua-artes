@@ -252,6 +252,12 @@ def gerar():
                       f'<img src="{recorte.as_uri()}" alt=""></div>')
         for i, t in enumerate(telas, 1):
             partes.append(t.replace('<section class="st', f'<section data-saida="{pasta}/{i:02d}.jpg" class="st', 1))
+            if '<div class="seta">' in t:
+                # versão para agendar (o agendamento não aceita adesivo de link): "link na bio" + endereço escrito
+                site = 'pituaartes.com.br' if 'wa.me' in link else link.replace('https://', '').rstrip('/')
+                v = t.split('<div class="seta">')[0] + f'<div class="seta bio"><span>Link na bio</span><p class="url">{site}</p></div>\n</section>'
+                v = v.replace('Toque no link e fale com a gente.', 'É só chamar a gente pelo link na bio.')
+                partes.append(v.replace('<section class="st', f'<section data-saida="{pasta}/{i:02d}-para-agendar.jpg" class="st', 1))
         plano.append({'pasta': pasta, 'nome': nome, 'telas': len(telas), 'link': link})
     BUILD.mkdir(parents=True, exist_ok=True)
     html = (f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>{fontes}{css}</style></head>'
