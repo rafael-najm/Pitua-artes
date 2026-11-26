@@ -10,3 +10,4 @@ catalogo/.build/
 catalogo/*.pdf
 stories/.build/
 stories/saida/
+__pycache__/
