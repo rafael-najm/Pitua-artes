@@ -61,7 +61,7 @@ REELS = {
         ],
         'fim': {'titulo': 'Uma peça única.<br><em>A sua também pode ser.</em>', 'texto': 'Arte sob encomenda.',
                 'chamada': 'Encomende pelo link na bio'},
-        'capa': 6.5,
+        'capa': 1.6,
     },
     'relogio': {
         'arquivo': '04-relogio-imari',
@@ -77,7 +77,7 @@ REELS = {
         ],
         'fim': {'titulo': 'Uma peça única.<br><em>A sua também pode ser.</em>', 'texto': 'Arte sob encomenda.',
                 'chamada': 'Encomende pelo link na bio'},
-        'capa': 4.2,
+        'capa': 2.0,
     },
     'mesa': {
         'arquivo': '05-arte-tambem-vai-a-mesa',
@@ -129,7 +129,7 @@ REELS = {
         ],
         'fim': {'titulo': 'Para proteger<br>e <em>receber bem.</em>', 'texto': 'Mezuzás pintadas à mão, sob encomenda.',
                 'chamada': 'Encomende pelo link na bio'},
-        'capa': 0.6,
+        'capa': 3.2,
     },
     'jantar': {
         'arquivo': '08-mesa-posta',
